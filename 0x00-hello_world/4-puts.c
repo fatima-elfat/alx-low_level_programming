@@ -1,4 +1,5 @@
 #include <stdio.h>
+
 /**
  *main - Function main
  *Return: Value 0
