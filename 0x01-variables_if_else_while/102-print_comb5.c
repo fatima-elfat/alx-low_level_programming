@@ -1,43 +1,43 @@
 #include <stdio.h>
 
 /**
- *main - print a num pair from 00-99
- *Return: 0
+ * main - print a num pair from 00-99
+ *
+ * Return: 0
  */
 
 int main(void)
 {
-	int tens;
-	int ones;
-	int t;
-	int o;
+	int a;
+	int b;
+	int aa;
+	int bb;
 
-	for (tens = '0'; tens <= '9'; tens++) /*print first two digit combo*/
+for ( a = 0 ; a < 10 ; a++)
+{	
+
+	for (b = 0 ; b <= 10 ; b++)
 	{
-		for (ones = '0'; ones <= '9'; ones++)
+	
+		for (aa = 0 ; aa < 10 ; aa++)
 		{
-		 	for (t = tens; t <= '9'; t++) /*print second of pair*/
+			for ( bb = 0 ; bb < 10 ; bb++)
 			{
-				for (o = ones + 1; o <= '9'; o++)
+				putchar('0' + a);
+				putchar('0' + b);
+				putchar(32);
+				putchar('0' + aa);
+				putchar('0' + bb);
+				if (!(a == 9 && b == 8))
 				{
-					putchar(tens);
-					putchar(ones);
-					putchar(' ');
-					putchar(t);
-					putchar(o);
-
-					if (!((tens == '9' && ones == '8') &&
-					      (t == '9' && o == '9')))
-					{
-						putchar(',');
-						putchar(' ');
-					}
+					putchar(',');
+					putchar(32);
 				}
-				o = '0';
+				bb++;
 			}
 		}
 	}
+}
 	putchar('\n');
-
 	return (0);
 }
