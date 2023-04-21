@@ -13,18 +13,18 @@ int main(void)
 	int aa;
 	int bb;
 
+	b = 0;
+
 for (a = 0 ; a < 10 ; a++)
 {
-	b = 0;
+	aa 0;
 
 	for (; b <= 10 ; b++)
 	{
-		aa = 0;
+		bb = 0;
 
 		for (; aa < 10 ; aa++)
 		{
-			bb = 0;
-
 			for (; bb < 10 ; bb++)
 			{
 				putchar('0' + a);
@@ -34,11 +34,11 @@ for (a = 0 ; a < 10 ; a++)
 				putchar('0' + bb);
 				putchar(',');
 				putchar(' ');
-			}bb = aa + 1;
+			} bb = aa + 1;
 
-		}aa = b + 1;
+		} aa = b + 1;
 
-	}b = a + 1;
+	} b = a + 1;
 
 }
 	putchar('\n');
