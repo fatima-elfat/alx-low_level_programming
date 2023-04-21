@@ -21,8 +21,8 @@ for (a = 0 ; a < 10 ; a++)
 		{
 			for (bb = 0 ; bb < 10 ; bb++)
 			{
-				putchar('0' + a);
-				putchar('0' + b);
+				putchar(a);
+				putchar(b);
 				putchar(' ');
 				putchar(aa);
 				putchar(bb);
@@ -31,7 +31,7 @@ for (a = 0 ; a < 10 ; a++)
 					putchar(',');
 					putchar(' ');
 				}
-			} bb = 0;
+			}
 		}
 	}
 }
