@@ -31,9 +31,9 @@ for (a = 0 ; a < 10 ; a++)
 				putchar('0' + bb);
 				putchar(',');
 				putchar(' ');
-			}bb = aa + 1
-		}aa = b + 1
-	}b = a + 1
+			}bb = aa + 1;
+		}aa = b + 1;
+	}b = a + 1;
 }
 	putchar('\n');
 	return (0);
