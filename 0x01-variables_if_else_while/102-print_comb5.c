@@ -17,7 +17,7 @@ int main(void)
 
 for (a = 0 ; a < 10 ; a++)
 {
-	aa 0;
+	aa = 0;
 
 	for (; b <= 10 ; b++)
 	{
