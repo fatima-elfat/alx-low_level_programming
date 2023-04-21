@@ -21,11 +21,11 @@ for (a = 0 ; a < 10 ; a++)
 		{
 			for (bb = 0 ; bb < 10 ; bb++)
 			{
-				putchar(a);
-				putchar(b);
+				putchar('0' + a);
+				putchar('0' + b);
 				putchar(' ');
-				putchar(aa);
-				putchar(bb);
+				putchar('0' + aa);
+				putchar('0' + bb);
 				if (!((a == 9 && b == 8) && (aa == 9 && bb == 8)))
 				{
 					putchar(',');
