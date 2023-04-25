@@ -1,7 +1,6 @@
 #include "main.h"
 /**
- * jack_bauer - timer
- * 
+ * jack_bauer - timer 
  * Return: void
  */
 void jack_bauer(void)
@@ -12,7 +11,7 @@ void jack_bauer(void)
 	{
 		for (j = 0; j < 10; j++)
 		{
-			if (!( i == 2 && j > 3))
+			if (!(i == 2 && j > 3))
 			{
 				for (k = 0; k < 6; k++)
 				{
