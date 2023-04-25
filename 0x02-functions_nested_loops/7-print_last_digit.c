@@ -7,7 +7,7 @@
  */
 int print_last_digit(int i)
 {
-	char l[];
+	char l;
 	int o;
 	int c;
 
