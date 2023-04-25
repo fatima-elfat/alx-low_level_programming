@@ -14,7 +14,7 @@ void times_table(void)
 			int o;
 
 			o = i * j;
-			if (o == 0)
+			if (i == 0)
 				_putchar('0' + o);
 			else if (o < 10)
 			{
