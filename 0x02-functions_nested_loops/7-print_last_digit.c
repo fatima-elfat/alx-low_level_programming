@@ -7,11 +7,10 @@
  */
 int print_last_digit(int i)
 {
-	char l;
 	int o;
 	int c;
 
-	l[] = i;
+	char l[] = i;
 	o = (int)strlen(l);
 	c = l[o];
 	_putchar((char)c);
