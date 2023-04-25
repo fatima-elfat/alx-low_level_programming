@@ -43,9 +43,6 @@ void print_times_table(int n)
 						c = (a - b) / 10;
 						_putchar('0' + c);
 						_putchar('0' + b);
-					}
-				}
+					} }
 				if (j != n)
-					_putchar(',');
-			} _putchar('\n');
-		} } }
+					_putchar(',');} _putchar('\n');} } }
