@@ -18,8 +18,9 @@ void print_times_table(int n)
 				if (j == 0)
 					_putchar('0' + o);
 				else
-				{
-				       	if (o < 10)
+				{	
+					_putchar(' ');
+					if (o < 10)
 					{
 						_putchar(' ');
 						_putchar(' ');
@@ -43,11 +44,9 @@ void print_times_table(int n)
 						_putchar('0' + c);
 						_putchar('0' + b);
 					}
-				}
-				if (j != n)
+				}if (j != n)
 					_putchar(',');
-			}
-			_putchar('\n');
+			}_putchar('\n');
 		}
 	}
 }
