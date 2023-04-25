@@ -1,4 +1,4 @@
-#include "holberton.h"
+#include "main.h"
 /**
  * print_sign - write if input is positive, negative or zero.
  * @n: input number to be checked.
