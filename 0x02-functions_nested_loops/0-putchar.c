@@ -13,11 +13,10 @@ int main(void)
 
 	l_max = (int)strlen(l);
 
-	for (i = 0; i < 8; i++)
+	for (i = 0; i < l_max; i++)
 	{
 		_putchar(l[i]);
 	}
 	_putchar('\n');
-	_putchar(l_max);
 	return (0);
 }
