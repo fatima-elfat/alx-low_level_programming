@@ -11,7 +11,7 @@ int main(void)
 	int i;
 	int l_max;
 
-	l_max = (int) strlen(l);
+	l_max = (int)strlen(l);
 
 	for (i = 0; i < l_max; i++)
 	{
