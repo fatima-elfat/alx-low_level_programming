@@ -6,14 +6,12 @@
  */
 void print_times_table(int n)
 {
-	int i, j;
+	int i, j, o, a, b, c;
 
 	for (i = 0; i <= n; i++)
 	{
 		for (j = 0; j <= n; j++)
 		{
-			int o;
-
 			o = i * j;
 			if (j == 0)
 				_putchar('0' + o);
@@ -26,8 +24,6 @@ void print_times_table(int n)
 			}
 			else if (o < 100)
 			{
-				int a, b;
-
 				a = o % 10;
 				b = o - a;
 				b = b / 10;
@@ -38,20 +34,16 @@ void print_times_table(int n)
 			}
 			else
 			{
-				int a, b, c;
-
 				a = o % 100;
-				b = o - a;
-				c = b / 100;
+				c = (o - a) / 100;
 				_putchar(' ');
 				_putchar('0' + c);
 				a = b % 10;
-				c = b - a;
-				c = c / 10;
+				c = (b - a) / 10;
 				_putchar('0' + c);
 				_putchar('0' + a);
 			}
-			if (j != n )
+			if (j != n)
 				_putchar(',');
 		}
 		_putchar('\n');
