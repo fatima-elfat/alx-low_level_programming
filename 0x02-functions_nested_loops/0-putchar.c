@@ -18,5 +18,6 @@ int main(void)
 	       _putchar(l[i]);
 	}
 	_putchar('\n');
+	_putchar(l_max);
 	return (0);
 }
