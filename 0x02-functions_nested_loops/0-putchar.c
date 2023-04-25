@@ -9,11 +9,14 @@ int main(void)
 {
 	char l[] = "_putchar";
 	int i;
+	int l_max;
 
-	for(i = 0; i < (int)strlen(l); i++)
+	l_max = (int) strlen(l)
+
+	for(i = 0; i < l_max; i++)
 	{
 	       _putchar(l[i]);
 	}
 	_putchar('\n');
 	return (0);
-}		
+}
