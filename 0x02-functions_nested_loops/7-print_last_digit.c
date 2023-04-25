@@ -11,7 +11,7 @@ int print_last_digit(int i)
 	int o;
 	int c;
 
-	l = i;
+	l[] = i;
 	o = (int)strlen(l);
 	c = l[o];
 	_putchar((char)c);
