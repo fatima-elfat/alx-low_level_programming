@@ -10,7 +10,7 @@ int print_last_digit(int i)
 	int o;
 	int c;
 
-	char l[] = i;
+	char l[50] = i;
 	o = (int)strlen(l);
 	c = l[o];
 	_putchar((char)c);
