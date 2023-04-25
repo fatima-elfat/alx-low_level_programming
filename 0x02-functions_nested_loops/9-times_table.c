@@ -25,14 +25,15 @@ void times_table(void)
 			else
 			{
 				int a, b;
-				a = o%10;
+
+				a = o % 10;
 				b = o - a;
 				b = b / 10;
 				_putchar(' ');
 				_putchar('0' + b);
 				_putchar('0' + a);
 			}
-			if (j == 9)
+			if (j != 9)
 				_putchar(',');
 		}
 		_putchar('\n');
