@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * jack_bauer - timer 
+ * jack_bauer - timer
  * Return: void
  */
 void jack_bauer(void)
