@@ -6,20 +6,23 @@
 void times_table(void)
 {
 	int i, j;
+
 	for (i = 0; i < 10; i++)
 	{
 		for (j = 0; j < 10; j++)
 		{
 			int o;
 
-			o = i*j;
-			if (o < 10)
+			o = i * j;
+			if (o == 0)
+				_putchar('0' + o);
+			else if (o < 10)
 			{
 				_putchar(' ');
 				_putchar(' ');
 				_putchar('0' + o);
 			}
-			else 
+			else
 			{
 				int a, b;
 				a = o%10;
@@ -30,9 +33,8 @@ void times_table(void)
 				_putchar('0' + a);
 			}
 			if (j == 9)
-				_putchar('$');
+				_putchar(',');
 		}
 		_putchar('\n');
-		
 	}
 }
