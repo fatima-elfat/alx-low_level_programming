@@ -18,15 +18,15 @@ int main(void)
 		printf("%ld", j);
 		printf(", ");
 	}
+	a = i % 100000;
+	i = (i - a) / 100000;
+	b = j % 100000;
+	j = (j - b) / 100000;
 	for (k = 91; k <= 98; k++)
 	{
-		a = i % 100000;
-		i = (i - a) / 100000;
-		b = j % 100000;
-		j = (j - b) / 100000;
 		c = a + b;
 		l = i + j;
-		if ( c > 999999)
+		if (c > 999999)
 		{
 			d = c % 1000000;
 			l = l + ((c - d) / 1000000);
@@ -39,7 +39,7 @@ int main(void)
 		printf("%ld%ld", j, b);
 		printf(", ");
 		if (k == 98)
-                        putchar('\n');
+			putchar('\n');
 	}
 	return (0);
 }
