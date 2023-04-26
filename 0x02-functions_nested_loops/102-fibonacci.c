@@ -17,8 +17,8 @@ int main(void)
 		j = l;
 		printf("%d",j);
 		if (k == 50)
-			printf('\n');
+			putchar('\n');
 		else
-			printf(', ';
+			printf(', ');
 	}
 }
