@@ -5,7 +5,7 @@
   */
 int main(void)
 {
-	long int i, j, k, l;
+	long int i, j, k, l, a, b, c, d;
 
 	i = 1;
 	j = 2;
@@ -15,7 +15,17 @@ int main(void)
 		l = i + j;
 		i = j;
 		j = l;
-		printf("%ld", j);
+		if (j < 100000000)
+		{
+			printf("%ld", j);
+		}
+		else
+		{
+			a = j % 100000000;
+			b = j - a;
+			c = b / 100000000;
+			printf("%ld%ld", c,a);
+		}
 		if (k == 98)
 			putchar('\n');
 		else
