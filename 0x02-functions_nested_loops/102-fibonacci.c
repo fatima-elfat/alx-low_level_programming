@@ -9,13 +9,13 @@ int main(void)
 
 	i = 1;
 	j = 2;
-	printf("%d, %d, ", i, j);
+	printf("%ld, %ld, ", i, j);
 	for (k = 3; k <= 50; k++)
 	{
 		l = i + j;
 		i = j;
 		j = l;
-		printf("%d", j);
+		printf("%ld", j);
 		if (k == 50)
 			putchar('\n');
 		else
