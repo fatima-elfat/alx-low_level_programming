@@ -19,6 +19,6 @@ int main(void)
 		if (k == 50)
 			putchar('\n');
 		else
-			printf(', ');
+			printf(", ");
 	}
 }
