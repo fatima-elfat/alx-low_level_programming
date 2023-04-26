@@ -19,6 +19,6 @@ int main(void)
 			s = s + b;
 
 	}
-	printf("%ld", s);
+	printf("%ld ", s);
 	return (0);
 }
