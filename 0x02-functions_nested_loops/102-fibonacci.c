@@ -1,9 +1,9 @@
 #include <stdio.h>
 /**
   * main - print the first 50 fibonacci numbers
-  * Return: void
+  * Return: 0
   */
-void main(void)
+int main(void)
 {
 	int i, j, k, l;
 
@@ -21,4 +21,5 @@ void main(void)
 		else
 			printf(", ");
 	}
+	return (0);
 }
