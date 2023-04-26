@@ -10,14 +10,15 @@ int main(void)
 	a = 1;
 	b = 2;
 	s = 2;
-	for (c = 2; c < 50; c ++)
+	for (c = 2; c < 50; c++)
 	{
 		d = a + b;
 		a = b;
 		b = d;
-		if ( b % 2 ==0 && b <= 4000000)
-			s = s +b;
+		if (b % 2 == 0 && b <= 4000000)
+			s = s + b;
 
 	}
+	printf("%ld", s);
 	return (0);
 }
