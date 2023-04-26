@@ -5,31 +5,40 @@
   */
 int main(void)
 {
-	long int i, j, k, l, a, b, c;
+	long int i, j, k, l, a, b, c, d;
 
 	i = 1;
 	j = 2;
 	printf("%ld, %ld, ", i, j);
-	for (k = 3; k <= 98; k++)
+	for (k = 3; k <= 90; k++)
 	{
 		l = i + j;
 		i = j;
 		j = l;
-		if (j < 100000000)
+		printf("%ld", j);
+		printf(", ");
+	}
+	for (k = 91; k <= 98; k++)
+	{
+		a = i % 100000;
+		i = (i - a) / 100000;
+		b = j % 100000;
+		j = (j - b) / 100000;
+		c = a + b;
+		l = i + j;
+		if ( c > 999999)
 		{
-			printf("%ld", j);
+			d = c % 1000000;
+			l = l + ((c - d) / 1000000);
+			c = d;
 		}
-		else
-		{
-			a = j % 100000000;
-			b = j - a;
-			c = b / 100000000;
-			printf("%ld%ld", c,a);
-		}
+		a = b;
+		i = j;
+		b = c;
+		j = l;
+		printf("%ld%ld", j, b);
 		if (k == 98)
-			putchar('\n');
-		else
-			printf(", ");
+                        putchar('\n');
 	}
 	return (0);
 }
