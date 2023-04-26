@@ -26,7 +26,7 @@ int main(void)
 	{
 		c = a + b;
 		l = i + j;
-		if (c > 999999)
+		if (c > 99999)
 		{
 			d = c % 1000000;
 			l = l + ((c - d) / 1000000);
@@ -37,9 +37,10 @@ int main(void)
 		b = c;
 		j = l;
 		printf("%ld%ld", j, b);
-		printf(", ");
 		if (k == 98)
 			putchar('\n');
+		else
+			printf(", ");
 	}
 	return (0);
 }
