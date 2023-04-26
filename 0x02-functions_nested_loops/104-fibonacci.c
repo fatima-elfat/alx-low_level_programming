@@ -37,6 +37,7 @@ int main(void)
 		b = c;
 		j = l;
 		printf("%ld%ld", j, b);
+		printf(", ");
 		if (k == 98)
                         putchar('\n');
 	}
