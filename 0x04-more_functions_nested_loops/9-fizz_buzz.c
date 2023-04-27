@@ -2,10 +2,9 @@
 
 /**
  * main - print 1 to 100
- * Return: 0
  */
 
-int main(void)
+void main(void)
 {
 	int i;
 
@@ -21,5 +20,4 @@ int main(void)
 		else
 			printf(" %d", i);
 	}
-	return (0);
 }
