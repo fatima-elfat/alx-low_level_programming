@@ -8,15 +8,19 @@
 int main(void)
 {
 	unsigned long n = 612852475143;
-	unsigned long i, j;
-	for (i = n - 1; i > 1; i--)
+	unsigned long i = 2;
+
+	while (i < n)
 	{
-		j = n % i;
-		if (j == 0)
+		if (n % i == 0)
 		{
-			n = i;
+			n = n / i;
+		}
+		else
+		{
+			i++;
 		}
 	}
 	printf("%lu\n", n);
 	return (0);
-}	
+}
