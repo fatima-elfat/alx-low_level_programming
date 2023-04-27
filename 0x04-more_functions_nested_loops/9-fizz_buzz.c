@@ -4,8 +4,7 @@
  * main - print 1 to 100
  * Return: 0
  */
-
-void main(void)
+int main(void)
 {
 	int i;
 
