@@ -17,6 +17,8 @@ void print_number(int n)
 	j = 1000;
 	m = n;
 
+	if (n == 0)
+		_putchar(48);
 	while (j != 0)
 	{
 		if (n > j)
