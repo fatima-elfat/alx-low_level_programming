@@ -26,7 +26,7 @@ void print_number(int n)
 			k = m % j;
 			l = (m - k) / j;
 			m = k;
-			_putchar('0' + l);
+			_putchar(l + '0');
 		}
 		if (j != 1)
 			j /= 10;
