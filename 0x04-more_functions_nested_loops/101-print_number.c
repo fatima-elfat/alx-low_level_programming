@@ -6,7 +6,7 @@
 
 void print_number(int n)
 {
-	int j, k, l;
+	int j, k, l, m;
 
 	if (n < 0)
 	{
@@ -15,14 +15,15 @@ void print_number(int n)
 	}
 
 	j = 1000;
+	m = n;
 
 	while (j != 0)
 	{
 		if (n > j)
 		{
-			k = n % j;
-			l = (n - k) / j;
-			n = k;
+			k = m % j;
+			l = (m - k) / j;
+			m = k;
 			_putchar('0' + l);
 		}
 		if (j != 1)
