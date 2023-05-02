@@ -33,7 +33,7 @@ void print_rev(char *s)
 	}
 	for (j = l; j >= 0; j--)
 	{
-		printf("%c", *s);
+		_putchar(*s);
 		s--;
 	}
 	putchar('\n');
