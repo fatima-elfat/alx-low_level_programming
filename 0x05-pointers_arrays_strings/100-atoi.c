@@ -26,19 +26,18 @@ int _strlen(char *s)
 int _atoi(char *s)
 {
 	int l, m, n;
-	char a,b;
+	char b;
 
 	l = _strlen(s);
 	n = 1;
 
 	for (m = 0; m < l; m++)
 	{
-		a = s;
-		if (a == "-")
+		if (s == "-")
 			n *= -1;
-		else if ((a <= "9") || (a >= "0"))
+		else if ((s <= "9") || (s >= "0"))
 		{
-			b += a;
+			b += s;
 		}
 		else if (b != 0)
 			break;
