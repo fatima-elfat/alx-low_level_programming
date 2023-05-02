@@ -25,15 +25,14 @@ int _strlen(char *s)
 void print_rev(char *s)
 {
 	int i = 0;
-	int j = (_strlen(s) - 1);
+	int l = (_strlen(s) - 1);
 	char t;
 
-	while (i < j)
+	for (i = 0; i <= l; i++)
 	{
 		t = s[i];
-		s[i] = s[j];
-		s[j] = t;
+		s[i] = s[l - i];
+		s[l - i] = t;
 		i++;
-		j--;
 	}
 }
