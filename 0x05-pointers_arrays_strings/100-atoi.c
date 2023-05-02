@@ -33,7 +33,7 @@ int _atoi(char *s)
 
 	for (m = 0; m < l; m++)
 	{
-		a = *s;
+		a = s;
 		if (a == "-")
 			n *= -1;
 		else if ((a <= "9") || (a >= "0"))
