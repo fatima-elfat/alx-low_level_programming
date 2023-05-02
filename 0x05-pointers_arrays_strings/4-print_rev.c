@@ -28,14 +28,10 @@ void print_rev(char *s)
 	int l = (_strlen(s) - 1);
 	char m;
 
-	for (j =0; j <= l; j++)
+	for (j =l; j <= 0; j--)
 	{
-		*s = m[l - j];
+		_putchar(*s);
 		s--;
-	}
-	for (j =0; j <= l; j++)
-	{
-		_putchar(m[j]);
 	}
 	_putchar('\n');
 }
