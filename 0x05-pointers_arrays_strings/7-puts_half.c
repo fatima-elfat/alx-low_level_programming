@@ -29,7 +29,7 @@ void puts_half(char *str)
 	int l = _strlen(str);
 	int n;
 
-	if (l % 2 != 0) 
+	if (l % 2 != 0)
 		n = (l - 1) / 2;
 	else
 		n = l / 2;
@@ -37,7 +37,7 @@ void puts_half(char *str)
 	{
 		str++;
 	}
-	for(i = n; i < l; i++)
+	for (i = n - 1; i < l; i++)
 	{
 		_putchar(*str);
 		str++;
