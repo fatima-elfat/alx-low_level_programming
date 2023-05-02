@@ -18,11 +18,11 @@ int _strlen(char *s)
 	return (l);
 }
 /**
- * rev_string - reverses a string
+ * print_rev - reverses a string
  * @s: string to reverse
  */
 
-void rev_string(char *s)
+void print_rev(char *s)
 {
 	int i = 0;
 	int j = (_strlen(s) - 1);
