@@ -26,10 +26,16 @@ void print_rev(char *s)
 {
 	int j;
 	int l = (_strlen(s) - 1);
+	char m[l + 1];
 
 	for (j =0; j <= l; j++)
 	{
-		_putchar(*s);
+		*s = m[l - j];
 		s--;
 	}
+	for (j =0; j <= l; j++)
+	{
+		_putchar(m[j]);
+	}
+	_putchar('\n');
 }
