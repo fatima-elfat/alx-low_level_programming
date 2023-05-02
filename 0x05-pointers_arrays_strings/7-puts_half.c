@@ -30,7 +30,7 @@ void puts_half(char *str)
 	int n;
 
 	if (l % 2 != 0)
-		n = (l - 1) / 2;
+		n = (l + 1) / 2;
 	else
 		n = l / 2;
 	for (i = 0; i < n ; i++)
