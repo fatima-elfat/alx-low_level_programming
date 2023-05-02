@@ -33,15 +33,14 @@ int _atoi(char *s)
 
 	for (m = 0; m < l; m++)
 	{
-		if (s == "-")
+		if (s[m] == "-")
 			n *= -1;
-		else if ((s <= "9") || (s >= "0"))
+		else if ((s[m] <= "9") || (s[m] >= "0"))
 		{
-			b += s;
+			b += s[m];
 		}
 		else if (b != 0)
 			break;
-		s++;
 	}
 	if ( b == 0)
 		n = 0;
