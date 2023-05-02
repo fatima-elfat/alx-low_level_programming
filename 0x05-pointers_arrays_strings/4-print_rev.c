@@ -24,11 +24,11 @@ int _strlen(char *s)
 
 void print_rev(char *s)
 {
-	int i;
+	int j;
 	int l = (_strlen(s) - 1);
 
 	for (j =l; j <= 0; j--)
 	{
-		_putchar(s[j]);
+		_putchar(*s[j]);
 	}
 }
