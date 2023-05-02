@@ -33,9 +33,9 @@ int _atoi(char *s)
 
 	for (m = 0; m < l; m++)
 	{
-		if (s[m] == "-")
+		if (s[m] == '-')
 			n *= -1;
-		else if ((s[m] <= "9") || (s[m] >= "0"))
+		else if ((s[m] <= '9') || (s[m] >= '0'))
 		{
 			b += s[m];
 		}
