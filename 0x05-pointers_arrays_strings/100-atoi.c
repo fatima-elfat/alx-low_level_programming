@@ -26,7 +26,7 @@ int _strlen(char *s)
 int _atoi(char *s)
 {
 	int l, m, n;
-	char b;
+	int b = 0;
 
 	l = _strlen(s);
 	n = 1;
@@ -34,19 +34,27 @@ int _atoi(char *s)
 	for (m = 0; m < l; m++)
 	{
 		if (s[m] == '-')
-			n *= -1;
-		else if ((s[m] <= '9') || (s[m] >= '0'))
 		{
-			b += s[m];
+			n *= -1;
+		}
+		else if (s[m] >= '0' && s[m] <= '9')
+		{
+			if (b != 0)
+			{
+				b *= 10;
+			}
+			b += s[m] - '0';
 		}
 		else if (b != 0)
+		{
 			break;
+		}
 	}
-	if ( b == 0)
+	if (b == 0)
 		n = 0;
 	else
 	{
-		n *= (int) b;
+		n *= b;
 	}
 	return (n);
 }
