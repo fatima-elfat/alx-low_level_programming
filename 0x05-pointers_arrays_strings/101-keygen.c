@@ -6,10 +6,11 @@
  */
 int main(void)
 {
-	char list[] = "1234567890qwertyuiopasdfghjklzxcvbnm!@#$%^&*()_- +=QWERTYUIOPASDFGHJKLZXCVBNM[]{};':\"<>,.?/\|";
+	char list[] = "1234567890qwertyuiopasdfghjklzxcvbnm!@#$%^&*()_- +=QWERTYUIOPASDFGHJKLZXCVBNM[]{};':\"<>,.?/";
+	int i;
 
 	srand(time(NULL));
-	for (int i = 0; i < 4; i++) 
+	for (i = 0; i < 4; i++) 
 	{
 		printf("%c", list[rand() % (sizeof list - 1)]);
 	}
