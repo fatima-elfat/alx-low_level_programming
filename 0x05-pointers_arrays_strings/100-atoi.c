@@ -44,6 +44,10 @@ int _atoi(char *s)
 				b *= 10;
 			}
 			b += s[m] - '0';
+			if (b > 10000000)
+			{
+				break;
+			}
 		}
 		else if (b != 0)
 		{
