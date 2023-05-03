@@ -1,21 +1,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-
+/**
+ * main - main function
+ */
 int main(void)
 {
-	int myrand;
-	int count;
-	int total;
+	char list[] = "1234567890qwertyuiopasdfghjklzxcvbnm!@#$%^&*()_- +=QWERTYUIOPASDFGHJKLZXCVBNM[]{};':\"<>,.?/";
 
 	srand(time(NULL));
-	for (count = 0, total = 3000; total > 180; count++)
+	for(int i = 0; i < 41; i++) 
 	{
-		myrand = (rand() % 200) + 1;
-		printf("%c", myrand);
-		total -= myrand;
+		printf("%c", list[rand() % (sizeof list - 1)]);
 	}
-	printf("%c", total);
-
 	return (0);
 }
