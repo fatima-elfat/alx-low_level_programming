@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * leet - Write a function that encodes a string into 1337
+ * leet - Write ia function that encodes a string into 1337
  * @s: input string
  * Return: encoded char
  */
@@ -12,7 +12,7 @@ char *leet(char *s)
 
 	for (i = 0; i != '\0'; i++)
 	{
-		for (j = 0; j < 10; j++)
+		for (j = 0; j != '\n'; j++)
 		{
 			if (lc[j] == s[i])
 				s[i] = r[j];
