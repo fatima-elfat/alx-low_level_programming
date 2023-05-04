@@ -25,16 +25,15 @@ int _strlen(char *s)
 char *leet(char *s)
 {
 	int i, j, l;
-	char r[5] = { '4', '3', '0', '7', '1'};
-	char lc[5] = {'a', 'e', 'o', 't', 'l'};
-	char uc[5] = {'A', 'E', 'O', 'T', 'L'};
+	char r[10] = {'4', '3', '0', '7', '1', '4', '3', '0', '7', '1'};
+	char lc[10] = {'a', 'e', 'o', 't', 'l', 'A', 'E', 'O', 'T', 'L'};
 
 	l = _strlen(s);
 	for (i = 0; i < l; i++)
 	{
-		for (j = 0; j < 5; j++)
+		for (j = 0; j < 10; j++)
 		{
-			if ((lc[j] == s[i]) || (uc[j] == s[i]))
+			if (lc[j] == s[i])
 				s[i] = r[j];
 		}
 	}
