@@ -30,7 +30,8 @@ char *_strcat(char *dest, char *src)
 	l1 = _strlen(dest);
 	l2 = _strlen(src);
 
-	for (i = 0; i < l2 + 1 ; i++)
+	for (i = 0; i < l2 ; i++)
 		dest[l1 + i] += str[i];
+	dest[l1 + i] = '\0';
 	return (dest);
 }
