@@ -21,7 +21,7 @@ int _strlen(char *s)
  * _strcmp - compare two string
  * @s1: first string
  * @s2: second string
- * Return: 0 equal negative value when s1 smaller the s2 and positive when bigger
+ * Return: 0: equal, negative: s1 smaller than s2, positive: bigger
  */
 int _strcmp(char *s1, char *s2)
 {
@@ -39,5 +39,5 @@ int _strcmp(char *s1, char *s2)
 			break;
 		}
 
-	return (a-b);
+	return (a - b);
 }
