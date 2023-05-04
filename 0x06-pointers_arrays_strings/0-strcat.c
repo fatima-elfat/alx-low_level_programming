@@ -36,5 +36,5 @@ char *_strcat(char *dest, char *src)
 	for (i = 0; i < l2 + 1 ; i++)
 		r += *(str + i);
 	dest = r;
-	return (*dest);
+	return (dest);
 }
