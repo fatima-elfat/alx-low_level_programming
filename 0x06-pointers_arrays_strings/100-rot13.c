@@ -24,11 +24,11 @@ char *rot13(char *s)
 	for (i = 0; s[i] != '\0'; i++)
 	{
 
-		for (j = 0; j < 53; j++)
-		{
-			if (s[i] == li[j])
-				s[i] = lo[j];
-		}
+		j = 0;
+		while (lo[j] != '\0' && s[i] != li[j])
+			j++;
+		if (s[i] == li[j])
+			s[i] = lo[j];
 	}
 
 	return (s);
