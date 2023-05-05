@@ -6,7 +6,9 @@
 
 void print_number(int n)
 {
-	int j, k, l, m, o = 1;
+	int j, k, l, m;
+	double o = 0;
+
 	if (n == 0)
 		_putchar(48);
 	else
