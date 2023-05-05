@@ -17,7 +17,7 @@ void print_number(int n)
 			_putchar(45);
 			n *= -1;
 		}
-		j = 1000;
+		j = 1000000;
 		m = n;
 		while (j != 0)
 		{
