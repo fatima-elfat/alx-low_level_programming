@@ -6,8 +6,7 @@
 
 void print_number(int n)
 {
-	int j, k, l, m;
-
+	int j, k, l, m, o = 1;
 	if (n == 0)
 		_putchar(48);
 	else
@@ -17,7 +16,9 @@ void print_number(int n)
 			_putchar(45);
 			n *= -1;
 		}
-		j = 1000000;
+		while (n >= o)
+			o *= 10;
+		j = o / 10;
 		m = n;
 		while (j != 0)
 		{
