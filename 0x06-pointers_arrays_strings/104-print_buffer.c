@@ -22,7 +22,7 @@ void print_buffer(char *b, int size)
 			while (k < 10)
 			{
 				if (k < j)
-					printf("%02x", *(b + start + i));
+					printf("%02x", *(b + k + i));
 				else
 					printf(" ");
 				if (k % 2)
@@ -35,7 +35,7 @@ void print_buffer(char *b, int size)
 				if (!(m >= 32 && m <= 126))
 					m = 46;
 				printf("%c", m);
-				l++
+				l++;
 			}
 			printf("\n");
 
@@ -43,5 +43,5 @@ void print_buffer(char *b, int size)
 		}
 	}
 	else
-		printf('\n');
+		printf("\n");
 }
