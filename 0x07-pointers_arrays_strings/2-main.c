@@ -20,7 +20,7 @@ int main(void)
     f = _strchr(s, 'p');
     if (f == NULL)
     {
-        printf("is null");
+        printf("is null \n");
     }
     return (0);
 }

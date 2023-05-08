@@ -25,26 +25,18 @@ int _strlen(char *s)
  */
 char *_strchr(char *s, char c)
 {
-	unsigned int i, r, l;
-	int o = -1;
+	unsigned int i, l;
 
 	l = _strlen(s);
 	for (i = 0; i < l; i++)
 	{
 		if (s[i] == c)
 		{
-			r = i;
-			o = 0;
+			s += i;
+			return (s);
 			break;
 		}
 	}
-	if (o == 0)
-	{
-		for (i = 0; i < r; i++)
-			s++;
-		return (s);
-	}
-	else
-		return (0);
+	return ('\0');
 
 }
