@@ -34,7 +34,6 @@ char *_strchr(char *s, char c)
 		{
 			s += i;
 			return (s);
-			break;
 		}
 	}
 	return ('\0');
