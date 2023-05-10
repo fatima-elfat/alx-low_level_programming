@@ -14,5 +14,6 @@ int wildcmp(char *s1, char *s2);
 int is_palindrome(char *s);
 int _compare(char *s,int l);
 int len_string(char *s);
-
+int cmp(char *s1, char *s2, int r);
 #endif
+
