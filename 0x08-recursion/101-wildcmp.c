@@ -24,7 +24,7 @@ int cmp(char *s1, char *s2, int r)
 	else if (*s1 == '\0' && *s2 == 42)
 	{
 		if (*(s2 + 1) != '\0')
-			return (0);
+			return (cmp(s1 - 1, s2 + 1, r));
 		else
 			return (1);
 	}
