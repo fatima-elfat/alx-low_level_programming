@@ -1,6 +1,7 @@
 #include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <ctype.h>
 /**
  * main - entry function prints the addition of positive numbers.
  * @argc: nummber of command line.
@@ -11,18 +12,17 @@ int main(int argc, char *argv[])
 {
 	if (argc > 1)
 	{
-		int i, a, s = 0;
+		int i, s = 0;
 
 		for (i = 1; i < argc; i++)
 		{
-			a = atoi(argv[i]);
-			if (a <= 0)
+			if (isdigit(argv[i]) == 0)
 			{
 				printf("Error\n");
 				return (1);
 			}
 			else
-				s += a;
+				s += atoi(argv[i]);
 		}
 		printf("%d\n", s);
 		return (0);
