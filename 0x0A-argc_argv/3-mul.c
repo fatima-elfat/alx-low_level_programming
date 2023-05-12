@@ -11,7 +11,11 @@ int main(int argc, char *argv[])
 {
 	if (argc == 3)
 	{
-		printf("%d\n", (argv[1] * argv[2]));
+		int a, b;
+
+		a = (int) argv[1] - '0';
+		b = (int) argv[2] - '0';
+		printf("%d\n", (a * b));
 		return (0);
 	}
 	else
