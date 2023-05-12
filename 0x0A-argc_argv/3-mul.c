@@ -1,6 +1,6 @@
 #include "main.h"
 #include <stdio.h>
-
+#include <stdlib.h>
 /**
  * main - entry function prints the multiplication of two numbers.
  * @argc: nummber of command line.
@@ -13,8 +13,8 @@ int main(int argc, char *argv[])
 	{
 		int a, b;
 
-		a = (int) argv[1] - '0';
-		b = (int) argv[2] - '0';
+		a = atoi(argv[1]);
+		b = atoi(argv[2]);
 		printf("%d\n", (a * b));
 		return (0);
 	}
