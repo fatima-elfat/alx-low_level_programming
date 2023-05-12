@@ -5,11 +5,10 @@
  * change_m - change money using coins
  * @m: input value of money.
  * @r: change.
+ * @p: list of acceptable coins.
  */
-void change_m(int m, int r)
+void change_m(int m, int r, int *p)
 {
-	int c[5] = {25, 10, 5, 2, 1};
-	int *p = c;
 	int temp;
 
 	if (m >= *p)
@@ -24,13 +23,13 @@ void change_m(int m, int r)
 			temp = m % *p;
 			r += (m - temp) / *p;
 			p++;
-			change_m(temp, r);
+			change_m(temp, r, p);
 		}
 	}
 	else
 	{
 		p++;
-		change_m(m, r);
+		change_m(m, r, p);
 	}
 }
 /**
@@ -43,6 +42,9 @@ void change_m(int m, int r)
  */
 int main(int argc, char *argv[])
 {
+	int c[5] = {25, 10, 5, 2, 1};
+	int *p = c;
+
 	if (argc == 2)
 	{
 		int a;
@@ -53,7 +55,7 @@ int main(int argc, char *argv[])
 			printf("0\n");
 			return (0);
 		}
-		change_m(a, 0);
+		change_m(a, 0, p);
 		return (0);
 	}
 	else
