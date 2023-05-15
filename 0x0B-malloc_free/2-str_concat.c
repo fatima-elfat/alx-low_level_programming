@@ -22,12 +22,13 @@ int _strlen(char *s)
 char *str_concat(char *s1, char *s2)
 {
 	char *p;
+	char a = '\0';
 	int i, l1, l2;
 
 	if (s1 == NULL)
-		*s1 = '\0';
+		s1 = &a;
 	if (s2 == NULL)
-		*s2 = '\0';
+		s2 = &a;
 	l1 = _strlen(s1);
 	l2 = _strlen(s2);
 	p = malloc((l1 + l2) * sizeof(char) + 1);
