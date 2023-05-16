@@ -28,8 +28,7 @@ char **strtow(char *str)
 			if (pc != ' ')
 			{
 				t[j] = i - 1;
-				j++;
-				w++; }}
+				j++; }}
 		else if ((str[i] != '\0' || str[i] != ' ') && pc == ' ')
 		{
 			t[j] = i;
@@ -38,7 +37,7 @@ char **strtow(char *str)
 	p = malloc(sizeof(char) * (j / 2));
 	if (p == NULL)
 		return (NULL);
-	for (i = 0; i < 5; i += 2)
+	for (i = 0; i < ((w * 2) - 1); i += 2)
 	{
 		b = t[i + 1];
 		c = (i + 2) / 2;
