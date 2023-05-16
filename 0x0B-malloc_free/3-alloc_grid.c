@@ -24,6 +24,7 @@ int **alloc_grid(int width, int height)
 			while (i >= 0)
 			{
 				free(p[i]);
+				i--;
 			}
 			free(p);
 			return (NULL);
