@@ -22,19 +22,23 @@ char *argstostr(int ac, char **av)
 			k++;
 		k++;
 	}
-	p = malloc(sizeof(char) * k);
+	p = malloc(sizeof(char) * k + 1);
 	if (p == NULL)
 		return (NULL);
-	for (i = 0; i < k; i++)
+	for (i = 0; i < k - 1; i++)
 	{
-		p[i] = av[a][b];
 		if (av[a][b] == '\0')
 		{
+			p[i] = '\n';
 			a++;
 			b = 0;
 		}
 		else
+		{
+			p[i] = av[a][b];
 			b++;
+		}
 	}
+	p[i] = '\0';
 	return (p);
 }
