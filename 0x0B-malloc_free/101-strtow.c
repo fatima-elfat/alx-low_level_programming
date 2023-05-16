@@ -46,4 +46,5 @@ char **strtow(char *str)
 			return (NULL);
 		for (j = t[i]; j <= b; j++)
 			p[c - 1][j - t[i]] = str[j]; }
+	free(t);
 	return (p); }
