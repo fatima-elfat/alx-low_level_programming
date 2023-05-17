@@ -106,7 +106,7 @@ char **strtow(char *str)
 		a = t[i];
 		b = t[i + 1];
 		c = i / 2;
-		p[c] = malloc(sizeof(char) * (b - a + 3));
+		p[c] = malloc(sizeof(char) * (b - a + 2));
 		if (p[c] == NULL)
 			return (NULL);
 		for (j = a; j <= b; j++)
