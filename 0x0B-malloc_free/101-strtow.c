@@ -23,6 +23,8 @@ int wordcount(char *str)
 				w++;
 			}
 		}
+		else if (str[i + 1] == '\0' && str[i] != ' ')
+			w++;
 		pc = str[i];
 	}
 	return (w);
@@ -56,6 +58,11 @@ int *worbe(char *str, int w)
 			t[j] = i;
 			j++;
 		}
+		else if (str[i + 1] == '\0' && str[i] != ' ')
+                {
+                        t[j] = i;
+                        j++;
+                }
 		pc = str[i];
 	}
 	return (t);
@@ -73,6 +80,7 @@ char **strtow(char *str)
 	if (str == NULL)
 		return (NULL);
 	w = wordcount(str);
+	printf("word count is %d\n", w);
 	if (w == 0)
 	{
 		p = malloc(1);
@@ -94,6 +102,7 @@ char **strtow(char *str)
 	if (p == NULL)
 		return (NULL);
 	d = (w * 2) - 1;
+	printf("d is %d\n", d);
 	for (i = 0; i < d; i += 2)
 	{
 		a = t[i];
@@ -102,9 +111,13 @@ char **strtow(char *str)
 		p[c - 1] = malloc(sizeof(char) * (b - a + 2));
 		if (p[c - 1] == NULL)
 			return (NULL);
+		printf("beginning %d end %d of word %d\n", a, b, c);
 		for (j = a; j <= b; j++)
 		{
+			printf("%c",str[j]);
 			p[c - 1][j - a] = str[j]; }
-		p[c - 1][j - a] = '\0'; }
+		p[c - 1][j - a] = '\0';
+		printf("   ");
+       	}
 	free(t);
 	return (p); }
