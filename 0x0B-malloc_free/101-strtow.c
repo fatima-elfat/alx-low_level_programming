@@ -28,7 +28,7 @@ int wordcount(char *str)
 	return (w);
 }
 /**
- * wordbe - list of word begining and ends of words in a string.
+ * worbe - list of word begining and ends of words in a string.
  * @str: string.
  * @w: number of string.
  * Return: list of begin and ends.
