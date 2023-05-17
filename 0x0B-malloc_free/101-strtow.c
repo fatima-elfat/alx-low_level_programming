@@ -105,13 +105,13 @@ char **strtow(char *str)
 	{
 		a = t[i];
 		b = t[i + 1];
-		c = (i + 2) / 2;
-		p[c - 1] = malloc(sizeof(char) * (b - a + 2));
-		if (p[c - 1] == NULL)
+		c = i / 2;
+		p[c] = malloc(sizeof(char) * (b - a + 3));
+		if (p[c] == NULL)
 			return (NULL);
 		for (j = a; j <= b; j++)
-		{
-			p[c - 1][j - a] = str[j]; }
-		p[c - 1][j - a] = '\0'; }
+			p[c][j - a] = str[j];
+		p[c][j - a] = '\0'; }
+	p[c + 1] = '\0';
 	free(t);
 	return (p); }
