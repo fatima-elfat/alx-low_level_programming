@@ -33,7 +33,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	l2 = _strlen_recursion(s2);
 	if (n > l2)
 		n = l2;
-	l = l1 + l;
+	l = l1 + n;
 	p = malloc(l + 1);
 	if (p == NULL)
 		return (NULL);
