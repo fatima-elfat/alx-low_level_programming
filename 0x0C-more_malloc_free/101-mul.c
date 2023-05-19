@@ -2,54 +2,17 @@
 #include <stddef.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <stdio.h>
 /**
- * _atoi - convert string to int.
- * @s: string to convert.
- * Return: integer.
- */
-
-int _atoi(char *s)
+ * _isdigit - Define if a string is a number.
+ * @n: string.
+ * Return: success (0).
+ **/
+int _isdigit(char n)
 {
-	int n;
-	unsigned long int l, m, b = 0;
-
-	l = 0;
-	while (*s != '\0')
-	{
-		l++;
-		s++;
-	}
-	n = 1;
-	for (m = 0; m < l; m++)
-	{
-		if (s[m] == '-')
-		{
-			n *= -1;
-		}
-		else if (s[m] >= '0' && s[m] <= '9')
-		{
-			if (b != 0)
-			{
-				b *= 10;
-			}
-			b += s[m] - '0';
-		}
-		else if (b != 0)
-		{
-			break;
-		}
-	}
-	return (n * b);
-}
-/**
- * _putchar - writes the character c to stdout.
- * @c: The character to print.
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
- */
-int _putchar(char c)
-{
-	return (write(1, &c, 1));
+	if (n < 48 || n > 57)
+		return (1);
+	return (0);
 }
 /**
  * _puts -  prints a string, followed by a new line.
@@ -67,22 +30,66 @@ void _puts(char *s)
 	}
 }
 /**
- * print - prints int.
- * @n: int.
+ * _strlen_isnum - returns the length of a string.
+ * @s: input string
+ * Return: length
  */
-void print(unsigned long int n)
+int _strlen_isnum(char *s)
 {
-	unsigned long int i, a, b = 1;
-
-	for (i = 0; (n / b) > 9; i++)
-		b *= 10;
-	for (; b >= 1; n %= b)
+	
+	if (*s == '\0' || *s == '\n' || *s == 0)
+		return (0);
+	else if (_isdigit(*s) != 0)
 	{
-		a = n / b;
-		_putchar('0' + a);
-		b /= 10;
+		_puts("Error\n");
+		exit(98);
 	}
+	s++;
+	return (1 + _strlen_isnum(s));
 }
+/**
+ * cal_mul - calcule a multiplication of two int as string.
+ * @s1: input int in array of char.
+ * @s2: second number as char.
+ * @p: pointer to previous mul.
+ * @l: length of s1.
+ * @pos: position of s2 in the second number.
+ * @lp: lenght of p.
+ * Return: pointer to result in string array.
+*/
+void *cal_mul(char *s1, char s2, char *p, int l, int pos, int lp)
+{
+	int i, a = 0, sr;
+	unsigned long int r = 0, pos2 =1;
+	for (i = l - 1; i >= 0; i--)
+	{
+		r += (s1[i] - '0') * (s2 - '0') * pos2;
+		pos2 *= 10;
+	}
+	
+	for (i = 1; i <= pos; i++)
+	{
+		r *= 10; 
+	}
+	while (r != 0)
+	{
+		lp--;
+		sr= r % 10;
+		a = (p[lp] - '0') + sr;
+		if ( a > 10)
+		{
+			p[lp] = a % 10 + '0';
+			r = ((r - sr) / 10) + ((a - (a % 10)) / 10);
+		}
+		else
+		{
+			p[lp] = a + '0';
+			r = (r - sr) / 10;
+		}
+	}
+	return (p);
+}
+
 /**
  * main - Entry point that multiplies two positive numbers.
  * @argc: number of arguments.
@@ -90,13 +97,40 @@ void print(unsigned long int n)
  * Return: 0 - success.
  */
 int main(int argc, char *argv[])
-{
+   {
+	int i, l, l1, l2, pos, t = -1;
+    char *p;
+
 	if (argc != 3)
 	{
 		_puts("Error");
 		exit(98);
 	}
-	print(_atoi(argv[1]) * _atoi(argv[2]));
+	l1 = _strlen_isnum(argv[1]);
+	l2 = _strlen_isnum(argv[2]);
+	l = l1 + l2;
+	p = malloc(l + 1);
+	if (p == NULL)
+	{
+		_puts("Error");
+		exit(98);
+	}
+	for (i = 0; i < l; i++)
+		p[i] = '0';
+	p[i] = '\0';
+	pos = 0;
+	for (i = l2 - 1; i >= 0; i--)
+	{
+		p = cal_mul(argv[1], argv[2][i], p, l1, pos, l);
+		pos++;
+	}
+	for (i = 0; i < l; i++)
+	{
+		if(p[i] != '0')
+			t = 0;
+		if (t == 0)
+			_putchar(p[i]);
+	}
 	_putchar('\n');
 	return (0);
 }
