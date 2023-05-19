@@ -36,7 +36,6 @@ void _puts(char *s)
  */
 int _strlen_isnum(char *s)
 {
-	
 	if (*s == '\0' || *s == '\n' || *s == 0)
 		return (0);
 	else if (_isdigit(*s) != 0)
@@ -60,23 +59,23 @@ int _strlen_isnum(char *s)
 void *cal_mul(char *s1, char s2, char *p, int l, int pos, int lp)
 {
 	int i, a = 0, sr;
-	unsigned long int r = 0, pos2 =1;
+	unsigned long int r = 0, pos2 = 1;
+
 	for (i = l - 1; i >= 0; i--)
 	{
 		r += (s1[i] - '0') * (s2 - '0') * pos2;
 		pos2 *= 10;
 	}
-	
 	for (i = 1; i <= pos; i++)
 	{
-		r *= 10; 
+		r *= 10;
 	}
 	while (r != 0)
 	{
 		lp--;
-		sr= r % 10;
+		sr = r % 10;
 		a = (p[lp] - '0') + sr;
-		if ( a > 10)
+		if (a > 10)
 		{
 			p[lp] = a % 10 + '0';
 			r = ((r - sr) / 10) + ((a - (a % 10)) / 10);
@@ -97,9 +96,9 @@ void *cal_mul(char *s1, char s2, char *p, int l, int pos, int lp)
  * Return: 0 - success.
  */
 int main(int argc, char *argv[])
-   {
+{
 	int i, l, l1, l2, pos, t = -1;
-    char *p;
+	char *p;
 
 	if (argc != 3)
 	{
@@ -126,7 +125,7 @@ int main(int argc, char *argv[])
 	}
 	for (i = 0; i < l; i++)
 	{
-		if(p[i] != '0')
+		if (p[i] != '0')
 			t = 0;
 		if (t == 0)
 			_putchar(p[i]);
