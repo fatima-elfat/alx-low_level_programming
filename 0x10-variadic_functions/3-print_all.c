@@ -6,7 +6,7 @@
  */
 void print_c(va_list l, char *s)
 {
-	printf("%s%c", sep, va_arg(l, int));
+	printf("%s%c", s, va_arg(l, int));
 }
 /**
  * print_i - prints format i : integer.
@@ -55,14 +55,14 @@ void print_all(const char * const format, ...)
 		{"f", print_f},
 		{"s", print_s},
 		{NULL, NULL}
-	}
+	};
 	va_start(l, format);
 	while (format != NULL && format[i])
 	{
 		j = 0;
 		while (j < 4)
 		{
-			if (format[i] == a[j]->f_c)
+			if (format[i] == *a[j].f_c)
 			{
 				a[j].f(l, s);
 				s = ", ";
