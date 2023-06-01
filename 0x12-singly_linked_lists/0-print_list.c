@@ -5,7 +5,7 @@
  * @s: input string
  * Return: length
  */
-unsigned int _strlen (char *s)
+unsigned int _strlen(char *s)
 {
 	if (*s == '\0' || *s == '\n' || *s == 0)
 		return (0);
