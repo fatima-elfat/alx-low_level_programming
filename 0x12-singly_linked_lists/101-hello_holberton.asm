@@ -1,12 +1,18 @@
 // Assembly printf hello, Holberton
 section .text
-	extern printf
-	global main
+global main
 
 main:
-	mov edi, msg
-	mov eax, 0
-	call printf
+	mov rax, 1
+	mov rdi, 1
+	mov rsi, a
+	mov rdx, alen
+	syscall
 
-section .data
-	msg db "Hello, Holberton", 0xa, 0
+	mov rax, 60
+	mov rdi, 0
+	syscall
+
+section .rodata
+	a: db "Hello, Holberton", 10
+	alen: equ $ - a
