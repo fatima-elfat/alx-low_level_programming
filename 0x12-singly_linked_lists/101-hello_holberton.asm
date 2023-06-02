@@ -1,15 +1,16 @@
 // Assembly printf hello, Holberton
-section .text
-extern printf
-global main
-
+	SECTION .text
+	extern printf
+	global main
 main:
-	mov eax, 1
-	mov edi, 1
-	mov esi, a
-	mov edx, alen
+	mov esi, msg
+	mov edi, a
+	mov eax, 0
 	call printf
 
-section .data
-	a: db "Hello, Holberton", 10
-	alen: equ $ - a
+	mov eax, 0
+	ret
+	SECTION .data
+msg:	db "Hello, Holberton", 0
+a:	db "%s", 10, 0
+
