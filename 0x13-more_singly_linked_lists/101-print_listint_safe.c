@@ -5,7 +5,7 @@
  * @num: the number of nodes.
  * Return: 1 for true.
  */
-int isloop(const listint_t *head, int *num)
+int isloop(const listint_t *head, size_t *num)
 {
 	int r = 0;
 	const listint_t *a = head, *b = head;
@@ -14,7 +14,7 @@ int isloop(const listint_t *head, int *num)
 	while (a && b && b->next)
 	{
 		a = a->next;
-		b = b->next->next;
+		b = (b->next)->next;
 		*num += 1;
 		if (b == a)
 		{
@@ -26,7 +26,15 @@ int isloop(const listint_t *head, int *num)
 				b = b->next;
 				*num += 1;
 			}
+			a = a->next;
+			while (a != b)
+			{
+				a = a->next;
+				*num += 1;
+			}
 		}
+		a = a->next;
+		b = (b->next)->next;
 	}
 	return (r);
 }
@@ -37,7 +45,8 @@ int isloop(const listint_t *head, int *num)
  */
 size_t print_listint_safe(const listint_t *head)
 {
-	int i = 0, j, k, num;
+	int j;
+	size_t num, i = 0, k;
 	const listint_t *temp;
 
 	if (head == NULL)
