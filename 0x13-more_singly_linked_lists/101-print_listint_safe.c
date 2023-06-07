@@ -1,42 +1,25 @@
 #include "lists.h"
 /**
- * isloop - detects loops using Floyd’s Cycle-Finding Algorithm.
+ * whereisloop - detects loops using Floyd’s Cycle-Finding Algorithm.
  * @head: the input struct.
- * @num: the number of nodes.
- * Return: 1 for true.
+ * Return: node of loop or null.
  */
-int isloop(const listint_t *head, size_t *num)
+listint_t *whereisloop(listint_t *head)
 {
-	int r = 0;
-	const listint_t *a = head, *b = head;
+	listint_t *a, *b;
 
-	*num = 0;
+	a = head;
+	b = a;
 	while (a && b && b->next)
 	{
 		a = a->next;
 		b = (b->next)->next;
-		*num += 1;
 		if (b == a)
 		{
-			r = 1;
-			a = head;
-			while (a != b)
-			{
-				a = a->next;
-				b = b->next;
-				*num += 1;
-			}
-			a = a->next;
-			while (a != b)
-			{
-				a = a->next;
-				*num += 1;
-			}
+			return (a->next);
 		}
-		a = a->next;
-		b = (b->next)->next;
 	}
-	return (r);
+	return (NULL);
 }
 /**
  * print_listint_safe - prints a listint_t linked list.
@@ -45,16 +28,17 @@ int isloop(const listint_t *head, size_t *num)
  */
 size_t print_listint_safe(const listint_t *head)
 {
-	int j;
-	size_t num, i = 0, k;
+	size_t i = 0;
+	int k;
 	const listint_t *temp;
+	listint_t *loop;
 
 	if (head == NULL)
 	{
 		exit(98);
 	}
-	j = isloop(head, &num);
-	if (j == 0)
+	loop = whereisloop((listint_t *) head);
+	if (loop == NULL)
 	{
 		temp = head;
 		while (temp)
@@ -66,11 +50,17 @@ size_t print_listint_safe(const listint_t *head)
 	}
 	else
 	{
-		for (k = 0; k < num; k++)
+		k = 1;
+		for (i = 0; head != NULL && k; i++)
 		{
-			printf("[%p] %d\n", (void *)temp, temp->n);
-			i++;
-			temp = temp->next;
+			if (head == loop)
+				k = 0;
+			printf("[%p] %d\n", (void *)head, head->n);
+			head = head->next;	
+		}
+		if (loop != NULL)
+		{
+			printf("-> [%p] %d\n", (void *) head, head->n);
 		}
 	}
 	return (i);
