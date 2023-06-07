@@ -56,7 +56,7 @@ size_t print_listint_safe(const listint_t *head)
 			if (head == loop)
 				k = 0;
 			printf("[%p] %d\n", (void *)head, head->n);
-			head = head->next;	
+			head = head->next;
 		}
 		if (loop != NULL)
 		{
