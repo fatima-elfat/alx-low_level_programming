@@ -16,7 +16,13 @@ listint_t *whereisloop(listint_t *head)
 		b = (b->next)->next;
 		if (b == a)
 		{
-			return (a->next);
+			a = b;
+			while(a != b)
+			{
+				a = a->next;
+				b = b->next;
+			}
+			return (a);
 		}
 	}
 	return (NULL);
