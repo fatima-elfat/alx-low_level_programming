@@ -17,12 +17,12 @@ listint_t *whereisloop(listint_t *head)
 		if (b == a)
 		{
 			a = b;
-			while(a != b)
+			while (a != b)
 			{
 				a = a->next;
 				b = b->next;
 			}
-			return (a);
+			return (a->next);
 		}
 	}
 	return (NULL);
