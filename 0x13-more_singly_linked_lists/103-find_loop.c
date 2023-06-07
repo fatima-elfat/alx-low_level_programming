@@ -31,7 +31,7 @@ listint_t *find_listint_loop(listint_t *head)
 				a = a->next;
 				b = b->next;
 			}
-			return ((a->next));
+			return (a);
 		}
 	}
 	return (NULL);
