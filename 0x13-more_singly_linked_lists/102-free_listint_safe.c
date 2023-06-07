@@ -1,7 +1,6 @@
 #include "lists.h"
 
 /**
- * frees a listint_t list.
  * free_listint_safe - frees a listint_t list.
  * @h: the input struct.
  * Return: the size of the list that was free’d.
