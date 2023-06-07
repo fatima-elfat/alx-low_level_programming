@@ -1,32 +1,5 @@
 #include "lists.h"
-/**
- * whereisloop - detects loops using Floyd’s Cycle-Finding Algorithm.
- * @head: the input struct.
- * Return: node of loop or null.
- */
-listint_t *whereisloop(listint_t *head)
-{
-	listint_t *a, *b;
 
-	a = head;
-	b = a;
-	while (a && b && b->next)
-	{
-		a = a->next;
-		b = (b->next)->next;
-		if (b == a)
-		{
-			a = b;
-			while (a != b)
-			{
-				a = a->next;
-				b = b->next;
-			}
-			return (a);
-		}
-	}
-	return (NULL);
-}
 /**
  * frees a listint_t list.
  * free_listint_safe - frees a listint_t list.
@@ -43,7 +16,7 @@ size_t free_listint_safe(listint_t **h)
 	{
 		return (0);
 	}
-	loop = whereisloop((listint_t *) head);
+	loop = whereisloop((listint_t *) *h);
 	k = 1;
 	if (!loop)
 	{
@@ -54,15 +27,14 @@ size_t free_listint_safe(listint_t **h)
 			{
 				k = 0;
 				temp = temp->next;
-				free(temp);
 			}
-			free(*h);
+			free(temp);
 		}
 	}
 	else
 	{
-		temp = *h->next;
-		*h->next = NULL;
+		temp = (*h)->next;
+		(*h)->next = NULL;
 		free(temp);
 	}
 	*h = NULL;
