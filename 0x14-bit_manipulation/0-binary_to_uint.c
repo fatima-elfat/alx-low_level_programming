@@ -49,22 +49,18 @@ unsigned int binary_to_uint(const char *b)
 		return (0);
 	}
 	len = _strlen(b);
-	for (i = len - 1; i == 0; i--)
+	for (i = 0; i <= len - 1; i++)
 	{
 		t = b[i] - '0';
-		printf("%i\n", t);
-		
 		if (t == 1)
 		{
-			r += t * poweroftwo(i + 1);
-			/* r += t << i + 1;*/
+			r += t * poweroftwo((len - i));
+			/* r += (t << (len - i - 1));*/
 		}
 		else if ((t != 0) && (t != 1))
 		{
 			return (0);
 		}
-		
-		
 	}
 	return (r);
 }
