@@ -14,8 +14,8 @@ void print_binary(unsigned long int n)
 		putchar('0');
 		return;
 	}
-	a = (1ul << 63) >> 1;
-	do
+	a = n;
+	while (a > 0)
 	{
 		if ((a & n) == 0)
 		{
@@ -27,5 +27,5 @@ void print_binary(unsigned long int n)
 		}
 		a = (a >> 1);
 
-	}while (a > 0);
+	}
 }
