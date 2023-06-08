@@ -1,4 +1,5 @@
 #include "main.h"
+
 /**
  * _strlen - returns the length of a string.
  * @s: input string
@@ -21,8 +22,8 @@ unsigned int poweroftwo(unsigned int n)
 	unsigned int r, i;
 
 	r = 1;
-	i = 1;
-	if (n == 0)
+	i = 2;
+	if (n == 1)
 	{
 		return (1);
 	}
@@ -33,6 +34,7 @@ unsigned int poweroftwo(unsigned int n)
 	}
 	return (r);
 }
+
 /**
  * binary_to_uint - converts a binary number to an unsigned int.
  * @b: the input value.
@@ -40,23 +42,29 @@ unsigned int poweroftwo(unsigned int n)
  */
 unsigned int binary_to_uint(const char *b)
 {
-	unsigned int i, len, r = 0;
+	unsigned int i, len, r = 0, t;
 
 	if (b == NULL)
 	{
 		return (0);
 	}
 	len = _strlen(b);
-	for (i = len - 1; i >= len; i--)
+	for (i = len - 1; i == 0; i--)
 	{
-		if (b[i] != 0 || b[i] != 1)
+		t = b[i] - '0';
+		printf("%i\n", t);
+		
+		if (t == 1)
+		{
+			r += t * poweroftwo(i + 1);
+			/* r += t << i + 1;*/
+		}
+		else if ((t != 0) && (t != 1))
 		{
 			return (0);
 		}
-		else
-		{
-			r += b[i] * poweroftwo(i);
-		}
+		
+		
 	}
 	return (r);
 }
