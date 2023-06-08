@@ -8,12 +8,12 @@
  */
 unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
-    unsigned int r;
+	unsigned int r;
 	unsigned long int diff;
 
 	diff = n ^ m;
 	while (diff > 0)
-    {
+	{
 		r += (diff & 1);
 		diff = diff >> 1;
 	}
