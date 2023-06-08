@@ -15,6 +15,11 @@ void print_binary(unsigned long int n)
 		_putchar('0');
 		return;
 	}
+	if (n == 1)
+	{
+		_putchar('1');
+		return;
+	}
 	while (a > 0)
 	{
 		if ((a & n) == 0)
