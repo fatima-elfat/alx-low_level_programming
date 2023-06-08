@@ -4,7 +4,7 @@
  * @s: input string
  * Return: length
  */
-unsigned int _strlen(const *s)
+unsigned int _strlen(const char *s)
 {
 	if (*s == '\0' || *s == '\n' || *s == 0)
 		return (0);
@@ -40,16 +40,16 @@ unsigned int poweroftwo(unsigned int n)
  */
 unsigned int binary_to_uint(const char *b)
 {
-	unsigned int i, j, len, r = 0;
+	unsigned int i, len, r = 0;
 
 	if (b == NULL)
 	{
 		return (0);
 	}
-	len = _strlen(*b);
+	len = _strlen(b);
 	for (i = len - 1; i >= len; i--)
 	{
-		if (b[i] != 0 or b[i] != 1)
+		if (b[i] != 0 || b[i] != 1)
 		{
 			return (0);
 		}
