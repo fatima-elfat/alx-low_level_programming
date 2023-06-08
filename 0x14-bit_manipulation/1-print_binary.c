@@ -14,7 +14,7 @@ void print_binary(unsigned long int n)
 		putchar('0');
 		return;
 	}
-	a = n;
+	a = 1ul << 63;
 	while (a > 0)
 	{
 		if ((a & n) == 0)
