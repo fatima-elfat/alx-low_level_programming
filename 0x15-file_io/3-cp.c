@@ -74,5 +74,7 @@ int main(int argc, char *argv[])
 	{
 		error_cp(100, NULL, file_to);
 	}
+	close(file_from);
+	close(file_to);
 	return (0);
 }
