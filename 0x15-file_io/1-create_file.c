@@ -40,14 +40,11 @@ int create_file(const char *filename, char *text_content)
 	}
 	if (text_content == NULL)
 	{
-		close(a);
-		return (-1);
-	}
-	r = write(a, text_content, len);
-	if (r != len || r == -1)
-	{
-		close(a);
-		return (-1);
+		r = write(a, text_content, len);
+		if (r != len || r == -1)
+		{
+			return (-1);
+		}
 	}
 	close(a);
 	return (1);
