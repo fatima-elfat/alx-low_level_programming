@@ -60,7 +60,7 @@ int main(int argc, char *argv[])
 		{
 			error_cp(98, argv[1], file_from);
 		}
-		len2 = read(file_to, buffer, len1);
+		len2 = write(file_to, buffer, len1);
 		if (len2 == -1 || len2 != len1)
 		{
 			error_cp(99, argv[2], file_to);
