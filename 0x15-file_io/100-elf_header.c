@@ -110,13 +110,6 @@ void printO(char *header)
 	case 12:
 		printf("UNIX - OpenBSD\n");
 		break;
-	case 97:
-		printf("ARM\n");
-		break;
-	/*case 255:
-	*	printf("Standalone App\n");
-	*	break;
-	*/
 	default:
 		printf("<unknown: %02x>\n", header[7]);
 	}
@@ -138,13 +131,9 @@ void printT(char *header)
 	int i;
 
 	if (header[5] == 1)
-	{
 		i = 16;
-	}
 	else if (header[5] == 2)
-	{
 		i = 17;
-	}
 	printf("  %-35s", "Type:");
 	switch (header[i])
 	{
@@ -228,16 +217,16 @@ void printE(char *header)
 */
 int main(int argc, char *argv[])
 {
-    int elf_filename, elf_header, len = 64;
+	int elf_filename, elf_header, len = 64;
 	char *header;
 
-    if (argc != 2)
+	if (argc != 2)
 	{
 		dprintf(STDERR_FILENO, "ERROR: Too many arguments.\n");
 		exit(98);
 	}
-    elf_filename = open(argv[1], O_RDONLY);
-    if (elf_filename == -1)
+	elf_filename = open(argv[1], O_RDONLY);
+	if (elf_filename == -1)
 	{
 		dprintf(STDERR_FILENO,
 				"ERROR: Can't open file %s\n", argv[1]);
@@ -265,9 +254,7 @@ int main(int argc, char *argv[])
 	{
 		dprintf(STDERR_FILENO,
 				"ERROR: File %s is not an ELF\n", argv[1]);
-		return (98);
-	}
-	/* nb = header[4]*/
+		return (98); }
 	printf("ELF Header:\n");
 	printM(header);
 	printC(header);
@@ -276,7 +263,6 @@ int main(int argc, char *argv[])
 	printO(header);
 	printA(header);
 	printT(header);
-	printE(header);
 	free(header);
 	close(elf_filename);
 	return (0);
