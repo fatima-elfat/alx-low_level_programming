@@ -44,7 +44,7 @@ int main(int argc, char *argv[])
 		error_cp(97, NULL, 0);
 	}
 	file_from = open(argv[1], O_RDONLY);
-	if (file_from == -1)
+	if (file_from == -1 || argv[1] == NULL)
 	{
 		error_cp(98, argv[1], 0);
 	}
@@ -53,18 +53,17 @@ int main(int argc, char *argv[])
 	{
 		error_cp(99, argv[2], 0);
 	}
-	while (read(file_from, buffer, 1024) != 0)
+	while ((len1 = read(file_from, buffer, 1024)) > 0)
 	{
-		len1 = read(file_from, buffer, 1024);
-		if (len1 == -1)
-		{
-			error_cp(98, argv[1], file_from);
-		}
 		len2 = write(file_to, buffer, len1);
 		if (len2 == -1 || len2 != len1)
 		{
 			error_cp(99, argv[2], file_to);
 		}
+	}
+	if (len1 == -1)
+	{
+		error_cp(98, argv[1], file_from);
 	}
 	if (close(file_from) == -1)
 	{
@@ -74,7 +73,5 @@ int main(int argc, char *argv[])
 	{
 		error_cp(100, NULL, file_to);
 	}
-	close(file_from);
-	close(file_to);
 	return (0);
 }
