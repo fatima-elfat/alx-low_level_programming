@@ -263,6 +263,7 @@ int main(int argc, char *argv[])
 	printO(header);
 	printA(header);
 	printT(header);
+	printE(header);
 	free(header);
 	close(elf_filename);
 	return (0);
