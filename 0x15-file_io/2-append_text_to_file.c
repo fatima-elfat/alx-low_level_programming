@@ -42,9 +42,6 @@ int append_text_to_file(const char *filename, char *text_content)
 		if (r == -1 || r != len)
 			return (-1);
 	}
-	if (close(a) == -1)
-	{
-		return (-1);
-	}
+	close(a);
 	return (1);
 }
