@@ -63,7 +63,7 @@ void printV(char *header)
 	{
 		printf(" (current)\n");
 	}
-	else 
+	else
 	{
 		printf("\n");
 	}
@@ -113,9 +113,10 @@ void printO(char *header)
 	case 97:
 		printf("ARM\n");
 		break;
-	case 255:
-		printf("Standalone App\n");
-		break;
+	/*case 255:
+	*	printf("Standalone App\n");
+	*	break;
+	*/
 	default:
 		printf("<unknown: %02x>\n", header[7]);
 	}
@@ -169,7 +170,8 @@ void printT(char *header)
 		}
 		else
 		{
-			("<unknown>: %02x%02x\n", header[16], header[17]);
+			printf("<unknown>: %02x%02x\n",
+					header[16], header[17]);
 		}
 	}
 }
@@ -237,14 +239,16 @@ int main(int argc, char *argv[])
     elf_filename = open(argv[1], O_RDONLY);
     if (elf_filename == -1)
 	{
-		dprintf(STDERR_FILENO, "ERROR: Can't open file %s\n", argv[1]);
+		dprintf(STDERR_FILENO,
+				"ERROR: Can't open file %s\n", argv[1]);
 		exit(98);
 	}
 	header = malloc(sizeof(char) * len);
 	if (header == NULL)
 	{
 		close(elf_filename);
-		dprintf(STDERR_FILENO, "ERROR: Memory allocation unsuccessful\n");
+		dprintf(STDERR_FILENO,
+				"ERROR: Memory allocation unsuccessful\n");
 		exit(98);
 	}
 	elf_header = read(elf_filename, header, len);
@@ -252,12 +256,15 @@ int main(int argc, char *argv[])
 	{
 		free(header);
 		close(elf_filename);
-		dprintf(STDERR_FILENO, "ERROR: Can't read from file %s\n", argv[1]);
+		dprintf(STDERR_FILENO,
+				"ERROR: Can't read from file %s\n", argv[1]);
 		exit(98);
 	}
-	if (header[0] != 0x7f || header[1] != 'E' || header[2] != 'L' || header[3] != 'F')
+	if (header[0] != 0x7f || header[1] != 'E'
+			|| header[2] != 'L' || header[3] != 'F')
 	{
-		dprintf(STDERR_FILENO, "ERROR: File %s is not an ELF\n", argv[1]);
+		dprintf(STDERR_FILENO,
+				"ERROR: File %s is not an ELF\n", argv[1]);
 		return (98);
 	}
 	/* nb = header[4]*/
