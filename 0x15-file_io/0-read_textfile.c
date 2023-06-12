@@ -39,9 +39,9 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	r = write(STDOUT_FILENO, c, letters);
 	free(c);
 	close(a);
-	if (r != b)
+	if (r == -1)
 	{
 		return (0);
 	}
-	return (r);
+	return (b);
 }
