@@ -1,4 +1,5 @@
 #include "main.h"
+
 /**
  * _strlen_recursion - returns the length of a string.
  * @s: input string
@@ -22,7 +23,6 @@ int _strlen_recursion(char *s)
  * Return: 1 on success. And -1 on failure if the file
  * can not be opened or read, if filename is NULL,
  * if write fails or does not write the expe.
- * 
 */
 int create_file(const char *filename, char *text_content)
 {
@@ -44,7 +44,7 @@ int create_file(const char *filename, char *text_content)
 		return (-1);
 	}
 	r = write(a, text_content, len);
-	if(close(a) == -1 || r != len)
+	if (close(a) == -1 || r != len)
 	{
 		return (-1);
 	}

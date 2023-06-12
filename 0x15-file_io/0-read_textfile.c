@@ -35,11 +35,11 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		free(c);
 		close(a);
 		return (0);
-    }
+	}
 	r = write(STDOUT_FILENO, c, letters);
 	free(c);
 	close(a);
-	if(r != b)
+	if (r != b)
 	{
 		return (0);
 	}
