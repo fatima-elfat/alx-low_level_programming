@@ -1,10 +1,12 @@
 #include "shell.h"
 
-char *isinpath(char *s)
+char *isinpath(char *s, l_u *e)
 {
 	char *r, *t, **tk, *pval;
 	int i =0;
 
+	r = NULL;
+	t = NULL;
 	if (!access(s, F_OK))
 	{
 		r = s;
@@ -12,8 +14,8 @@ char *isinpath(char *s)
 	}
 	else
 	{
-		pval = _getenvval(s);
-		tk = _strtok(pval, ":");
+		pval = _getenvval(s, e);
+		tk = _strtok(pval, ':');
 		free(pval);
 		while (tk[i])
 		{

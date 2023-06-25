@@ -40,7 +40,7 @@ char *_strcpy(char *dest, char *src)
 */
 ssize_t _getline(char *s)
 {
-	ssize_t r, fd = 1, len = BUF_SIZE, i = 0, j = 0;
+	ssize_t r, fd = 1, len = BUF_SIZE, j = 0;
 	static ssize_t counter;
 	char *buffer;
 
@@ -73,7 +73,7 @@ ssize_t _getline(char *s)
 		if (s == NULL)
 			return (-1);
 	}
-	_strcpy(*s, buffer);
+	_strcpy(s, buffer);
 	free(buffer);
 	r = counter;
 	counter = 0;

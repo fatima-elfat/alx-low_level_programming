@@ -1,7 +1,5 @@
 #include "shell.h"
 
-
-
 /**
  * main - main entry function.
  * @argc: the number of arguments.
@@ -11,11 +9,14 @@
  */
 int main(int argc, char **argv, char **env)
 {
+	l_u *e;
+
+	(void) argv;
 	e = _getenv(env);
 	/* a = get_aliases(); */
-	if (argc = 1)
+	if (argc == 1)
 	{
-		i_mode();
+		i_mode(e);
 	}
 	/* 
 	else if (argc > 1)

@@ -7,7 +7,7 @@
 #include <string.h>
 #include <sys/types.h>
 #include <sys/stat.h>
-/*#include <sys/wait.h>*/
+#include <sys/wait.h>
 #include <unistd.h>
 
 #define BUF_SIZE 1024
@@ -27,13 +27,12 @@ typedef struct list_u
 
 } l_u;
 /* global variables*/
-extern l_u *e;
 /* extern l_u *a; */
 
 
 
 /*-----------shell.c-----------*/
-void i_mode();
+void i_mode(l_u *e);
 
 /*-----------utils01.c-----------*/
 void _handler_ctrlc(int n);
@@ -55,21 +54,21 @@ int _strcmp(char *s1, char *s2);
 
 /*-----------utils04.c-----------*/
 int _atoi(char *s);
-char *isinpath(char *s);
+char *isinpath(char *s, l_u *e);
 l_u *add_node(l_u **head, char *s1, char *s2);
 
 /*-----------token.c-----------*/
-char **_strtok(char *s, char *d);
-int _getsizetok(char *s, char *d, int *t);
+char **_strtok(char *s, char d);
+int _getsizetok(char *s, char d, int *t);
 void _freetok(char **tk);
 
 /*-----------command.c-----------*/
 int isbuiltin(char **token);
-int isexecute(char **tk);
+int isexecute(char **tk, l_u *e);
 
 /*-----------environment.c-----------*/
 l_u *_getenv(char **env);
-char *_getenvval(char *s);
+char *_getenvval(char *s, l_u *e);
 
 /*-----------builtin01.c-----------*/
 int _bi_exit(char **tk);

@@ -1,6 +1,6 @@
 #include "shell.h"
 
-void i_mode(){
+void i_mode(l_u *e){
 	char *line, **tk;
 	ssize_t fd;
 	int r, num_com = 0;
@@ -12,7 +12,7 @@ void i_mode(){
 		if (isatty(STDIN_FILENO))
 			write(STDOUT_FILENO, "($) ", 4);
 		signal(SIGINT, _handler_ctrlc);
-		fd = _getline(&line);
+		fd = _getline(line);
 		if (fd == -1 || fd == 0)
 		{
 			pnewline(line);
@@ -24,11 +24,10 @@ void i_mode(){
 			continue;
 		}
 		line = dnewline(line);
-		tk = _strtok(line, " ");
+		tk = _strtok(line, ' ');
 		r = isbuiltin(tk);
 		if (r == 1)
 			break;
-		r = isexecute(tk);
-	} while (1); 
-	return(r);
+		r = isexecute(tk, e);
+	} while (1);
 }

@@ -1,6 +1,6 @@
 #include "shell.h"
 
-char **_strtok(char *s, char *d)
+char **_strtok(char *s, char d)
 {
     int t, len1 = 0, len2 = 0,i = 0, j = 0, k, begin = 0;
 	char **tokens;
@@ -34,7 +34,7 @@ char **_strtok(char *s, char *d)
 	tokens[j + 1] = NULL;
 	return (tokens);
 }
-int _getsizetok(char *s, char *d, int *t)
+int _getsizetok(char *s, char d, int *t)
 {
 	int i = 1, r = 0;
 	if (s[1] != '\0')
@@ -44,7 +44,7 @@ int _getsizetok(char *s, char *d, int *t)
 		if ((s[i] == d) && (s[i + 1] == '\0'))
 		{
 			r--;
-			t = i + 1;
+			*t = i + 1;
 		}
 		if ((s[i - 1] == d) && (s[i] != d))
 			r++;

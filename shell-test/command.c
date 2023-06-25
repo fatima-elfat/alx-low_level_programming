@@ -22,32 +22,32 @@ int isbuiltin(char **token)
 		return (0);
 	return (1);
 }
-int isexecute(char **tk)
+int isexecute(char **tk, l_u *e)
 {
 	char *p;
-	int i, j, st = 0;
+	int st = 0;
 	pid_t child;
 
-	p = isinpath(tk[0]);
+	p = isinpath(tk[0], e);
 	if (!access(p, X_OK))
 	{
 		child = fork();
-		switch (child)
+		if ( child == 0)
 		{
-			case 0:
-				if (execve(p, tk, NULL) == -1)
-				{
-					_puts("fork: failed: ");
-					_puts(tk[0]);
-					_freetok(tk);
-					free(p);
-					exit(0);
-				}
-			default:
-				wait(&st);
-				free(p);
+			if (execve(p, tk, NULL) == -1)
+			{
+				_puts("fork: failed: ");
+				_puts(tk[0]);
 				_freetok(tk);
-
+				free(p);
+				exit(0);
+			}
+		}
+		else
+		{
+			wait(&st);
+			free(p);
+			_freetok(tk);
 		}
 	}
 	else

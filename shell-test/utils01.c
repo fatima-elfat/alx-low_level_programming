@@ -11,7 +11,6 @@ void _handler_ctrlc(int n)
 void pnewline(char *command)
 {
 	free(command);
-	_free_list(e);
 	if (isatty(STDIN_FILENO))
 	{
 		write(STDOUT_FILENO, "\n", 1);
