@@ -40,7 +40,7 @@ char *_strcpy(char *dest, char *src)
 */
 ssize_t _getline(char *s, int sf)
 {
-	ssize_t r, fd = 1, len = BUF_SIZE, j = 0;
+	ssize_t r, fd = 1, len = BUF_SIZE, i =0; j = 0, k = 0;
 	static ssize_t counter;
 	char *buffer;
 
@@ -53,7 +53,7 @@ ssize_t _getline(char *s, int sf)
 		return (-1);
 	while (j == 0)
 	{
-		fd = read(sf, buffer, len - 1);
+		fd = read(sf, buffer, len);
 		if (fd == -1)
 		{
 			free(buffer);
@@ -63,17 +63,20 @@ ssize_t _getline(char *s, int sf)
 		if (counter != 0 && fd == 0)
 		{
 			counter++;
-			j = 1; }}
+			j = 1; }
+		while (buffer[i] != '\0')
+		{
+			if (buffer[i] == '\n')
+				j = 1;
+			i++; }}
 	if (counter > len)
 		buffer = _realloc(buffer, len, counter + 1);
-	buffer[counter] = '\n';
-	buffer[counter + 1] = '\0';
+	buffer[counter] = '\0';
 	if (s == NULL)
 	{
 		s = malloc(sizeof(char) * counter + 1);
 		if (s == NULL)
-			return (-1);
-	}
+			return (-1); }
 	_strcpy(s, buffer);
 	free(buffer);
 	r = counter;
