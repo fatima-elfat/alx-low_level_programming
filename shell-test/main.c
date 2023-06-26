@@ -18,10 +18,9 @@ int main(int argc, char **argv, char **env)
 	{
 		i_mode(e);
 	}
-	/*else if (argc > 1)
-	{
-		n_i_mode(argv, e);
-	}
-	*/
+	/*
+	 * else if (argc > 1){
+	 * n_i_mode(argv, e); }
+	 */
 	return (0);
 }

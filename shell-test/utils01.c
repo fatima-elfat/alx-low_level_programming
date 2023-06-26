@@ -1,6 +1,9 @@
 #include "shell.h"
 
-
+/**
+ * _handler_ctrlc - ...
+ * @n: ...
+ */
 void _handler_ctrlc(int n)
 {
 	if (n == SIGINT)
@@ -8,6 +11,10 @@ void _handler_ctrlc(int n)
 		write(STDOUT_FILENO, "\n($) ", 5);
 	}
 }
+/**
+ * pnewline - ...
+ * @command: ...
+ */
 void pnewline(char *command)
 {
 	free(command);
@@ -16,6 +23,11 @@ void pnewline(char *command)
 		write(STDOUT_FILENO, "\n", 1);
 	}
 }
+/**
+ * dnewline - ...
+ * @s: ...
+ * Return: ...
+ */
 char *dnewline(char *s)
 {
 	int i = 0;
@@ -30,6 +42,11 @@ char *dnewline(char *s)
 	}
 	return (s);
 }
+/**
+ * checkcounter - ...
+ * @c: ...
+ * Return: ...
+ */
 ssize_t checkcounter(ssize_t c)
 {
 	if (c == 0)

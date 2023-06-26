@@ -1,5 +1,9 @@
 #include "shell.h"
-
+/**
+ * _getenv - ...
+ * @env: ...
+ * Return: ...
+ */
 l_u *_getenv(char **env)
 {
 	int i = 0;
@@ -14,6 +18,12 @@ l_u *_getenv(char **env)
 	}
 	return (linked);
 }
+/**
+ * _getenvval - ...
+ * @s: ...
+ * @e: ...
+ * Return: ...
+ */
 char *_getenvval(char *s, l_u *e)
 {
 	char *val = NULL;
@@ -36,14 +46,19 @@ char *_getenvval(char *s, l_u *e)
 		i++;
 	val = malloc(sizeof(char) * (i - j + 2));
 	if (val == NULL)
-		return NULL;
-	for(k = j; k < i + 1; k++)
+		return (NULL);
+	for (k = j; k < i + 1; k++)
 	{
 		val[l] = (e->s1)[k];
 		l++;
 	}
 	return (val);
 }
+/**
+ * _lenv - ...
+ * @e: ...
+ * Return: ...
+ */
 char **_lenv(l_u *e)
 {
 	char **val;

@@ -36,18 +36,21 @@ char *_strcpy(char *dest, char *src)
 	return (dest);
 }
 /**
- * 
-*/
+ * _getline - ...
+ * @s: ...
+ * @sf: ...
+ * Return: ...
+ */
 ssize_t _getline(char **s, int sf)
 {
-	ssize_t r, fd = 1, len = BUF_SIZE, i =0, j = 0, k = 0;
+	ssize_t r, fd = 1, len = BUF_SIZE, i = 0, j = 0, k = 0;
 	static ssize_t counter;
 	char *buffer;
 
 	counter = checkcounter(counter);
 	if (counter == -1)
 		return (-1);
-	buffer =malloc(sizeof(char) * (len + 1));
+	buffer = malloc(sizeof(char) * (len + 1));
 	if (buffer == NULL)
 		return (-1);
 	while (j == 0 && k == 0)
@@ -84,6 +87,7 @@ ssize_t _getline(char **s, int sf)
 	counter = 0;
 	return (r);
 }
+
 /**
  * _realloc - reallocates a memory block using malloc and free.
  * @ptr: pointer to the memory previously allocated.
@@ -91,6 +95,7 @@ ssize_t _getline(char **s, int sf)
  * @new_size: new size of the new memory.
  * Return: pointer.
  */
+
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
 	unsigned int i;

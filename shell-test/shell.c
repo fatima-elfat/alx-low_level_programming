@@ -1,11 +1,17 @@
 #include "shell.h"
-
-void i_mode(l_u *e){
+/* void n_i_mode(char **argv, l_u *e){} */
+/**
+ * i_mode - ...
+ * @e: ...
+ */
+void i_mode(l_u *e)
+{
 	char *line, **tk;
 	ssize_t fd;
 	int r, num_com = 0;
 
-	while(1) {
+	while (1)
+	{
 		line = NULL;
 		tk = NULL;
 		fd = 0;
@@ -35,9 +41,3 @@ void i_mode(l_u *e){
 	free(line);
 	_freetok(tk);
 }
-/*
-void n_i_mode(char **argv, l_u *e)
-{
-	/* check for the last |*/
-}
-*/
