@@ -8,10 +8,6 @@ int _bi_exit(char **tk)
 	if (tk[1] == NULL)
 		{
 			_freetok(tk);
-			/*
-			* freeenv();
-			* feealias
-			*/
 			exit(0);
 		}
 	else
@@ -20,12 +16,9 @@ int _bi_exit(char **tk)
 	{
 		_puts("exit: Illegal number: ");
 		_puts(tk[1]);
+		_putchar('\n');
 		return (-1);
 	}
 	_freetok(tk);
-	/*
-	* freeenv();
-	* feealias
-	*/
 	exit(i);
 }
