@@ -17,7 +17,7 @@ int _putchar(char c)
 void _puts(char *s)
 {
 	if (*s == '\0')
-		_putchar('\n');
+		_putchar('\0');
 	else
 	{
 		_putchar(*s);

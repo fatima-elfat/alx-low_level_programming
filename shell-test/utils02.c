@@ -57,6 +57,8 @@ ssize_t _getline(char **s, int sf)
 		{
 			free(buffer);
 			return (-1); }
+		if (counter == 0 && fd == 0)
+			return (0);
 		if (counter == 0 && fd != 0)
 			counter += fd;
 		if (counter != 0 && fd == 0)

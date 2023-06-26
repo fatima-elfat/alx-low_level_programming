@@ -3,7 +3,7 @@
 void i_mode(l_u *e){
 	char *line, **tk;
 	ssize_t fd;
-	int r, num_com = 0;
+	int r, num_com = 0, i = 1;
 	while(1) {
 		line = NULL;
 		tk = NULL;
@@ -16,7 +16,8 @@ void i_mode(l_u *e){
 		if (fd == -1 || fd == 0)
 		{
 			pnewline(line);
-			break;
+			free(line);
+			exit(fd);
 		}
 		if (line[0] == '\0')
 		{
@@ -26,11 +27,17 @@ void i_mode(l_u *e){
 		line = dnewline(line);
 		tk = _strtok(line, ' ');
 		printf("shell.c: command: %s.\n", tk[0]);
+		while (tk[i] != NULL)
+		{
+		       printf("shell.c: option: %s.\n", tk[i]);
+		       i++;
+		}
 		r = isbuiltin(tk);
 		printf("shell.c: builtin  r = %i\n", r);
 		if (r == 1)
 			break;
 		r = isexecute(tk, e);
 		printf("shell.c: isexecute  r = %i\n", r);
+		_freetok(tk);
 	}
 }

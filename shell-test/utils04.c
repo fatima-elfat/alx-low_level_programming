@@ -2,7 +2,7 @@
 
 char *isinpath(char *s, l_u *e)
 {
-	char *r, *t, **tk, *pval;
+	char *r, *t, **tk1, *pval;
 	int i =0;
 
 	r = NULL;
@@ -14,19 +14,17 @@ char *isinpath(char *s, l_u *e)
 	}
 	else
 	{
-		printf("utils04.c: start\n");
 		pval = _getenvval("PATH", e);
-		printf("utils04.c: pval= %s\n", pval);
-		tk = _strtok(pval, ':');
+		tk1 = _strtok(pval, ':');
 		free(pval);
-		while (tk[i])
+		while (tk1[i])
 		{
-			t = _strcat(tk[i], "/");
+			t = _strcat(tk1[i], "/");
 			r = _strcat(t, s);
 			i++;
 			if (!access(r, F_OK))
 			{
-				_freetok(tk);
+				_freetok(tk1);
 			}
 			return(r);
 		}

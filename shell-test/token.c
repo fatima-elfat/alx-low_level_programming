@@ -2,7 +2,7 @@
 
 char **_strtok(char *s, char d)
 {
-	int t, len1 = 0, len2 = 0,i = 0, j = 0, k, begin = 0;
+	int t, len1 = 0, len2 = 0,i = 0, j = 0, k, l, begin = 0;
 	char **tokens;
 
 	while (*s == d)
@@ -16,17 +16,24 @@ char **_strtok(char *s, char d)
 		if (s[i] != d)
 		{
 			len2++;
-			tokens[j] = malloc(sizeof(char) * (len2 + 1));
+			if (tokens[j] == NULL)
+				tokens[j] = malloc(sizeof(char) * (len2 + 1));
+			else
+				tokens[j] = _realloc(tokens[j], len2,(len2 + 1));
 			if (tokens[j] == NULL)
 				return (NULL);
+			l = 0;
 			for(k = begin; k <= i; k++)
-				tokens[j][k] = s[k];
+			{
+				tokens[j][l] = s[k];
+				l++;
+			}
 			tokens[j][k] = '\0';
 			}
 		else if ((s[i + 1] != d) && (s[i + 1] != '\0'))
 		{
 			len2 = 0;
-			begin = i;
+			begin = i + 1;
 			j++;
 		}
 		i++;

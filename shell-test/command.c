@@ -38,9 +38,10 @@ int isexecute(char **tk, l_u *e)
 		{
 			if (execve(p, tk, NULL) == -1)
 			{
+
 				_puts("fork: failed: ");
 				_puts(tk[0]);
-				_freetok(tk);
+				_putchar('\n');
 				free(p);
 				exit(0);
 			}
@@ -54,8 +55,9 @@ int isexecute(char **tk, l_u *e)
 	}
 	else
 	{
-		_puts("command: failed: ");
+		_puts("fork: failed: ");
 		_puts(tk[0]);
+		_putchar('\n');
 		free(p);
 		_freetok(tk);
 		return (-1);
