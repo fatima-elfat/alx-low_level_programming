@@ -43,7 +43,7 @@ ssize_t checkcounter(ssize_t c);
 /*-----------utils02.c-----------*/
 int _strlen(char *s);
 char *_strcpy(char *dest, char *src);
-ssize_t _getline(char *s);
+ssize_t _getline(char *s, int sf);
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 
 /*-----------utils03.c-----------*/

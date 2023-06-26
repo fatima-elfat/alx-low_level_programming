@@ -38,7 +38,7 @@ char *_strcpy(char *dest, char *src)
 /**
  * 
 */
-ssize_t _getline(char *s)
+ssize_t _getline(char *s, int sf)
 {
 	ssize_t r, fd = 1, len = BUF_SIZE, j = 0;
 	static ssize_t counter;
@@ -47,12 +47,13 @@ ssize_t _getline(char *s)
 	counter = checkcounter(counter);
 	if (counter == -1)
 		return (-1);
+	printf("utils02.c------\n");
 	buffer =malloc(sizeof(char) * len);
 	if (buffer == NULL)
 		return (-1);
 	while (j == 0)
 	{
-		fd = read(STDIN_FILENO, buffer, len - 1);
+		fd = read(sf, buffer, len - 1);
 		if (fd == -1)
 		{
 			free(buffer);
