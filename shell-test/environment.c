@@ -26,14 +26,6 @@ char *_getenvval(char *s, l_u *e)
 		if (s[i] == '\0' && (e->s1)[i] == '=')
 			break;
 		e = e->next;
-		/*
-		tk = _strtok(e->s1, '=');
-		if (_strcmp(tk[0], s) == 0 && tk[1] != NULL)
-		{
-			val = _strcpy(val, tk[1]);
-			return(val);
-		}
-		*/
 	}
 	i = 0;
 	while ((e->s1)[i] != '=')
@@ -49,6 +41,26 @@ char *_getenvval(char *s, l_u *e)
 	{
 		val[l] = (e->s1)[k];
 		l++;
+	}
+	return (val);
+}
+char **_lenv(l_u *e)
+{
+	char **val;
+	int i = 0, j, l = 0;
+
+	while (e != NULL)
+		l++;
+	val = malloc(l);
+	while (e != NULL)
+	{
+		while ((e->s1)[i] != '\0')
+			i++;
+		val[j] = malloc(i + 1);
+		_strcpy(val[j], (e->s1));
+		e = e->next;
+		i = 0;
+		j++;
 	}
 	return (val);
 }

@@ -57,6 +57,7 @@ int _atoi(char *s);
 char *isinpath(char *s, l_u *e);
 l_u *add_node(l_u **head, char *s1, char *s2);
 
+
 /*-----------token.c-----------*/
 char **_strtok(char *s, char d);
 int _getsizetok(char *s, char d, int *t);
@@ -69,6 +70,7 @@ int isexecute(char **tk, l_u *e);
 /*-----------environment.c-----------*/
 l_u *_getenv(char **env);
 char *_getenvval(char *s, l_u *e);
+char **_lenv(l_u *e);
 
 /*-----------builtin01.c-----------*/
 int _bi_exit(char **tk);

@@ -24,7 +24,7 @@ int isbuiltin(char **token)
 }
 int isexecute(char **tk, l_u *e)
 {
-	char *p;
+	char *p, **val;
 	int st = 0;
 	pid_t child;
 
@@ -35,7 +35,9 @@ int isexecute(char **tk, l_u *e)
 		child = fork();
 		if ( child == 0)
 		{
-			if (execve(p, tk, NULL) == -1)
+			val = _lenv(e);
+			printf("command.c: val env = \n %s\n", val[0]);
+			if (execve(p, tk, val) == -1)
 			{
 
 				_puts("fork: failed: ");
@@ -48,7 +50,6 @@ int isexecute(char **tk, l_u *e)
 		else
 		{
 			wait(&st);
-			free(p);
 		}
 	}
 	else
@@ -59,5 +60,6 @@ int isexecute(char **tk, l_u *e)
 		free(p);
 		return (-1);
 	}
+	free(p);
 	return (0);
 }
