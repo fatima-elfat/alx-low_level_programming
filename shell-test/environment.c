@@ -16,19 +16,22 @@ l_u *_getenv(char **env)
 }
 char *_getenvval(char *s, l_u *e)
 {
-	char *val = NULL;
+	char *val = NULL, **tk;
 
 
 	while (e != NULL)
 	{
-		if (_strcmp(e->s1, s) == 0)
+		tk = _strtok(e->s1, '=');
+		if (_strcmp(tk[0], s) == 0)
 		{
-			val = _strcpy(val, e->s1);
+			val = _strcpy(val, tk[1]);
+			/*
 			while (*val != '=')
 			{
 				val++;
 			}
 			val++;
+			*/
 			return(val);
 		}
 		else
