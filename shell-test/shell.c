@@ -27,7 +27,7 @@ void i_mode(l_u *e){
 		}
 		line = dnewline(line);
 		tk = _strtok(line, ' ');
-		r = isbuiltin(tk);
+		r = isbuiltin(tk, e);
 		if (r == 1)
 			break;
 		r = isexecute(tk, e);
@@ -35,3 +35,9 @@ void i_mode(l_u *e){
 	free(line);
 	_freetok(tk);
 }
+/*
+void n_i_mode(char **argv, l_u *e)
+{
+	/* check for the last |*/
+}
+*/

@@ -11,17 +11,16 @@ int main(int argc, char **argv, char **env)
 {
 	l_u *e;
 
-	(void) argv;
+	/* (void) argv;*/
 	e = _getenv(env);
 	/* a = get_aliases(); */
 	if (argc == 1)
 	{
 		i_mode(e);
 	}
-	/* 
-	else if (argc > 1)
+	/*else if (argc > 1)
 	{
-		n_i_mode(argv);
+		n_i_mode(argv, e);
 	}
 	*/
 	return (0);

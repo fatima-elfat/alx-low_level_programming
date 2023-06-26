@@ -1,14 +1,14 @@
 #include "shell.h"
 
-int isbuiltin(char **token)
+int isbuiltin(char **token, l_u *e)
 {
 	if (token[0] == NULL)
 		return (-1);
 	if (!_strcmp(token[0], "exit"))
 		_bi_exit(token);
-	/*
 	else if (!_strcmp(token[0], "env"))
-		r = _bi_env();
+		_bi_env(e);
+	/*
 	else if (!_strcmp(token[0], "setenv"))
 		r = _bi_setenv(token[1], token[2]);
 	else if (!_strcmp(token[0], "unsetenv"))

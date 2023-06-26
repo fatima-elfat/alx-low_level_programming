@@ -22,3 +22,20 @@ int _bi_exit(char **tk)
 	_freetok(tk);
 	exit(i);
 }
+int _bi_env(l_u *e)
+{
+	while (e != NULL)
+	{
+		if (e->s1 != NULL)
+		{
+			_puts(e->s1);
+			_putchar('\n');
+		}
+		else
+		{
+			_putchar('\n');
+		}
+		e = e->next;
+	}
+	return(0;)
+}

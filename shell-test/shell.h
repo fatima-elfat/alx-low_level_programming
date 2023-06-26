@@ -33,7 +33,7 @@ typedef struct list_u
 
 /*-----------shell.c-----------*/
 void i_mode(l_u *e);
-
+/* void n_i_mode(char **argv, l_u *e);*/
 /*-----------utils01.c-----------*/
 void _handler_ctrlc(int n);
 void pnewline(char *command);
@@ -53,7 +53,6 @@ char *_strcat(char *dest, char *src);
 int _strcmp(char *s1, char *s2);
 
 /*-----------utils04.c-----------*/
-int _atoi(char *s);
 char *isinpath(char *s, l_u *e);
 l_u *add_node(l_u **head, char *s1, char *s2);
 
@@ -64,7 +63,7 @@ int _getsizetok(char *s, char d, int *t);
 void _freetok(char **tk);
 
 /*-----------command.c-----------*/
-int isbuiltin(char **token);
+int isbuiltin(char **token, l_u *e);
 int isexecute(char **tk, l_u *e);
 
 /*-----------environment.c-----------*/
@@ -74,6 +73,7 @@ char **_lenv(l_u *e);
 
 /*-----------builtin01.c-----------*/
 int _bi_exit(char **tk);
+int _bi_env(l_u *e);
 
 #endif
 
