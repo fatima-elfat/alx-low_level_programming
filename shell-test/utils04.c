@@ -14,7 +14,9 @@ char *isinpath(char *s, l_u *e)
 	}
 	else
 	{
-		pval = _getenvval(s, e);
+		printf("utils04.c: start\n");
+		pval = _getenvval("PATH", e);
+		printf("utils04.c: pval= %s\n", pval);
 		tk = _strtok(pval, ':');
 		free(pval);
 		while (tk[i])

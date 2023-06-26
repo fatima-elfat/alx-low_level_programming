@@ -11,13 +11,10 @@ void i_mode(l_u *e){
 		num_com++;
 		if (isatty(STDIN_FILENO))
 			write(STDOUT_FILENO, "($) ", 4);
-		printf("shell.h line \n");
 		signal(SIGINT, _handler_ctrlc);
-		fd = _getline(line, STDOUT_FILENO);
-		printf("shell.h command=%s\n", line);
+		fd = _getline(&line, STDOUT_FILENO);
 		if (fd == -1 || fd == 0)
 		{
-			printf("shell.c print new line \n");
 			pnewline(line);
 			break;
 		}
@@ -28,9 +25,12 @@ void i_mode(l_u *e){
 		}
 		line = dnewline(line);
 		tk = _strtok(line, ' ');
+		printf("shell.c: command: %s.\n", tk[0]);
 		r = isbuiltin(tk);
+		printf("shell.c: builtin  r = %i\n", r);
 		if (r == 1)
 			break;
 		r = isexecute(tk, e);
+		printf("shell.c: isexecute  r = %i\n", r);
 	}
 }

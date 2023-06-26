@@ -28,7 +28,9 @@ int isexecute(char **tk, l_u *e)
 	int st = 0;
 	pid_t child;
 
+	printf("command.c: before isinpath\n");
 	p = isinpath(tk[0], e);
+	printf("command.c: path = %s\n", p);
 	if (!access(p, X_OK))
 	{
 		child = fork();
