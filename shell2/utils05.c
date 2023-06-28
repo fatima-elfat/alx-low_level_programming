@@ -37,7 +37,7 @@ l_s *add_node_end(l_s **head, const char *s, int i)
 	if (head == NULL)
 		return (NULL);
 	n1 = malloc(sizeof(l_s));
-    n2 = *head;
+	n2 = *head;
 	if (n1 == NULL)
 		return (NULL);
 	_memset((void *)n1, 0, sizeof(l_s));

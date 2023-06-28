@@ -213,6 +213,4 @@ int _putechar(char c);
 void _putse(char *s);
 void _printe(l_ar *ar, char *s);
 int _atoie(char *s);
-
-
 #endif

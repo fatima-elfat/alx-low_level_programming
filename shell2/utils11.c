@@ -90,7 +90,7 @@ ssize_t _ins(l_ar *ar, char **s, size_t *len)
 		*s = NULL;
 		signal(SIGINT, _handlesig);
 #if CUSTOM_GETLINE
-        r = _getnextline(ar, s, &len_p);
+		r = _getnextline(ar, s, &len_p);
 #else
 		r = getline(s, &len_p, stdin);
 #endif
@@ -98,7 +98,7 @@ ssize_t _ins(l_ar *ar, char **s, size_t *len)
 		{
 			if ((*s)[r - 1] == '\n')
 			{
-				(*s)[r - 1] = '\0'; 
+				(*s)[r - 1] = '\0';
 				r--;
 			}
 			_delcom(*s);

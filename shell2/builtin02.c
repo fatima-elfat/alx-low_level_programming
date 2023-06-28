@@ -114,7 +114,7 @@ void _delcom(char *s)
 	int i;
 
 	for (i = 0; s[i] != '\0'; i++)
-		if ((i == 0|| s[i - 1] == ' ') && s[i] == '#')
+		if ((i == 0 || s[i - 1] == ' ') && s[i] == '#')
 		{
 			s[i] = '\0';
 			break;

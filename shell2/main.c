@@ -105,7 +105,7 @@ int main(int argc, char **argv)
 	int fd = 2;
 	l_ar ar[] = { ININIT };
 
-	asm ("mov %1, %0\n\tadd $3, %0": "=r" (fd): "r" (fd));
+	asm ("mov %1, %0\n\tadd $3, %0" : "=r" (fd) : "r" (fd));
 	if (argc == 2)
 	{
 		fd = open(argv[1], O_RDONLY);

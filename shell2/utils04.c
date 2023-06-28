@@ -21,8 +21,9 @@ char **strtows(char *s, char *a)
 	for (i = 0; s[i] != '\0'; i++)
 		if (!_indlm(s[i], d))
 		{
-			if(_indlm(s[i + 1], d) || !s[i + 1])
-				n++; }
+			if (_indlm(s[i + 1], d) || !s[i + 1])
+				n++;
+		}
 	if (n == 0)
 		return (NULL);
 	ps = malloc(sizeof(char *) * (1 + n));

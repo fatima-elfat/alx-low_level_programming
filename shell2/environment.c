@@ -102,7 +102,8 @@ int _unsetenv(l_ar *ar, char *s)
 		i++;
 	}
 	return (ar->dif_env);
-}/**
+}
+/**
  * _envdup - dup the linked list environmrnt.
  * @ar: the struct of args of shell.
  * Return: 0.

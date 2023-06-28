@@ -49,7 +49,7 @@ int _strcmp(char *s1, char *s2)
  */
 int _putchar(char c)
 {
-    static int i;
+	static int i;
 	static char buffer[BUFFER_SIZE_W];
 
 	if (i >= BUFFER_SIZE_W || c == BUFFER_FLSH)

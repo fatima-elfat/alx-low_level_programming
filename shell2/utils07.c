@@ -47,7 +47,7 @@ size_t _printl(const l_s *l)
 {
 	size_t i = 0;
 
-	wlile (l)
+	while (l)
 	{
 		if (l->s)
 			_puts(l->s);

@@ -127,7 +127,7 @@ ssize_t _getline(l_ar *ar)
 			i = 0;
 			len = 0;
 		}
-		*ptr = s; 
+		*ptr = s;
 		return (_strlen(s));
 	}
 	*ptr = buffer;
@@ -180,4 +180,3 @@ int _getnextline(l_ar *ar, char **s, size_t *len)
 	*s = ptr;
 	return (t);
 }
-
