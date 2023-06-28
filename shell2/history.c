@@ -35,7 +35,7 @@ int _rhist(l_ar *ar)
 	ssize_t fs = 0, fd, rdlen;
 	char *buffer = NULL, *fname;
 
-	fname = _gethistf(ar)
+	fname = _gethistf(ar);
 	if (!fname)
 		return (0);
 	fd = open(fname, O_RDONLY);

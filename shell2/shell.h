@@ -30,8 +30,9 @@
 #define NRM_C 0
 #define H_MAX 4096
 #define H_FILE ".hist_spl_shell"
-#define ININIT {NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL,\
-NULL, NULL, NULL, 0, 0, NULL, 0, 0, 0}
+#define ININIT \
+{NULL, 0, NULL, NULL, 0, 0, 0, NULL, NULL, 0, 0, NULL, 0, NULL, 0, \
+	NULL, 0, NULL}
 extern char **envr;
 
 /**
