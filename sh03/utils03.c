@@ -56,7 +56,7 @@ char *_strncpy(char *s1, char *s2, int n)
  */
 char *_strdup(const char *s)
 {
-	int i = 0, j;
+	int j = 0;
 	char *r;
 
 	if (s == NULL)
@@ -64,13 +64,10 @@ char *_strdup(const char *s)
 	while (*s++)
 		j++;
 	r = malloc(sizeof(char) * (j + 1));
-	if (r == NULL)
+	if (!r)
 		return (NULL);
-	while (i <= j)
-	{
-		r[i] = s[i];
-		i++;
-	}
+	for (j++; j--;)
+		r[j] = *--s;
 	return (r);
 }
 /**
