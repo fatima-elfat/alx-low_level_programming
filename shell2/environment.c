@@ -1,4 +1,4 @@
-#include "shell.l"
+#include "shell.h"
 /**
  * _getenv - gets the env value.
  * @ar: the struct of args of shell.
@@ -44,7 +44,7 @@ char **get_envr(l_ar *ar)
 int _setenv(l_ar *ar, char *s1, char *s2)
 {
 	char *p, *buffer = NULL;
-	list_t *l;
+	l_s *l;
 
 	if (!s1 || !s2)
 		return (0);
