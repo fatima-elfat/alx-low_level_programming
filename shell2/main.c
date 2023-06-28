@@ -16,7 +16,7 @@ int prompt(l_ar *ar, char **argv)
 		_clarg(ar);
 		if (_i_mode(ar))
 			_puts("$ ");
-		_eputchar(BUFFER_FLSH);
+		_putechar(BUFFER_FLSH);
 		n = _getline(ar);
 		if (n != -1)
 		{
@@ -113,11 +113,11 @@ int main(int argc, char **argv)
 		{
 			if (errno == ENOENT)
 			{
-				_eputs(argv[0]);
-				_eputs(": 0: Can't open ");
-				_eputs(arvv[1]);
-				_eputchar('\n');
-				_eputchar(BUFFER_FLSH);
+				_putse(argv[0]);
+				_putse(": 0: Can't open ");
+				_putse(argv[1]);
+				_putechar('\n');
+				_putechar(BUFFER_FLSH);
 				exit(E_VAL);
 			}
 			if (errno == EACCES)

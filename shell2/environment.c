@@ -1,4 +1,4 @@
-#include "slell.l"
+#include "shell.l"
 /**
  * _getenv - gets the env value.
  * @ar: the struct of args of shell.

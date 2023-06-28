@@ -55,7 +55,7 @@ char *_getinpath(l_ar *ar, char *p, char *s)
 	{
 		if (!p[i] || p[i] == ':')
 		{
-			path = dup_chars(p, pos, i);
+			path = duppath(p, pos, i);
 			if (!*path)
 				_strcat(path, s);
 			else
@@ -91,7 +91,7 @@ void _setarg(l_ar *ar, char **argv)
 		{
 			ar->argv = malloc(sizeof(char *) * 2);
 			if (ar->argv == NULL)
-				return (NULL);
+				return;
 			if (ar->argv)
 			{
 				ar->argv[0] = _strdup(ar->arg);

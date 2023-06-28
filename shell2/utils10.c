@@ -30,7 +30,7 @@ int _arplce(l_ar *ar)
 		if (l == NULL)
 			return (0);
 		free(ar->argv[0]);
-		ptr = _strchr(l->str, '=');
+		ptr = _strchr(l->s, '=');
 		if (ptr == NULL)
 			return (0);
 		ptr = _strdup(ptr + 1);
@@ -50,7 +50,7 @@ void _freearg(l_ar *ar, int n)
 	_strfree(ar->argv);
 	ar->argv = NULL;
 	ar->path = NULL;
-	if (all)
+	if (n)
 	{
 		if (ar->env)
 			freel(&(ar->env));
@@ -97,7 +97,7 @@ ssize_t _strr(l_ar *ar, char *s, size_t *i)
 
 	if (*i)
 		return (0);
-	r = read(ar->fd, buf, BUFFER_SIZE_R);
+	r = read(ar->fd, s, BUFFER_SIZE_R);
 	if (r >= 0)
 		*i = r;
 	return (r);

@@ -16,12 +16,12 @@ char **strtows(char *s, char *a)
 
 	if (s == NULL || s[0] == 0)
 		return (NULL);
-	if (!d)
-		d = " ";
+	if (!a)
+		a = " ";
 	for (i = 0; s[i] != '\0'; i++)
-		if (!_indlm(s[i], d))
+		if (!_indlm(s[i], a))
 		{
-			if (_indlm(s[i + 1], d) || !s[i + 1])
+			if (_indlm(s[i + 1], a) || !s[i + 1])
 				n++;
 		}
 	if (n == 0)
@@ -31,10 +31,10 @@ char **strtows(char *s, char *a)
 		return (NULL);
 	for (i = 0, j = 0; j < n; j++)
 	{
-		while (_indlm(s[i], d))
+		while (_indlm(s[i], a))
 			i++;
 		k = 0;
-		while (!_indlm(s[i + k], d) && s[i + k])
+		while (!_indlm(s[i + k], a) && s[i + k])
 			k++;
 		ps[j] = malloc(sizeof(char) * (k + 1));
 		if (ps[j] == NULL)
@@ -58,7 +58,7 @@ char **strtows(char *s, char *a)
  * @b: the string to find.
  * Return: pointer to next char or NULL.
  */
-char *_strbg(const char *a, const char *needle)
+char *_strbg(const char *a, const char *b)
 {
 	while (*b)
 		if (*b++ != *a++)

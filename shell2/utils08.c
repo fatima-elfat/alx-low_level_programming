@@ -114,7 +114,7 @@ int _cisch(l_ar *ar, char *s, size_t *n)
  * @i: the start posix in budder.
  * @len: the length ofsfer.
  */
-void _cch(l_ar *l, char *s, size_t *n, size_t i, size_t len)
+void _cch(l_ar *ar, char *s, size_t *n, size_t i, size_t len)
 {
 	size_t r;
 

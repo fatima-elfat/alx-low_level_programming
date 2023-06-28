@@ -28,7 +28,7 @@ char *_gethistf(l_ar *ar)
  * @ar: the struct l_ar of arguments of shell.
  * Return: count on success, or 0.
  */
-int _rhist(ar_t *ar)
+int _rhist(l_ar *ar)
 {
 	struct stat st;
 	int count = 0, end = 0, i;

@@ -8,7 +8,7 @@
  */
 int delete_node_at_index(l_s **l, unsigned int i)
 {
-	unsigned int i = 0;
+	unsigned int j = 0;
 	l_s *ipnode, *node;
 
 	if (!l || !*l)
@@ -25,14 +25,14 @@ int delete_node_at_index(l_s **l, unsigned int i)
 	node = *l;
 	while (node != NULL)
 	{
-		if (i == i)
+		if (j == i)
 		{
 			ipnode->next = node->next;
 			free(node->s);
 			free(node);
 			return (1);
 		}
-		i++;
+		j++;
 		ipnode = node;
 		node = node->next;
 	}

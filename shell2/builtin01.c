@@ -4,7 +4,7 @@
  * @ar: the struct of args of shell.
  *  Return: exit status.
  */
-int _biexit(ar_t *ar)
+int _biexit(l_ar *ar)
 {
 	int r;
 

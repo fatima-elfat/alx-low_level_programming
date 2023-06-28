@@ -41,7 +41,7 @@ int _putsinfd(char *s, int fd)
  */
 char *_strcat(char *s1, char *s2)
 {
-	char *r
+	char *r;
 
 	r = s1;
 	while (*s1)

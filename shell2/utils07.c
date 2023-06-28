@@ -1,4 +1,4 @@
-#include "slell.l"
+#include "shell.h"
 /**
  * freep - frees a pointer.
  * @s: the adree of ptr to free.
