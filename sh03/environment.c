@@ -75,7 +75,7 @@ int _setenv(l_ar *ar, char *s1, char *s2)
 /**
  * _unsetenv - removes a variable of environment.
  * @ar: the struct of args of shell.
- * @s1: the string of property.
+ * @s: the string of property.
  *  Return: ...
  */
 int _unsetenv(l_ar *ar, char *s)

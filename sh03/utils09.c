@@ -108,7 +108,7 @@ void _setarg(l_ar *ar, char **argv)
 /**
  * _seta - sets aliases.
  * @ar: parameter struct
- * @str: the string alias
+ * @s: the string alias
  * Return: ...
  */
 int _seta(l_ar *ar, char *s)

@@ -21,7 +21,7 @@ int _putechar(char c)
 	return (1);
 }
 /**
- *_eputs - puts the string of error.
+ *_putse - puts the string of error.
  * @s: the string.
  */
 void _putse(char *s)
