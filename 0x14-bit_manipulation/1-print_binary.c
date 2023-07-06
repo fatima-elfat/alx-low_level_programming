@@ -7,7 +7,7 @@
  */
 void print_binary(unsigned long int n)
 {
-	unsigned long int a;
+	unsigned long int a, b;
 
 	if (n == 0)
 	{
@@ -15,9 +15,10 @@ void print_binary(unsigned long int n)
 		return;
 	}
 	a = n;
+	b = 1 << 63;
 	while (a > 0)
 	{
-		if ((a & n) == 0)
+		if ((a & b) == 0)
 		{
 			_putchar('0');
 		}
