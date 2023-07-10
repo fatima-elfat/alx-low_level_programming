@@ -173,30 +173,27 @@ void printE(char *header)
 	int a, b;
 
 	printf("  %-35s0x", "Entry point address:");
-	if (header[5] == 1)
+	if (header[4] == 1 || header[4] == 0)
+		a = 27;
+	else
+		a = 31;
+	b = a;
+	if (header[5] != 2)
 	{
-		if (header[4] == 1)
-			a = 3;
-		else if (header[4] == 2)
-			a = 7;
-		while (header[a] == 0)
+		while (header[a] == 0 && a > 24)
 			a--;
 		printf("%x", header[a--]);
-		for (;a >= 0; a--)
-			printf("%02x", header[a]);
+		while (a >= 24)
+			printf("%02x", (unsigned char) header[a--]);
 	}
-	else if (header[5] == 2)
+	else
 	{
-		a = 0;
-		if (header[4] == 1)
-			b = 3;
-		else if (header[4] == 2)
-			b = 7;
+		a = 24;
 		while (header[a] == 0)
 			a++;
 		printf("%x", header[a++]);
-		for (;a <= b; a++)
-			printf("%02x", header[a]);
+		while (a <= b)
+			printf("%02x", (unsigned char) header[a++]);
 	}
 	printf("\n");
 	
