@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * printM - prints the value of magic, class
+ * printMCDV - prints the value of magic, class
  * and the value of data also version.
  * @header: information in the header.
 */
@@ -44,7 +44,7 @@ void printMCDV(char *header)
 		printf("\n");
 }
 /**
- * printO - prints the value of the OS/ABI.
+ * printOA - prints the value of the OS/ABI.
  * @header: information in the header.
 */
 void printOA(char *header)
