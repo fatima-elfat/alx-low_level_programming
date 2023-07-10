@@ -195,8 +195,7 @@ void printE(char *header)
 		while (a <= b)
 			printf("%02x", (unsigned char) header[a++]);
 	}
-	printf("\n");
-	
+	printf("\n");	
 }
 /**
  * main - entry function.
