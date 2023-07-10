@@ -166,9 +166,8 @@ void printT(char *header)
 }
 /**
  * printE - prints the value of the entry adress.
- * @header: information in the header.
 */
-void printE(char *header)
+void printE(void)
 {
 	printf("  %-35s0x", "Entry point address:\n");
 }
@@ -216,7 +215,7 @@ int main(int argc, char *argv[])
 	printO(header);
 	printA(header);
 	printT(header);
-	printE(header);
+	printE();
 	free(header);
 	close(elf_filename);
 	return (0);
