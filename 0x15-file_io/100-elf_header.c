@@ -1,14 +1,14 @@
 #include "main.h"
 /**
- * printM - prints the value of magic.
+ * printM - prints the value of magic, class 
+ * and the value of data also version.
  * @header: information in the header.
 */
-void printM(char *header)
+void printMCDV(char *header)
 {
 	int i;
 
 	printf("  Magic:   ");
-
 	for (i = 0; i < 16; i++)
 	{
 		printf("%02x", header[i]);
@@ -18,13 +18,6 @@ void printM(char *header)
 		else
 			printf("\n");
 	}
-}
-/**
- * printC - prints the value of class.
- * @header: information in the header.
-*/
-void printC(char *header)
-{
 	printf("  %-35s", "Class:");
 	if (header[4] == 0)
 		printf("none\n");
@@ -34,13 +27,6 @@ void printC(char *header)
 		printf("ELF64\n");
 	else
 		printf("<unknown: %02hx>", header[4]);
-}
-/**
- * printD - prints the value of the data.
- * @header: information in the header.
-*/
-void printD(char *header)
-{
 	printf("  %-35s", "Data:");
 	if (header[5] == 0)
 		printf("none\n");
@@ -50,23 +36,12 @@ void printD(char *header)
 		printf("2's complement, big endian\n");
 	else
 		printf("<unknown: %02hx>", header[5]);
-}
-/**
- * printV - prints the value of the version.
- * @header: information in the header.
-*/
-void printV(char *header)
-{
 	printf("  %-35s", "Version:");
 	printf("%d", header[6]);
 	if (header[6] == 1)
-	{
 		printf(" (current)\n");
-	}
 	else
-	{
 		printf("\n");
-	}
 }
 /**
  * printO - prints the value of the OS/ABI.
@@ -234,10 +209,7 @@ int main(int argc, char *argv[])
 		dprintf(STDERR_FILENO, "ERROR: File %s is not an ELF\n",
 				argv[1]), exit(98); }
 	printf("ELF Header:\n");
-	printM(header);
-	printC(header);
-	printD(header);
-	printV(header);
+	printMCDV(header);
 	printO(header);
 	printA(header);
 	printT(header);
