@@ -194,12 +194,12 @@ void printE(char *header)
 			b = 7;
 		while (header[a] == 0)
 			a++;
-		printf("%x", p[a++]);
+		printf("%x", header[a++]);
 		for (;a <= b; a++)
 			printf("%02x", header[a]);
 	}
 	printf("\n");
-	}
+	
 }
 /**
  * main - entry function.
