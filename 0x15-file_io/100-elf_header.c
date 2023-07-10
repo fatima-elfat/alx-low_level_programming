@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * printM - prints the value of magic, class 
+ * printM - prints the value of magic, class
  * and the value of data also version.
  * @header: information in the header.
 */
@@ -170,7 +170,7 @@ void printE(char *header)
 		while (a <= b)
 			printf("%02x", (unsigned char) header[a++]);
 	}
-	printf("\n");	
+	printf("\n");
 }
 /**
  * main - entry function.
