@@ -85,6 +85,9 @@ void printOA(char *header)
 	case 12:
 		printf("UNIX - OpenBSD\n");
 		break;
+	case 4:
+		printf("UNIX - GNU Hurd\n");
+		break;
 	default:
 		printf("<unknown: %02x>\n", header[7]);
 	}
