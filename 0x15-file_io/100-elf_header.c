@@ -166,10 +166,40 @@ void printT(char *header)
 }
 /**
  * printE - prints the value of the entry adress.
+ * @header: information in the header.
 */
-void printE(void)
+void printE(char *header)
 {
-	printf("  %-35s0x", "Entry point address:\n");
+	int a, b;
+
+	printf("  %-35s0x", "Entry point address:");
+	if (header[5] == 1)
+	{
+		if (header[4] == 1)
+			a = 3;
+		else if (header[4] == 2)
+			a = 7;
+		while (header[a] == 0)
+			a--;
+		printf("%x", header[a--]);
+		for (;a >= 0; a--)
+			printf("%02x", header[a]);
+	}
+	else if (header[5] == 2)
+	{
+		a = 0;
+		if (header[4] == 1)
+			b = 3;
+		else if (header[4] == 2)
+			b = 7;
+		while (header[a] == 0)
+			a++;
+		printf("%x", p[a++]);
+		for (;a <= b; a++)
+			printf("%02x", header[a]);
+	}
+	printf("\n");
+	}
 }
 /**
  * main - entry function.
@@ -215,7 +245,7 @@ int main(int argc, char *argv[])
 	printO(header);
 	printA(header);
 	printT(header);
-	printE();
+	printE(header);
 	free(header);
 	close(elf_filename);
 	return (0);
