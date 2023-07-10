@@ -47,7 +47,7 @@ void printMCDV(char *header)
  * printO - prints the value of the OS/ABI.
  * @header: information in the header.
 */
-void printO(char *header)
+void printOA(char *header)
 {
 	printf("  %-35s", "OS/ABI:");
 	switch (header[7])
@@ -88,13 +88,6 @@ void printO(char *header)
 	default:
 		printf("<unknown: %02x>\n", header[7]);
 	}
-}
-/**
- * printA - prints the value of the ABI.
- * @header: information in the header.
-*/
-void printA(char *header)
-{
 	printf("  %-35s%d\n", "ABI Version:", header[8]);
 }
 /**
@@ -210,8 +203,7 @@ int main(int argc, char *argv[])
 				argv[1]), exit(98); }
 	printf("ELF Header:\n");
 	printMCDV(header);
-	printO(header);
-	printA(header);
+	printOA(header);
 	printT(header);
 	printE(header);
 	free(header);
