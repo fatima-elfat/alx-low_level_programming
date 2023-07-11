@@ -1,4 +1,5 @@
 #include "main.h"
+#include <elf.h>
 /**
  * printMCDV - prints the value of magic, class
  * and the value of data also version.
@@ -38,7 +39,7 @@ void printMCDV(char *header)
 		printf("<unknown: %02hx>", header[5]);
 	printf("  %-35s", "Version:");
 	printf("%d", header[6]);
-	if (header[6] == 1)
+	if (header[6] == EV_CURRENT)
 		printf(" (current)\n");
 	else
 		printf("\n");
