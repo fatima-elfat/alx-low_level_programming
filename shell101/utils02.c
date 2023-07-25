@@ -15,7 +15,9 @@ char *_strdup(char *s)
 		return (NULL);
 	while (*s++)
 		j++;
-	/* valgrind error here*/
+	/**
+	 *  valgrind error here a should be freed later
+	 */
 	a = malloc((j + 1));
 	if (!a)
 		return (NULL);

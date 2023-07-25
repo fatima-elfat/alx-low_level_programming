@@ -8,7 +8,7 @@
 int initEnv(l_ar *ar)
 {
 	size_t i;
-	l_s *env_l = NULL;
+	l_s *env_l = NULL, *test1, *test2;
 
 	for (i = 0; environ[i]; i++)
 	{
@@ -16,10 +16,21 @@ int initEnv(l_ar *ar)
 		 * add_node_end used to keep the same position of the value.
 		 * this part creates a valgrind error.
 		 * tried to free the env_l created more problems.
+		 * the ar->env is freed in the freeAllArgShell.
 		 */
-		add_node_end(&env_l, environ[i]);
+		test1 = add_node_end(&env_l, environ[i]);
     }
 	ar->env = env_l;
+	if (!test1)
+		return;
+	while (test1)
+	{
+		test2 = test1;
+		test1 = test1->next;
+		free(test2->s);
+		free(test2);
+	}
+	*test1 = NULL;
 	return (0);
 }
 /**

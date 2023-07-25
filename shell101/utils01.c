@@ -62,11 +62,9 @@ l_s *add_node_end(l_s **head, char *s)
 		return (NULL);
 	n1 = (l_s *)_calloc(1, sizeof(l_s));
 	n2 = *head;
-	/**
-	 * n1->n = hist_i;
-	 */
 	if (s)
 	{
+		/** valgrind memory leak here*/
 		n1->s = _strdup(s);
 		if (!n1->s)
 		{
