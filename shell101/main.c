@@ -58,6 +58,7 @@ int prompt(l_ar *ar, char **av)
 		}
 		else if (a != 0)
 			_putchar('\n');
+		printf("here\n");
 		freeArgShell(ar);
 	}
 	freeAllArgShell(ar);
@@ -65,7 +66,7 @@ int prompt(l_ar *ar, char **av)
 		exit(ar->st);
 	if (r == -2)
 	{
-		printf("here");
+		printf("here\n");
 		printf("%i", ar->nerr);
 		if (ar->nerr != -1)
 		{
