@@ -79,7 +79,7 @@ int prompt(l_ar *ar, char **av)
  */
 int checkCom(l_ar *ar, char **av)
 {
-	int r = 0, i = 0, j;
+	int r = 0, i = 0;
 
 	ar->filename = av[0];
 	if (ar->arg)
