@@ -30,7 +30,7 @@ int initEnv(l_ar *ar)
 		free(test2->s);
 		free(test2);
 	}
-	*test1 = NULL;
+	test1 = NULL;
 	return (0);
 }
 /**
