@@ -5,14 +5,13 @@
  */
 void freeList(l_s **head)
 {
-	l_s *l1, *l2, *l3;
+	l_s *l1, *l2;
 
 	if (head == NULL)
 		return;
 	if (*head == NULL)
 		return;
-	l3 = *head;
-	l1 = l3;
+	l1 = *head;
 	while (l1 != NULL)
 	{
 		l2 = l1;
@@ -21,7 +20,6 @@ void freeList(l_s **head)
 		 * invalid free() when using valgrind here??
 		 * free(l2->s);
 		 */
-		free(l2->s);
 		free(l2);
 	}
 	*head = NULL;
