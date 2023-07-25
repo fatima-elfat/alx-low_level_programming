@@ -31,8 +31,8 @@ void isInPath(l_ar *ar)
 		_fork(ar); }
 	else
 	{
-		if ((((ar->file_in <= 2) && (isatty(STDIN_FILENO)))
-		|| getEnvv(ar, "PATH=") || ar->argv[0][0] == '/'))
+		if ((ar->file_in <= 2 && isatty(STDIN_FILENO))
+		|| getEnvv(ar, "PATH=") || ar->argv[0][0] == '/')
 			if (!ar->argv[0] || stat(ar->argv[0], &st))
 				;
 			else
