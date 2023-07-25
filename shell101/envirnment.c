@@ -13,11 +13,14 @@ int initEnv(l_ar *ar)
 	for (i = 0; environ[i]; i++)
 	{
 		/**
-		* add_node_end used to keep the same position of the value.
-		*/
+		 * add_node_end used to keep the same position of the value.
+		 * this part creates a valgrind error.
+		 * tried to free the env_l.
+		 */
 		add_node_end(&env_l, environ[i]);
     }
 	ar->env = env_l;
+	free(env_l);
 	return (0);
 }
 /**
