@@ -13,7 +13,8 @@ int biExit(l_ar *ar)
 		r = _atoi(ar->argv[1]);
 		if (r != -1)
 		{
-			ar->nerr = _atoi(ar->argv[1]);
+			/** the number of the exist value is saved*/
+			ar->nerr = r;
 			return (-2);
 		}
 		ar->st = 2;
@@ -27,6 +28,7 @@ int biExit(l_ar *ar)
 		_putchar('\n');
 		return (1);
 	}
+	/** if no exit value is given*/
 	ar->nerr = -1;
 	return (-2);
 }

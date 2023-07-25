@@ -62,17 +62,21 @@ l_s *add_node_end(l_s **head, char *s)
 		return (NULL);
 	n1 = (l_s *)_calloc(1, sizeof(l_s));
 	n2 = *head;
-	if (s)
+	if (s != NULL)
 	{
-		/** valgrind memory leak here*/
+		/** 
+		 * valgrind memory leak here
+		 * when i free the ar->env once 
+		 * i can't initiliaze it again*/
 		n1->s = _strdup(s);
+		/* problem flaged above*/
 		if (!n1->s)
 		{
 			free(n1);
 			return (NULL);
 		}
 	}
-	if (n2)
+	if (n2 != NULL)
 	{
 		while (n2->next)
 			n2 = n2->next;

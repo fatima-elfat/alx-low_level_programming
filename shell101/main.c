@@ -66,7 +66,10 @@ int prompt(l_ar *ar, char **av)
 	if (r == -2)
 	{
 		if (ar->nerr != -1)
+		{
+			puts(ar->nerr);
 			exit(ar->nerr);
+		}
 		exit(ar->st);
 	}
 	return (r);
