@@ -9,18 +9,19 @@
 char *_strdup(char *s)
 {
 	int j = 0;
-	char *r;
+	char *a;
 
 	if (s == NULL)
 		return (NULL);
 	while (*s++)
 		j++;
-	r = malloc(sizeof(char) * (j + 1));
-	if (!r)
+	/* valgrind error here*/
+	a = malloc((j + 1));
+	if (!a)
 		return (NULL);
 	for (j++; j--;)
-		r[j] = *--s;
-	return (r);
+		a[j] = *--s;
+	return (a);
 }
 /**
  * _printd - prints a decimal.
