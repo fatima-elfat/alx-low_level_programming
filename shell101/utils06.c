@@ -14,10 +14,10 @@ void freeList(l_s **head)
 	l1 = *head;
 	while (l1 != NULL)
 	{
-		l2 = l1->next;
-		free(l1->s);
-		free(l1);
-		l1 = l2;
+		l2 = l1;
+		l1 = l1->next;
+		free(l2->s);
+		free(l2);
 	}
 	*head = NULL;
 }
