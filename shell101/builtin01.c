@@ -17,7 +17,7 @@ int biExit(l_ar *ar)
 			return (-2);
 		}
 		ar->st = 2;
-		_puts(ar->fname);
+		_puts(ar->filename);
 		_puts(": ");
 		_printd(STDERR_FILENO, ar->iline);
 		_puts(": ");

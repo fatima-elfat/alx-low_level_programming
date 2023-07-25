@@ -31,9 +31,11 @@ void isInPath(l_ar *ar)
 		_fork(ar); }
 	else
 	{
-		if ((((ar->fd <= 2) && (isatty(STDIN_FILENO)))
+		if ((((ar->file_in <= 2) && (isatty(STDIN_FILENO)))
 		|| getEnvv(ar, "PATH=") || ar->argv[0][0] == '/'))
-			if (!((!ar->argv[0]) || (stat(ar->argv[0], &st))))
+			if (((!ar->argv[0]) || (stat(ar->argv[0], &st))))
+				;
+			else
 				if (st.st_mode & S_IFREG)
 					_fork(ar);
 		else if (*(ar->arg) != '\n')
@@ -100,7 +102,8 @@ void _fork(l_ar *ar)
 ssize_t readLine(l_ar *ar)
 {
 	static size_t i, j, len;
-	ssize_t r = 0, lenl = 0;
+	size_t lenl;
+	ssize_t r = 0;
 	char **ptr = &(ar->arg);
 	static char *buffer;
 
@@ -137,11 +140,10 @@ ssize_t readLine(l_ar *ar)
  * @len: length.
  * Return: ...
  */
-int _getline(l_ar *ar, char **s, size_t *len)
+int _getline(__attribute__((unused))l_ar *ar, char **s, size_t *len)
 {
 	ssize_t r = 0;
 
-	(void *) ar;
 #if CUSTOM_GETLINE
 	r = getlineCus(ar, s, len);
 #else
