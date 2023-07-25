@@ -37,31 +37,34 @@ int inDlm(char c, char *ds)
  * @s: the string input.
  * Return: 1 if replaced, 0 otherwise
  */
-int changeVal(l_ar *ar, char *s)
+int changeVal(l_ar *ar)
 {
-	int r = 1;
+	int i = 1;
 	l_s *l;
 
-	if (s[0] != '$' || !s[1])
-		r = 0;
-	if (!_strcmp(s, "$$"))
+	for (i = 0; ar->argv[i]; i++)
 	{
-		changeStr(&(s), _strdup(_itoa(getpid(), 10, 0)));
-		r = 0;
+		if (ar->argv[i][0] != '$' || !ar->argv[i][1])
+			continue;
+		if (!_strcmp(ar->argv[i], "$$"))
+		{
+			changeStr(&(ar->argv[i]), _strdup(_itoa(getpid(), 10, 0)));
+			continue;
+		}
+		if (!_strcmp(ar->argv[i], "$?"))
+		{
+			changeStr(&(ar->argv[i]), _strdup(_itoa(ar->st, 10, 0)));
+			continue;
+		}
+		l = getNodeOf(ar->env, &ar->argv[i][1], '=');
+		if (l)
+		{
+			changeStr(&(ar->argv[i]), _strdup(getAddressStr(l->s, '=') + 1));
+			continue;
+		}
+		changeStr(&ar->argv[i], _strdup(""));
 	}
-	if (!_strcmp(s, "$?"))
-	{
-		changeStr(&(s), _strdup(_itoa(ar->st, 10, 0)));
-		r = 0;
-	}
-	l = getNodeOf(ar->env, &s[1], '=');
-	if (l)
-	{
-		changeStr(&(s), _strdup(getAddressStr(l->s, '=') + 1));
-		r = 0;
-	}
-	changeStr(&s, _strdup(""));
-	return (r);
+	return (0);
 }
 /**
  * changeStr - changes the value of a string with another.

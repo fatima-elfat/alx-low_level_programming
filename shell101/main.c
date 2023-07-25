@@ -99,12 +99,7 @@ int checkCom(l_ar *ar, char **av)
 		for (i = 0; ar->argv && ar->argv[i]; i++)
 			;
 		ar->argc = i;
-		for (j = 0; ar->argv[j]; j++)
-		{
-			k = changeVal(ar, ar->argv[j]);
-			if (k == 0)
-				continue;
-		}
+		changeVal(ar);
 	}
 	r = isBuiltin(ar);
 	if (r == -1)

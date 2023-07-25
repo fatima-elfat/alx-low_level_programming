@@ -98,7 +98,7 @@ char **_strtok(char *s, char *sd);
 /* utils03.c*/
 int getLenTok(char *s, char *sd);
 int inDlm(char c, char *ds);
-int changeVal(l_ar *ar, char *s);
+int changeVal(l_ar *ar);
 int changeStr(char **s1, char *s2);
 char *_itoa(long int n, int b, int f);
 
