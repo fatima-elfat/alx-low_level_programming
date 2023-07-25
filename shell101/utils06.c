@@ -5,17 +5,19 @@
  */
 void freeList(l_s **head)
 {
-	l_s *l, *nl;
+	l_s *l1, *l2;
 
-	if (!head || !*head)
+	if (head == NULL)
 		return;
-	l = *head;
-	while (l)
+	if (*head == NULL)
+		return;
+	l1 = *head;
+	while (l1 != NULL)
 	{
-		nl = l->next;
-		free(l->s);
-		free(l);
-		l = nl;
+		l2 = l1->next;
+		free(l1->s);
+		free(l1);
+		l1 = l2;
 	}
 	*head = NULL;
 }

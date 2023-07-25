@@ -118,5 +118,6 @@ void freeAllArgShell(l_ar *ar)
 	ar->bcmd = NULL;
 	if (ar->file_in > 2)
 		close(ar->file_in);
+	ar->file_in = NULL;
 	_putchar(-1);
 }
