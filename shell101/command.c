@@ -86,7 +86,9 @@ void _fork(l_ar *ar)
 			if (errno == EACCES)
 				exit((EXIT_VALUE - 1));
 			exit(1);
-		}}}
+		}
+	}
+}
 /**
  * readLine - gets the line without \n.
  * @ar: the struct of arg of the shell.

@@ -7,16 +7,16 @@
  */
 int getLenTok(char *s, char sd)
 {
-    int a, b, c, l = 0;
+	int a, b, c, l = 0;
 
-    for (a = 0; s[a] != '\0'; a++)
+	for (a = 0; s[a] != '\0'; a++)
 	{
 		b = inDlm(s[a], sd);
 		c = inDlm(s[a + 1], sd);
 		if (!b && (!s[a + 1] || !c))
 			l++;
 	}
-    return (l);
+	return (l);
 }
 /**
  * inDlm - checks if delimiter.
@@ -42,16 +42,15 @@ int changeVal(char *s)
 	l_s *l;
 
 	if (s[0] != '$' || !s[1])
-        r = 0;
-
+		r = 0;
 	if (!_strcmp(s, "$$"))
 	{
 		changeStr(&(s), _strdup(_itoa(getpid(), 10, 0)));
 		r = 0;
 	}
-    if (!_strcmp(s, "$?"))
+	if (!_strcmp(s, "$?"))
 	{
-        changeStr(&(s), _strdup(_itoa(ar->st, 10, 0)));
+		changeStr(&(s), _strdup(_itoa(ar->st, 10, 0)));
 		r = 0;
 	}
 	l = getNodeOf(ar->env, &s[1], '=');
@@ -61,7 +60,6 @@ int changeVal(char *s)
 		r = 0;
 	}
 	changeStr(&s, _strdup(""));
-
 	return (r);
 }
 /**

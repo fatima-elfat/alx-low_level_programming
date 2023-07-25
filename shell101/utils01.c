@@ -44,12 +44,9 @@ void _puts(char *s)
 {
 	if (*s == '\0')
 		return;
-	else
-	{
-		_putchar(*s);
-		s++;
-		_puts(s);
-	}
+	_putchar(*s);
+	s++;
+	_puts(s);
 }
 /**
  * add_node_end - adds a node at the end of list.
@@ -63,7 +60,7 @@ l_s *add_node_end(l_s **head, char *s)
 
 	if (head == NULL)
 		return (NULL);
-	n1 = (l_s*)_calloc(1, sizeof(l_s));
+	n1 = (l_s *)_calloc(1, sizeof(l_s));
 	n2 = *head;
 	/**
 	 * n1->n = hist_i;

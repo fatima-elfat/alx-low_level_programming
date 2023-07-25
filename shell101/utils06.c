@@ -54,27 +54,27 @@ void deleteCom(char *s)
 */
 ssize_t treat(l_ar *ar, char *buffer, size_t i, size_t j, size_t len)
 {
-    char *s;
+	char *s;
 
-    if (len)
+	if (len)
 	{
-        s = buffer + i;
-        if (ar->tcmd == 2)
-        {
-            if (!ar->st)
-            {
-                buffer[i] = 0;
-                j = len;
-            }
-        }
-        if (ar->tcmd == 1)
-        {
-            if (ar->st)
-            {
-                buffer[i] = 0;
-                j = len;
-            }
-        }
+		s = buffer + i;
+		if (ar->tcmd == 2)
+		{
+			if (!ar->st)
+			{
+				buffer[i] = 0;
+				j = len;
+			}
+		}
+		if (ar->tcmd == 1)
+		{
+			if (ar->st)
+			{
+				buffer[i] = 0;
+				j = len;
+			}
+		}
 		while (j < len)
 		{
 			if (delimiterExesit(ar, buffer, &j))
@@ -92,7 +92,7 @@ ssize_t treat(l_ar *ar, char *buffer, size_t i, size_t j, size_t len)
 		*ptr = s;
 		return (_strlen(s));
 	}
-    return (NULL);
+	return (NULL);
 }
 /**
  * delimiterExesit - returns if exists delimiter or not.
@@ -112,13 +112,13 @@ int delimiterExesit(l_ar *ar, char *s, size_t *n)
 		s[r] = 0;
 		r++;
 	}
-    else if (s[r] == '|' && s[r + 1] == '|')
+	else if (s[r] == '|' && s[r + 1] == '|')
 	{
 		ar->tcmd = 2;
 		s[r] = 0;
 		r++;
 	}
-    else if (s[r] == ';')
+	else if (s[r] == ';')
 	{
 		ar->tcmd = 3;
 		s[r] = 0;

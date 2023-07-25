@@ -5,8 +5,7 @@
  * the list of shell args.
  * @ar: the list of shell envirnment.
  * @av: the list of arguments in main.
- *  
-*/
+ */
 void fileCom(l_ar *ar, char **av)
 {
 	int file_in;
@@ -40,7 +39,7 @@ int prompt(l_ar *ar, char **av)
 	int r = 0, a;
 	ssize_t n = 0;
 
-	a =((ar->file_in <= 2) && (isatty(STDIN_FILENO)));
+	a = ((ar->file_in <= 2) && (isatty(STDIN_FILENO)));
 	while (r != -2 && n != -1)
 	{
 		ar->arg = NULL;
@@ -96,15 +95,15 @@ int checkCom(l_ar *ar, char **av)
 		}
 		for (i = 0; ar->argv && ar->argv[i]; i++)
 			;
-	ar->filename = argv[0];
-	ar->argc = i;
+		ar->filename = argv[0];
+		ar->argc = i;
+	}
 	for (j = 0; ar->argv[j]; j++)
 	{
 		k = changeVal(ar->argv[j]);
 		if (k == 0)
 			continue;
 	}
-	/*_arplce(ar);*/
 	r = isBuiltin(ar);
 	if (r == -1)
 		isInPath(ar);
@@ -138,7 +137,7 @@ int isBuiltin(l_ar *ar)
 int main(int argc, char **argv, char **env)
 {
 	int file_in;
-	l_ar ar[] = { 
+	l_ar ar[] = {
 		{
 			NULL, 0, NULL, 0,
 			NULL, 0, 0, 0, NULL,
