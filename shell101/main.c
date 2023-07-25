@@ -81,6 +81,7 @@ int checkCom(l_ar *ar, char **av)
 {
 	int r = 0, i = 0, j, k;
 
+
 	if (ar->arg)
 	{
 		ar->argv = _strtok(ar->arg, " \t");
@@ -99,12 +100,12 @@ int checkCom(l_ar *ar, char **av)
 			;
 		ar->filename = av[0];
 		ar->argc = i;
-	}
-	for (j = 0; ar->argv[j]; j++)
-	{
-		k = changeVal(ar, ar->argv[j]);
-		if (k == 0)
-			continue;
+		for (j = 0; ar->argv[j]; j++)
+		{
+			k = changeVal(ar, ar->argv[j]);
+			if (k == 0)
+				continue;
+		}
 	}
 	r = isBuiltin(ar);
 	if (r == -1)
