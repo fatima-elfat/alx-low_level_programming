@@ -67,7 +67,7 @@ int prompt(l_ar *ar, char **av)
 	{
 		if (ar->nerr != -1)
 		{
-			puts(ar->nerr);
+			puts(ar->nerr + 0);
 			exit(ar->nerr);
 		}
 		exit(ar->st);
