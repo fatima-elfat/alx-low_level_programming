@@ -11,7 +11,7 @@ l_s *getNodeOf(l_s *l, char *s, char c)
 {
 	char *a = NULL;
 
-	while (l != NULL || *s != NULL)
+	while (l != NULL)
 	{
 		while (*s)
 		{
