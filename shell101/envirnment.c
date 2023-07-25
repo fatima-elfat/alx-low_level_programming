@@ -17,20 +17,11 @@ int initEnv(l_ar *ar)
 		 * this part creates a valgrind error.
 		 * tried to free the env_l created more problems.
 		 * the ar->env is freed in the freeAllArgShell.
+		 * but there is ann issue it doesn't free correctly.
 		 */
-		test1 = add_node_end(&env_l, environ[i]);
+		add_node_end(&env_l, environ[i]);
     }
 	ar->env = env_l;
-	if (!test1)
-		return -1;
-	while (test1)
-	{
-		test2 = test1;
-		test1 = test1->next;
-		free(test2->s);
-		free(test2);
-	}
-	test1 = NULL;
 	return (0);
 }
 /**
