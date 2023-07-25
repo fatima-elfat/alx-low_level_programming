@@ -146,7 +146,7 @@ char **_strtok(char *s, char *sd)
 			free(r);
 			return (NULL);
 		}
-		for (d = 0; d < k; d++)
+		for (d = 0; d < c; d++)
 			r[b][d] = s[a++];
 		r[b][d] = 0;
 	}

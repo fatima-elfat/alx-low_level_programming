@@ -55,7 +55,7 @@ char *getInPath(l_ar *ar, char *ps, char *s)
 	char *path, *p;
 	struct stat st;
 
-	p =  getEnvv(ar, "PATH=");
+	p =  getEnvv(ar, ps);
 	if (!p)
 		return (NULL);
 	if ((_strlen(s) > 2) && _strbg(s, "./"))

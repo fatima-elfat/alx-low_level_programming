@@ -5,8 +5,9 @@
  * the list of shell args.
  * @ar: the list of shell envirnment.
  * @av: the list of arguments in main.
+ * Return: ...
  */
-void fileCom(l_ar *ar, char **av)
+int fileCom(l_ar *ar, char **av)
 {
 	int file_in;
 
@@ -27,6 +28,7 @@ void fileCom(l_ar *ar, char **av)
 		return (1);
 	}
 	ar->file_in = file_in;
+	return (0);
 }
 /**
  * prompt - prompts shell.
@@ -95,12 +97,12 @@ int checkCom(l_ar *ar, char **av)
 		}
 		for (i = 0; ar->argv && ar->argv[i]; i++)
 			;
-		ar->filename = argv[0];
+		ar->filename = av[0];
 		ar->argc = i;
 	}
 	for (j = 0; ar->argv[j]; j++)
 	{
-		k = changeVal(ar->argv[j]);
+		k = changeVal(ar, ar->argv[j]);
 		if (k == 0)
 			continue;
 	}
@@ -131,12 +133,11 @@ int isBuiltin(l_ar *ar)
  * main - main entry function.
  * @argc: the number of arguments.
  * @argv: the list of arguments.
- * @env: the variable ennvironment.
  * Return: 0 on success.
  */
-int main(int argc, char **argv, char **env)
+int main(int argc, char **argv)
 {
-	int file_in;
+	int file_in, r;
 	l_ar ar[] = {
 		{
 			NULL, 0, NULL, 0,
@@ -148,7 +149,9 @@ int main(int argc, char **argv, char **env)
 	asm ("mov %1, %0\n\tadd $3, %0" : "=r" (file_in) : "r" (file_in));
 	if (argc == 2)
 	{
-		fileCom(ar, argv);
+		r = fileCom(ar, argv);
+		if (r != 0)
+			return (r);
 	}
 	initEnv(ar);
 	prompt(ar, argv);

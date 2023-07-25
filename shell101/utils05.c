@@ -55,34 +55,24 @@ char **getArray(l_s *head)
 	return (t);
 }
 /**
- * _strncpy - copies a n byte from a string.
- * @s1: the input string.
- * @s2: the input string to copy from.
- * @n: number of bytes to copy.
- * Return: the copied string.
+ * _strcpy - copy the string.
+ * @s1: the destination of the string.
+ * @s2: the source of the string.
+ * Return: the copieed string.
  */
-char *_strncpy(char *s1, char *s2, int n)
+char *_strcpy(char *s1, char *s2)
 {
-	int i, j;
-	char *s;
+	int i = 0;
 
-	i = 0;
-	s = s1;
-	while (s2[i] != '\0' && i < n - 1)
+	if (s1 == s2 || s2 == 0)
+		return (s1);
+	while (s2[i])
 	{
 		s1[i] = s2[i];
 		i++;
 	}
-	if (i < n)
-	{
-		j = i;
-		while (j < n)
-		{
-			s1[j] = '\0';
-			j++;
-		}
-	}
-	return (s);
+	s1[i] = '\0';
+	return (s1);
 }
 /**
  * freeArgShell - frees argv and path fields in shell args.
@@ -109,7 +99,7 @@ void freeAllArgShell(l_ar *ar)
 {
 	char **s = ar->envr, **c = ar->bcmd;
 
-	freeArgShell(l_ar *ar);
+	freeArgShell(ar);
 	if (ar->env)
 		freeList(&(ar->env));
 	if (ar->envr)
@@ -129,5 +119,4 @@ void freeAllArgShell(l_ar *ar)
 	if (ar->file_in > 2)
 		close(ar->file_in);
 	_putchar(-1);
-	}
 }

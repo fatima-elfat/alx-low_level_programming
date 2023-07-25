@@ -6,7 +6,7 @@
 void isInPath(l_ar *ar)
 {
 	int i, j;
-	char *path = NULL;
+	char *path = NULL, *s = " \t\n";
 	struct stat st;
 
 	ar->path = ar->argv[0];
@@ -15,8 +15,13 @@ void isInPath(l_ar *ar)
 		ar->iline++;
 		ar->iflag = 0; }
 	for (i = 0, j = 0; ar->arg[i]; i++)
-		if (!changeStr(ar->arg[i], " \t\n"))
-			j++;
+	{
+		while (*s)
+		{
+			if (*s++ == ar->arg[i])
+				continue;
+			j++; }
+	}
 	if (!j)
 		return;
 	path = getInPath(ar, "PATH=", ar->argv[0]);
@@ -26,23 +31,21 @@ void isInPath(l_ar *ar)
 		_fork(ar); }
 	else
 	{
-		if ((_i_mode(ar) || getEnvv(ar, "PATH=") || ar->argv[0][0] == '/'))
-			if (!(!ar->argv[0] || stat(ar->argv[0], &st)))
+		if ((((ar->fd <= 2) && (isatty(STDIN_FILENO)))
+		|| getEnvv(ar, "PATH=") || ar->argv[0][0] == '/'))
+			if (!((!ar->argv[0]) || (stat(ar->argv[0], &st))))
 				if (st.st_mode & S_IFREG)
 					_fork(ar);
 		else if (*(ar->arg) != '\n')
 		{
 			ar->st = EXIT_VALUE;
-			_puts(ar->fname);
+			_puts(ar->filename);
 			_puts(": ");
 			_printd(STDERR_FILENO, ar->iline);
 			_puts(": ");
 			_puts(ar->argv[0]);
-			_puts(": not found\n");
-		}
-	}
+			_puts(": not found\n"); }}
 }
-
 /**
  * _fork - forks to run command
  * @ar: the struct of arg of the shell.
@@ -98,7 +101,7 @@ ssize_t readLine(l_ar *ar)
 {
 	static size_t i, j, len;
 	ssize_t r = 0, lenl = 0;
-	char **ptr = &(ar->arg), *s;
+	char **ptr = &(ar->arg);
 	static char *buffer;
 
 	j = i;
@@ -123,7 +126,7 @@ ssize_t readLine(l_ar *ar)
 	if (r == -1)
 		return (-1);
 	if (len)
-		return (treat(ar, buffer, i, j, len));
+		return (treat(ar, buffer, ptr, i, j, len));
 	*ptr = buffer;
 	return (r);
 }
@@ -136,6 +139,9 @@ ssize_t readLine(l_ar *ar)
  */
 int _getline(l_ar *ar, char **s, size_t *len)
 {
+	ssize_t r = 0;
+
+	(void *) ar;
 #if CUSTOM_GETLINE
 	r = getlineCus(ar, s, len);
 #else

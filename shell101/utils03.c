@@ -5,7 +5,7 @@
  * @sd: the string delimeter.
  * Return: length.
  */
-int getLenTok(char *s, char sd)
+int getLenTok(char *s, char *sd)
 {
 	int a, b, c, l = 0;
 
@@ -33,12 +33,13 @@ int inDlm(char c, char *ds)
 }
 /**
  * changeVal - changes value of special variables.
+ * @ar: ...
  * @s: the string input.
  * Return: 1 if replaced, 0 otherwise
  */
-int changeVal(char *s)
+int changeVal(l_ar *ar, char *s)
 {
-	int i = 0, r = 1;
+	int r = 1;
 	l_s *l;
 
 	if (s[0] != '$' || !s[1])
@@ -93,7 +94,7 @@ char *_itoa(long int n, int b, int f)
 		sign = '-';
 
 	}
-	if (!(f & C_LC))
+	if (!(f & 1))
 		t = "0123456789ABCDEF";
 	else
 		t = "0123456789abcdef";

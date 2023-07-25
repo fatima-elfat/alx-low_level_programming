@@ -11,6 +11,9 @@ int getlineCus(l_ar *ar, char **s, size_t *len)
 {
 	ssize_t t = 0;
 
+	(void *) ar;
+	(void **) s;
+	(void *) len;
 	return (t);
 }
 /**

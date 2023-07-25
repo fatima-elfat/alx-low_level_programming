@@ -52,47 +52,43 @@ void deleteCom(char *s)
  * @j: ...
  * @len: ...
 */
-ssize_t treat(l_ar *ar, char *buffer, size_t i, size_t j, size_t len)
+ssize_t treat(l_ar *ar, char *buffer, char **ptr, size_t i, size_t j, size_t len)
 {
 	char *s;
 
-	if (len)
+	s = buffer + i;
+	if (ar->tcmd == 2)
 	{
-		s = buffer + i;
-		if (ar->tcmd == 2)
+		if (!ar->st)
 		{
-			if (!ar->st)
-			{
-				buffer[i] = 0;
-				j = len;
-			}
+			buffer[i] = 0;
+			j = len;
 		}
-		if (ar->tcmd == 1)
-		{
-			if (ar->st)
-			{
-				buffer[i] = 0;
-				j = len;
-			}
-		}
-		while (j < len)
-		{
-			if (delimiterExesit(ar, buffer, &j))
-				break;
-			j++;
-		}
-		j++;
-		i = j;
-		if (i >= len)
-		{
-			ar->tcmd = 0;
-			i = 0;
-			len = 0;
-		}
-		*ptr = s;
-		return (_strlen(s));
 	}
-	return (NULL);
+	if (ar->tcmd == 1)
+	{
+		if (ar->st)
+		{
+			buffer[i] = 0;
+			j = len;
+		}
+	}
+	while (j < len)
+	{
+		if (delimiterExesit(ar, buffer, &j))
+			break;
+		j++;
+	}
+	j++;
+	i = j;
+	if (i >= len)
+	{
+		ar->tcmd = 0;
+		i = 0;
+		len = 0;
+	}
+	*ptr = s;
+	return (_strlen(s));
 }
 /**
  * delimiterExesit - returns if exists delimiter or not.

@@ -76,9 +76,10 @@ char **bcmd;
 } l_ar;
 
 /* main.c*/
-void fileCom(l_ar *ar, char **av);
+int fileCom(l_ar *ar, char **av);
 int prompt(l_ar *ar, char **av);
 int isBuiltin(l_ar *ar);
+int checkCom(l_ar *ar, char **av);
 
 /* utils01.c*/
 int _strlen(char *s);
@@ -95,9 +96,9 @@ int _strcmp(char *s1, char *s2);
 char **_strtok(char *s, char *sd);
 
 /* utils03.c*/
-int getLenTok(char *s, char sd);
+int getLenTok(char *s, char *sd);
 int inDlm(char c, char *ds);
-int changeVal(char *s);
+int changeVal(l_ar *ar, char *s);
 int changeStr(char **s1, char *s2);
 char *_itoa(long int n, int b, int f);
 
@@ -111,7 +112,7 @@ char *pathDup(char *s, int a, int b);
 /* utils05.c*/
 char *_strcat(char *s1, char *s2);
 char **getArray(l_s *head);
-char *_strncpy(char *s1, char *s2, int n);
+char *_strcpy(char *s1, char *s2);
 void freeArgShell(l_ar *ar);
 void freeAllArgShell(l_ar *ar);
 
@@ -119,7 +120,8 @@ void freeAllArgShell(l_ar *ar);
 void freeList(l_s **head);
 void handleSignal(__attribute__((unused))int n);
 void deleteCom(char *s);
-ssize_t treat(l_ar *ar, char *buffer, size_t i, size_t j, size_t len);
+ssize_t treat(l_ar *ar, char *buffer, char **ptr,
+size_t i, size_t j, size_t len);
 int delimiterExesit(l_ar *ar, char *s, size_t *n);
 
 /* utils07.c*/
@@ -136,4 +138,6 @@ void _fork(l_ar *ar);
 ssize_t readLine(l_ar *ar);
 int _getline(l_ar *ar, char **s, size_t *len);
 
+/* builtin01.c*/
+int biExit(l_ar *ar);
 #endif
