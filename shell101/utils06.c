@@ -16,6 +16,7 @@ void freeList(l_s **head)
 	{
 		l2 = l1;
 		free(l1->s);
+		free(l2->s);
 		l1 = l1->next;
 		/**
 		 * invalid free() when using valgrind here??
