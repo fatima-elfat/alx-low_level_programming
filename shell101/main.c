@@ -88,7 +88,7 @@ int checkCom(l_ar *ar, char **av)
 		{
 			ar->argv = malloc(sizeof(char *) * 2);
 			if (ar->argv == NULL)
-				return;
+				continue;
 			if (ar->argv)
 			{
 				ar->argv[0] = _strdup(ar->arg);
