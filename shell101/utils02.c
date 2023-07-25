@@ -6,20 +6,20 @@
  * @s: input string.
  * Return: pointer to duplicated string.
  */
-char *_strdup(char *s)
+char *_strdup(const char *s)
 {
+	int j = 0;
 	char *r;
-	int i, l;
 
 	if (s == NULL)
 		return (NULL);
-	l = _strlen(s);
-	r = malloc(l * sizeof(char) + 1);
-	if (r == NULL)
+	while (*s++)
+		j++;
+	r = malloc(sizeof(char) * (j + 1));
+	if (!r)
 		return (NULL);
-	for (i = 0; i < l; i++)
-		r[i] = s[i];
-	r[i] = '\0';
+	for (j++; j--;)
+		r[j] = *--s;
 	return (r);
 }
 /**

@@ -5,12 +5,11 @@
  */
 void freeList(l_s **head)
 {
-	l_s *l, *nl, *hl;
+	l_s *l, *nl;
 
 	if (!head || !*head)
 		return;
-	hl = *head;
-	l = hl;
+	l = *head;
 	while (l)
 	{
 		nl = l->next;
