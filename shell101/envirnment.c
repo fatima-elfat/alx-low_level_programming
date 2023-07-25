@@ -22,7 +22,7 @@ int initEnv(l_ar *ar)
     }
 	ar->env = env_l;
 	if (!test1)
-		return;
+		return -1;
 	while (test1)
 	{
 		test2 = test1;
