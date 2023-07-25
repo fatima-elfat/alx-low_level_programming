@@ -8,7 +8,7 @@
 int initEnv(l_ar *ar)
 {
 	size_t i;
-	l_s *env_l = NULL, *test1, *test2;
+	l_s *env_l = NULL;
 
 	for (i = 0; environ[i]; i++)
 	{
