@@ -1,77 +1,51 @@
 #include "shell.h"
-/**
- * _strtok - ...
- * @s: ...
- * @d: ...
- * Return: ...
- */
-char **_strtok(char *s, char d)
-{
-	int t, len1 = 0, len2 = 0, i = 0, j = 0, k, l, begin = 0;
-	char **tokens;
 
-	while (*s == d)
-		s++;
-	len1 = _getsizetok(s, d, &t);
-	tokens = malloc(sizeof(char *) * (len1 + 1));
-	if (tokens == NULL)
+/**
+ * _strtok - splits a string into words
+ * while ignoring the reapeting delimiters.
+ * @s: the string.
+ * @sd: the string delimeter.
+ * Return: a pointer , or NULL if it fails.
+ */
+
+char **_strtok(char *s, char *sd)
+{
+	char **r;
+	int a, b, c, d, e;
+
+	if (s == NULL || s[0] == 0)
 		return (NULL);
-	while (i < t)
+	if (sd == 0)
+		sd = " ";
+	e = getLenTok(s, sd);
+	if (e == 0)
+		return (NULL);
+	r = malloc(sizeof(char *) * (e + 1));
+	if (r == NULL)
+		return (NULL);
+	for (a = 0, b = 0; b < e; b++)
 	{
-		if (s[i] != d)
+		c = 0;
+		while (inDlm(s[a], sd))
+			a++;
+		while (!inDlm(s[a + c], sd) && s[a + c])
+			c++;
+		r[b] = malloc(sizeof(char) * (c + 1));
+		if (r[b] == NULL)
 		{
-			len2++;
-			if (tokens[j] == NULL)
-				tokens[j] = malloc(sizeof(char) * (len2 + 1));
-			else
-				tokens[j] = _realloc(tokens[j], len2, (len2 + 1));
-			if (tokens[j] == NULL)
-				return (NULL);
-			l = 0;
-			for (k = begin; k <= i; k++)
-			{
-				tokens[j][l] = s[k];
-				l++;
-			}
-			tokens[j][k] = '\0';
-			}
-		else if ((s[i + 1] != d) && (s[i + 1] != '\0'))
-		{
-			len2 = 0;
-			begin = i + 1;
-			j++;
+			for (c = 0; c < b; c++)
+				free(r[c]);
+			free(r);
+			return (NULL);
 		}
-		i++;
+		for (d = 0; d < c; d++)
+			r[b][d] = s[a++];
+		r[b][d] = 0;
 	}
-	tokens[j + 1] = NULL;
-	return (tokens);
-}
-/**
- * _getsizetok - ...
- * @s: ...
- * @d: ...
- * @t: ...
- * Return: ...
- */
-int _getsizetok(char *s, char d, int *t)
-{
-	int i = 1, r = 1;
-
-	if (s[1] == '\0')
-		return (1);
-	while (s[i] != '\0')
-	{
-		if ((s[i] == d) && (s[i + 1] == '\0'))
-		{
-			r--;
-		}
-		if ((s[i - 1] == d) && (s[i] != d))
-			r++;
-		i++;
-		*t = i;
-	}
+	r[b] = NULL;
 	return (r);
 }
+
 /**
  * _freetok - ...
  * @tk: ...
@@ -86,4 +60,36 @@ void _freetok(char **tk)
 		i++;
 	}
 	free(tk);
+}
+/**
+ * getLenTok - ...
+ * @s: the string.
+ * @sd: the string delimeter.
+ * Return: length.
+ */
+int getLenTok(char *s, char *sd)
+{
+	int a, b, c, l = 0;
+
+	for (a = 0; s[a] != '\0'; a++)
+	{
+		b = inDlm(s[a], sd);
+		c = inDlm(s[a + 1], sd);
+		if (!b && (!s[a + 1] || !c))
+			l++;
+	}
+	return (l);
+}
+/**
+ * inDlm - checks if delimiter.
+ * @c: the input char.
+ * @ds: the delimeter string.
+ * Return: 0 on success.
+ */
+int inDlm(char c, char *ds)
+{
+	while (*ds)
+		if (*ds++ == c)
+			return (0);
+	return (1);
 }

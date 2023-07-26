@@ -32,7 +32,7 @@ void i_mode(l_u *e)
 			continue;
 		}
 		line = dnewline(line);
-		tk = _strtok(line, ' ');
+		tk = _strtok(line, " ");
 		r = isbuiltin(tk, e);
 		if (r == 1)
 			break;

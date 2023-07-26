@@ -20,7 +20,7 @@ char *isinpath(char *s, l_u *e)
 	else
 	{
 		pval = _getenvval("PATH", e);
-		tk1 = _strtok(pval, ':');
+		tk1 = _strtok(pval, ":");
 		free(pval);
 		while (tk1[i])
 		{
