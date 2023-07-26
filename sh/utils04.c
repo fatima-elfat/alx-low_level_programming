@@ -27,6 +27,7 @@ char *isinpath(char *s, l_u *e)
 			{
 				return(r);
 			}
+			i++;
 		}
 		_freetok(tk1);
 	}
