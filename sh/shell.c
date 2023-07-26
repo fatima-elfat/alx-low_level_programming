@@ -13,8 +13,7 @@ void i_mode(l_u *e)
 	while (1)
 	{
 		line = NULL;
-		if (tk)
-			_freetok(tk);
+		tk = NULL;
 		fd = 0;
 		num_com++;
 		if (isatty(STDIN_FILENO))
