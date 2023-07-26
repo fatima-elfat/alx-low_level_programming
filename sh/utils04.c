@@ -7,41 +7,45 @@
  */
 char *isinpath(char *s, l_u *e)
 {
-	char *r, **tk1, *pval;
+	char **tk1, *pval, *r;
 	int i = 0;
 
-	r = malloc(_strlen(s) + 2);
+	r = NULL;
 	if (!access(s, F_OK))
 	{
-		r = s;
-		return (r);
+		return (s);
 	}
 	else
 	{
 		pval = _getenvval("PATH", e);
 		tk1 = _strtok(pval, ":");
-		if (!r)
-			return (NULL);
 		free(pval);
 		while (tk1[i])
 		{
-			_realloc(r, (_strlen(s) + 2), (_strlen(tk1[i]) + _strlen(s) + 3));
-			_strcat(r, tk1[i]);
-			_strcat(r, "/");
-			_strcat(r, s);
-			i++;
-			if (!access(r, F_OK))
+			r = inpath((tk1[i]), s);
+			if (r)
 			{
-				_freetok(tk1);
+				return(r);
 			}
-			return (r);
 		}
-		free(r);
+		_freetok(tk1);
 	}
 	return (s);
 }
 
+char *inPath(char *s1, char *s2)
+{
+	char *r;
 
+	r = (char *)_calloc((_strlen(tk1[i]) + _strlen(s) + 3), 1);
+	_strcat(r, tk1[i]);
+	_strcat(r, "/");
+	_strcat(r, s);
+	if (!access(r, F_OK))
+	{
+		return (r);
+	}
+}
 /**
  * add_node - adds a new node at the beginning of a list_t list.
  * @head: the linked list.
