@@ -50,7 +50,8 @@ ssize_t _getline(char **s, int sf)
 	counter = checkcounter(counter);
 	if (counter == -1)
 		return (-1);
-	buffer = malloc(sizeof(char) * (len + 1));
+	/* buffer = malloc(sizeof(char) * (len + 1));*/
+	buffer = (char *)_calloc((len + 1), sizeof(char));
 	if (buffer == NULL)
 		return (-1);
 	while (j == 0 && k == 0)
@@ -108,7 +109,8 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 	}
 	if (ptr == NULL)
 	{
-		ptr = malloc(new_size);
+		/* ptr = malloc(new_size);*/
+		ptr = (char *)_calloc(new_size, sizeof(char));
 		if (ptr == NULL)
 			return (NULL);
 		return (ptr);
@@ -118,7 +120,8 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 	if (new_size > old_size)
 	{
 		i = 0;
-		p = malloc(new_size);
+		/*p = malloc(new_size);*/
+		p = (char *)_calloc(new_size, sizeof(char));
 		if (p == NULL)
 			return (NULL);
 		while (i < old_size)
@@ -128,7 +131,8 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 		}
 		free(ptr);
 		return (p); }
-	p = malloc(new_size);
+	/* p = malloc(new_size);*/
+	p = (char *)_calloc(new_size, sizeof(char));
 	if (p == NULL)
 		return (NULL);
 	while (i < new_size)

@@ -56,6 +56,7 @@ int _strcmp(char *s1, char *s2);
 char *isinpath(char *s, l_u *e);
 l_u *add_node(l_u **head, char *s1, char *s2);
 int _atoi(char *s);
+void *_calloc(unsigned int nmemb, unsigned int size);
 
 /*-----------token.c-----------*/
 char **_strtok(char *s, char d);

@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/fzelf/Desktop/ALX/C C++/C/shell-test",
-      "program": "c:/Users/fzelf/Desktop/ALX/C C++/C/shell-test/build/Debug/outDebug",
+      "cwd": "c:/Users/fzelf/Desktop/ALX/C C++/alx-low_level_programming/sh",
+      "program": "c:/Users/fzelf/Desktop/ALX/C C++/alx-low_level_programming/sh/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
