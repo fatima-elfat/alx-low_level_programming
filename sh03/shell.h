@@ -16,7 +16,7 @@
 
 #define C_LC 1
 #define C_US 2
-#define E_VAL 127
+#define E_VAL 127 /** EXIT_VALUE */
 #define A_VAL 10
 #define B_VAL 50
 #define BUFFER_SIZE_R 1024
@@ -61,7 +61,7 @@ struct list_s *next;
  * @env: ...
  * @envr: ...
  * @dif_env: ...
- * @fd: ...
+ * @fd: ... file_in
  * @fname: ...
  * @tcmd: ...
  * @bcmd: ...
@@ -123,7 +123,7 @@ char *_strdup(const char *s);
 char *_strchr(char *s, char c);
 
 /* utils04.c*/
-char **_strtows(char *s, char *a);
+char **_strtows(char *s, char *a); /*_strtok*/
 char *_strbg(const char *a, const char *b);
 int _strrplce(char **s1, char *s2);
 
@@ -200,7 +200,7 @@ char *_getenv(l_ar *ar, const char *s);
 char **get_envr(l_ar *ar);
 int _setenv(l_ar *ar, char *s1, char *s2);
 int _unsetenv(l_ar *ar, char *s);
-int _envdup(l_ar *ar);
+int _envdup(l_ar *ar); /** initEnv*/
 
 /* history.c */
 char *_gethistf(l_ar *ar);
