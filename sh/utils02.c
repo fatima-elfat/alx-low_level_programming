@@ -76,11 +76,11 @@ ssize_t _getline(char **s, int sf)
 			i++; }
 	}
 	if (counter > len)
-		buffer = _realloc(buffer, len, counter + 1);
+		buffer = _realloc(buffer, len + 1, counter + 1);
 	buffer[counter] = '\0';
 	if (*s == NULL)
 	{
-		*s = malloc(sizeof(char) * counter + 1);
+		*s = (char *)_calloc((counter + 1), sizeof(char));
 		if (*s == NULL)
 			return (-1);
 	}

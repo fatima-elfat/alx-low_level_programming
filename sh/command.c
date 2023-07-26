@@ -48,7 +48,7 @@ int isexecute(char **tk, l_u *e)
 		if (child == -1)
 		{
 			_puts("Error:");
-			return;
+			return (-1);
 		}
 		else if (child == 0)
 		{

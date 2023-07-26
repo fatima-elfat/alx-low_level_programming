@@ -9,9 +9,9 @@
 #include <sys/stat.h>
 #include <sys/wait.h>
 #include <unistd.h>
-
+#include <errno.h>
 #define BUF_SIZE 1024
-
+#define CUSTOM_GETLINE 1
 
 /**
  * struct list_u - linked list.
