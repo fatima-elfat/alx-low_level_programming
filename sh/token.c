@@ -18,17 +18,17 @@ char **_strtok(char *s, char *sd)
 	if (sd == 0)
 		sd = " ";
 	e = getLenTok(s, sd);
-	if (e == 0)
+	if (e == -1)
 		return (NULL);
 	r = malloc(sizeof(char *) * (e + 1));
 	if (r == NULL)
 		return (NULL);
-	for (a = 0, b = 0; b < e; b++)
+	for (a = 0, b = 0; b < e + 1; b++)
 	{
 		c = 0;
-		while (inDlm(s[a], sd))
+		while (!inDlm(s[a], sd))
 			a++;
-		while (!inDlm(s[a + c], sd) && s[a + c])
+		while (inDlm(s[a + c], sd) && s[a + c])
 			c++;
 		r[b] = malloc(sizeof(char) * (c + 1));
 		if (r[b] == NULL)
@@ -69,13 +69,13 @@ void _freetok(char **tk)
  */
 int getLenTok(char *s, char *sd)
 {
-	int a, b, c, l = 0;
+	int a, b, c, l = -1;
 
 	for (a = 0; s[a] != '\0'; a++)
 	{
 		b = inDlm(s[a], sd);
 		c = inDlm(s[a + 1], sd);
-		if (!b && (!s[a + 1] || !c))
+		if ((b == 1) && (!s[a + 1] || (c == 0)))
 			l++;
 	}
 	return (l);
