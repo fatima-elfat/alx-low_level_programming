@@ -36,7 +36,7 @@ void i_mode(l_u *e);
 /* void n_i_mode(char **argv, l_u *e);*/
 /*-----------utils01.c-----------*/
 void _handler_ctrlc(int n);
-void pnewline(char *command);
+void pnewline(char *s);
 char *dnewline(char *s);
 ssize_t checkcounter(ssize_t c);
 
@@ -67,7 +67,7 @@ int inDlm(char c, char *ds);
 
 /*-----------command.c-----------*/
 int isbuiltin(char **token, l_u *e);
-int isexecute(char **tk, l_u *e);
+void isexecute(char **tk, l_u *e);
 
 /*-----------environment.c-----------*/
 l_u *_getenv(char **env);
