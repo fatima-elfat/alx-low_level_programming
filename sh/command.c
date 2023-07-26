@@ -42,7 +42,7 @@ int isexecute(char **tk, l_u *e)
 	pid_t child;
 
 	p = isinpath(tk[0], e);
-	while (tk)
+	while (*tk++)
 	{
 		i++;
 	}
