@@ -10,7 +10,7 @@ char *isinpath(char *s, l_u *e)
 	char *r, **tk1, *pval;
 	int i = 0;
 
-	r = NULL;
+	r = malloc(_strlen(s) + 1);
 	if (!access(s, F_OK))
 	{
 		r = s;
@@ -115,7 +115,7 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	if (nmemb == 0 || size == 0)
 		return (NULL);
 	a = nmemb * size;
-	p = malloc(a);
+	p = malloc(nmemb * size);
 	if (p == NULL)
 		return (NULL);
 	for (i = 0; i < a; i++)
