@@ -7,6 +7,8 @@
  */
 int isbuiltin(char **token, l_u *e)
 {
+	if (token == NULL)
+		return (-1);
 	if (token[0] == NULL)
 		return (-1);
 	if (!_strcmp(token[0], "exit"))

@@ -13,11 +13,12 @@ void i_mode(l_u *e)
 	while (1)
 	{
 		line = NULL;
-		tk = NULL;
+		if (tk)
+			_freetok(tk);
 		fd = 0;
 		num_com++;
 		if (isatty(STDIN_FILENO))
-			write(STDOUT_FILENO, "($) ", 4);
+			write(STDOUT_FILENO, "$ ", 2);
 		signal(SIGINT, _handler_ctrlc);
 		fd = _getline(&line, STDOUT_FILENO);
 		if (fd == -1 || fd == 0)
@@ -33,6 +34,7 @@ void i_mode(l_u *e)
 		}
 		line = dnewline(line);
 		tk = _strtok(line, " ");
+		printf("here %s\n", tk[0]);
 		r = isbuiltin(tk, e);
 		if (r == 1)
 			break;
