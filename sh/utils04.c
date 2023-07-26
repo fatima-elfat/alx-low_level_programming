@@ -98,3 +98,25 @@ int _atoi(char *s)
 	}
 	return (n * b);
 }
+/**
+ * _calloc -  allocates memory for an array
+ * and sets it to zero, using malloc.
+ * @nmemb: the number of elements.
+ * @size: size of byte.
+ * Return: pointer to the allocated memory.
+ */
+void *_calloc(unsigned int nmemb, unsigned int size)
+{
+	char *p;
+	unsigned int i, a;
+
+	if (nmemb == 0 || size == 0)
+		return (NULL);
+	a = nmemb * size;
+	p = malloc(a);
+	if (p == NULL)
+		return (NULL);
+	for (i = 0; i < a; i++)
+		p[i] = 0;
+	return (p);
+}
