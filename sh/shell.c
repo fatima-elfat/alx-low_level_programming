@@ -34,6 +34,7 @@ void i_mode(l_u *e)
 		}
 		line = dnewline(line);
 		tk = _strtok(line, " ");
+		printf("here %s\n", tk[0]);
 		r = isbuiltin(tk, e);
 		if (r == 1)
 			break;
