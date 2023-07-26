@@ -52,14 +52,13 @@ char **_strtok(char *s, char *sd)
  */
 void _freetok(char **tk)
 {
-	int i = 0;
+	char **r = tk;
 
-	while (tk[i] != NULL)
-	{
-		free(tk[i]);
-		i++;
-	}
-	free(tk);
+	if (!tk)
+		return;
+	while (*tk)
+		free(*tk++);
+	free(r);
 }
 /**
  * getLenTok - ...
