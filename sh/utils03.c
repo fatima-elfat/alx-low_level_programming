@@ -44,6 +44,25 @@ char *_strcat(char *dest, char *src)
 	return (r);
 }
 /**
+ * freel - frees list.
+ * @e: the list to free.
+*/
+void freel(l_u *head)
+{
+	l_u *l;
+
+	if (!head)
+		return;
+	while(head)
+	{
+		l = head;
+		head = head->next;
+		free(l->s1);
+		free(l->s2);
+		free(l);
+	}
+}
+/**
  * _strcmp - compare two string
  * @s1: first string
  * @s2: second string

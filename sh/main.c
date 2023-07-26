@@ -17,6 +17,7 @@ int main(int argc, char **argv, char **env)
 	if (argc == 1)
 	{
 		i_mode(e);
+		freel(e);
 	}
 	/*
 	 * else if (argc > 1){
