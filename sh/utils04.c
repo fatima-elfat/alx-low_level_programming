@@ -11,7 +11,6 @@ char *isinpath(char *s, l_u *e)
 	int i = 0;
 
 	r = NULL;
-	t = NULL;
 	if (!access(s, F_OK))
 	{
 		r = s;
