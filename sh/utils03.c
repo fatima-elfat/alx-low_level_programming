@@ -40,7 +40,7 @@ char *_strcat(char *dest, char *src)
 
 	for (i = 0; i < l2 ; i++)
 		dest[l1 + i] += src[i];
-	dest[l1 + i] = '\0';
+	/* dest[l1 + i] = '\0';*/
 	return (dest);
 }
 /**
