@@ -25,7 +25,9 @@ char *isinpath(char *s, l_u *e)
 		while (tk1[i])
 		{
 			t = _strcat(tk1[i], "/");
+			printf("utils04 t = %s", t);
 			r = _strcat(t, s);
+			printf("utils04 r = %s", r);
 			i++;
 			if (!access(r, F_OK))
 			{

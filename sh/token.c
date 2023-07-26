@@ -20,7 +20,7 @@ char **_strtok(char *s, char *sd)
 	e = getLenTok(s, sd);
 	if (e == -1)
 		return (NULL);
-	r = malloc(sizeof(char *) * (e + 2));
+	r = _calloc((e + 2), sizeof(char *));
 	if (r == NULL)
 		return (NULL);
 	for (a = 0, b = 0; b < e + 1; b++)
@@ -30,7 +30,7 @@ char **_strtok(char *s, char *sd)
 			a++;
 		while (inDlm(s[a + c], sd) && s[a + c])
 			c++;
-		r[b] = malloc(sizeof(char) * (c + 2));
+		r[b] = _calloc((c + 2), sizeof(char));
 		if (r[b] == NULL)
 		{
 			for (c = 0; c < b; c++)
