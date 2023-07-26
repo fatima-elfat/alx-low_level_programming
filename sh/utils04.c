@@ -33,18 +33,19 @@ char *isinpath(char *s, l_u *e)
 	return (s);
 }
 
-char *inPath(char *s1, char *s2)
+char *inpath(char *s1, char *s2)
 {
 	char *r;
 
-	r = (char *)_calloc((_strlen(tk1[i]) + _strlen(s) + 3), 1);
-	_strcat(r, tk1[i]);
+	r = (char *)_calloc((_strlen(s1) + _strlen(s2) + 3), 1);
+	_strcat(r, s1);
 	_strcat(r, "/");
-	_strcat(r, s);
+	_strcat(r, s2);
 	if (!access(r, F_OK))
 	{
 		return (r);
 	}
+	return (NULL);
 }
 /**
  * add_node - adds a new node at the beginning of a list_t list.
