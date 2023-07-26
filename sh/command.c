@@ -38,14 +38,26 @@ int isbuiltin(char **token, l_u *e)
 int isexecute(char **tk, l_u *e)
 {
 	char *p = NULL;
-	int st = 0;
+	int st = 0, l = 0, i;
 	pid_t child;
 
 	p = isinpath(tk[0], e);
-	printf("command path %s\n", p);
+	while (!tk)
+	{
+		i++;
+	}
+	for (i = 0; i < l; i++)
+	{
+		p = isinpath(tk[i], e);
+		printf("command path %s\n", p);
+		if (!access(p, X_OK))
+			{
+				printf("path exist\n");
+				break;
+			}
+	}
 	if (!access(p, X_OK))
 	{
-		printf("path exist\n");
 		child = fork();
 		if (child == 0)
 		{
