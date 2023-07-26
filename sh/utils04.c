@@ -39,6 +39,7 @@ char *inpath(char *s1, char *s2)
 	char *r;
 
 	r = (char *)_calloc((_strlen(s1) + _strlen(s2) + 3), 1);
+	/* r = NULL;*/
 	_strcat(r, s1);
 	_strcat(r, "/");
 	_strcat(r, s2);
