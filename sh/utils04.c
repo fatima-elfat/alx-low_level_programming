@@ -20,7 +20,6 @@ char *isinpath(char *s, l_u *e)
 	{
 		pval = _getenvval("PATH", e);
 		tk1 = _strtok(pval, ":");
-		r = malloc(_strlen(s) + 1);
 		if (!r)
 			return (NULL);
 		free(pval);
