@@ -42,9 +42,10 @@ int isexecute(char **tk, l_u *e)
 	pid_t child;
 
 	p = isinpath(tk[0], e);
-	printf("path %s\n", p);
+	printf("command path %s\n", p);
 	if (!access(p, X_OK))
 	{
+		printf("path exist\n");
 		child = fork();
 		if (child == 0)
 		{
