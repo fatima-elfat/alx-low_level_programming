@@ -54,7 +54,7 @@ int _strcmp(char *s1, char *s2);
 
 /*-----------utils04.c-----------*/
 char *isinpath(char *s, l_u *e);
-char *inpath(char *s1, char *s2)
+char *inpath(char *s1, char *s2);
 l_u *add_node(l_u **head, char *s1, char *s2);
 int _atoi(char *s);
 void *_calloc(unsigned int nmemb, unsigned int size);
