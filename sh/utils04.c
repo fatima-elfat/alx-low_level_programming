@@ -7,7 +7,7 @@
  */
 char *isinpath(char *s, l_u *e)
 {
-	char *r, *t, **tk1, *pval;
+	char *r, **tk1, *pval;
 	int i = 0;
 
 	r = NULL;
@@ -21,11 +21,16 @@ char *isinpath(char *s, l_u *e)
 	{
 		pval = _getenvval("PATH", e);
 		tk1 = _strtok(pval, ":");
+		r = malloc(_strlen(s) + 1);
+		if (!r)
+			return (NULL);
 		free(pval);
 		while (tk1[i])
 		{
-			t = _strcat(tk1[i], "/");
-			r = _strcat(t, s);
+			_realloc(r, (_strlen(s) + 1), (_strlen(tk1[i]) + _strlen(s) + 2));
+			_strcat(r, tk1[i]);
+			_strcat(r, "/");
+			_strcat(r, s);
 			i++;
 			if (!access(r, F_OK))
 			{
@@ -33,7 +38,6 @@ char *isinpath(char *s, l_u *e)
 			}
 			return (r);
 		}
-		free(t);
 		free(r);
 	}
 	return (s);
