@@ -10,7 +10,7 @@ char *isinpath(char *s, l_u *e)
 	char *r, **tk1, *pval;
 	int i = 0;
 
-	r = malloc(_strlen(s) + 1);
+	r = malloc(_strlen(s) + 2);
 	if (!access(s, F_OK))
 	{
 		r = s;
@@ -25,7 +25,7 @@ char *isinpath(char *s, l_u *e)
 		free(pval);
 		while (tk1[i])
 		{
-			_realloc(r, (_strlen(s) + 1), (_strlen(tk1[i]) + _strlen(s) + 2));
+			_realloc(r, (_strlen(s) + 1), (_strlen(tk1[i]) + _strlen(s) + 3));
 			_strcat(r, tk1[i]);
 			_strcat(r, "/");
 			_strcat(r, s);
