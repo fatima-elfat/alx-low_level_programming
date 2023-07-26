@@ -34,9 +34,8 @@ void i_mode(l_u *e)
 		line = dnewline(line);
 		tk = _strtok(line, " ");
 		r = isbuiltin(tk, e);
-		if (r == 1)
-			break;
-		r = isexecute(tk, e);
+		if (r != 1)
+			r = isexecute(tk, e);
 	}
 	free(line);
 	_freetok(tk);

@@ -38,37 +38,28 @@ int isbuiltin(char **token, l_u *e)
 int isexecute(char **tk, l_u *e)
 {
 	char *p = NULL;
-	int st = 0, l = 0, i;
+	int st = 0;
 	pid_t child;
 
 	p = isinpath(tk[0], e);
-	while (*tk++)
-	{
-		l++;
-	}
-	for (i = 0; i < l; i++)
-	{
-		p = isinpath(tk[i], e);
-		printf("command path %s\n", p);
-		if (!access(p, X_OK))
-			{
-				printf("path exist\n");
-				break;
-			}
-	}
-	if (!access(p, X_OK))
+	if (p)
 	{
 		child = fork();
-		if (child == 0)
+		if (child == -1)
 		{
-			/*val = _lenv(e);*/
+			_puts("Error:");
+			return;
+		}
+		else if (child == 0)
+		{
 			if (execve(p, tk, NULL) == -1)
 			{
-
-				_puts("fork: failed: ");
+				_puts("Fork: failed: ");
 				_puts(tk[0]);
 				_putchar('\n');
 				free(p);
+				if (errno == EACCES)
+					exit(126);
 				exit(0);
 			}
 		}
@@ -80,7 +71,7 @@ int isexecute(char **tk, l_u *e)
 	}
 	else
 	{
-		_puts("fork: failed: ");
+		_puts("Fork: failed: ");
 		_puts(tk[0]);
 		_putchar('\n');
 		free(p);
