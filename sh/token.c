@@ -30,7 +30,7 @@ char **_strtok(char *s, char *sd)
 			a++;
 		while (inDlm(s[a + c], sd) && s[a + c])
 			c++;
-		r[b] = malloc(sizeof(char) * (c + 1));
+		r[b] = malloc(sizeof(char) * (c + 2));
 		if (r[b] == NULL)
 		{
 			for (c = 0; c < b; c++)
