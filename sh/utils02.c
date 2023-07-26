@@ -72,7 +72,8 @@ ssize_t _getline(char **s, int sf)
 		{
 			if (buffer[i] == '\n')
 				k = 1;
-			i++; }}
+			i++; }
+	}
 	if (counter > len)
 		buffer = _realloc(buffer, len, counter + 1);
 	buffer[counter] = '\0';
@@ -80,7 +81,8 @@ ssize_t _getline(char **s, int sf)
 	{
 		*s = malloc(sizeof(char) * counter + 1);
 		if (*s == NULL)
-			return (-1); }
+			return (-1);
+	}
 	_strcpy(*s, buffer);
 	free(buffer);
 	r = counter;

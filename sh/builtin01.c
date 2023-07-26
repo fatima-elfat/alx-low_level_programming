@@ -46,5 +46,5 @@ int _bi_env(l_u *e)
 		}
 		e = e->next;
 	}
-	return(0)
+	return (0);
 }

@@ -11,7 +11,7 @@ int main(int argc, char **argv, char **env)
 {
 	l_u *e;
 
-	/* (void) argv;*/
+	(void) argv;
 	e = _getenv(env);
 	/* a = get_aliases(); */
 	if (argc == 1)
