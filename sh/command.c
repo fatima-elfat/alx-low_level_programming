@@ -44,7 +44,7 @@ int isexecute(char **tk, l_u *e)
 	p = isinpath(tk[0], e);
 	while (*tk++)
 	{
-		i++;
+		l++;
 	}
 	for (i = 0; i < l; i++)
 	{
