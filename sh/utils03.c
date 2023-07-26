@@ -33,15 +33,15 @@ void _puts(char *s)
  */
 char *_strcat(char *dest, char *src)
 {
-	int i, l1, l2;
+	char *r;
 
-	l1 = _strlen(dest);
-	l2 = _strlen(src);
-
-	for (i = 0; i < l2 ; i++)
-		dest[l1 + i] += src[i];
-	/* dest[l1 + i] = '\0';*/
-	return (dest);
+	r = dest;
+	while (*dest)
+		dest++;
+	while (*src)
+		*dest++ = *src++;
+	*dest = *src;
+	return (r);
 }
 /**
  * _strcmp - compare two string
