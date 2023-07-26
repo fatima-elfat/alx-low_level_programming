@@ -59,9 +59,10 @@ int _atoi(char *s);
 void *_calloc(unsigned int nmemb, unsigned int size);
 
 /*-----------token.c-----------*/
-char **_strtok(char *s, char d);
-int _getsizetok(char *s, char d, int *t);
+char **_strtok(char *s, char *sd);
 void _freetok(char **tk);
+int getLenTok(char *s, char *sd);
+int inDlm(char c, char *ds);
 
 /*-----------command.c-----------*/
 int isbuiltin(char **token, l_u *e);
