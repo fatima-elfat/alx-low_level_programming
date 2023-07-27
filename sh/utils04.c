@@ -25,7 +25,7 @@ char *isinpath(char *s, l_u *e)
 			r = inpath((tk1[i]), s);
 			if (r)
 			{
-				return(r);
+				return (r);
 			}
 			i++;
 		}
@@ -35,7 +35,12 @@ char *isinpath(char *s, l_u *e)
 	free(r);
 	return (NULL);
 }
-
+/**
+ * inpath - ...
+ * @s1: ...
+ * @s2: ...
+ * Return: ...
+ */
 char *inpath(char *s1, char *s2)
 {
 	char *r;

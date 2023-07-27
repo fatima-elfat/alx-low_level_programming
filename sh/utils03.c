@@ -45,7 +45,7 @@ char *_strcat(char *dest, char *src)
 }
 /**
  * freel - frees list.
- * @e: the list to free.
+ * @head: the list to free.
 */
 void freel(l_u *head)
 {
@@ -53,7 +53,7 @@ void freel(l_u *head)
 
 	if (!head)
 		return;
-	while(head)
+	while (head)
 	{
 		l = head;
 		head = head->next;

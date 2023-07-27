@@ -48,7 +48,7 @@ void isexecute(char **tk, l_u *e)
 			_puts("Error:");
 		else if (child == 0)
 		{
-			if (execve(p , tk, NULL) == -1)
+			if (execve(p, tk, NULL) == -1)
 			{
 				_puts("Fork: failed\n");
 				free(p);

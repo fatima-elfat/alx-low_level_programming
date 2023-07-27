@@ -31,24 +31,18 @@ void i_mode(l_u *e)
 			pnewline(line);
 			free(line);
 			_freetok(tk);
-			free(tk);
-			exit(fd);
-		}
+			exit(fd); }
 		if (line[0] == '\0')
 		{
 			free(line);
 			_freetok(tk);
-			continue;
-		}
+			continue; }
 		line = dnewline(line);
 		tk = _strtok(line, " ");
 		r = isbuiltin(tk, e);
 		free(line);
 		if (r != 1)
-		{
 			isexecute(tk, e);
-		}
-		_freetok(tk);
-	}
+		_freetok(tk); }
 	free(tk);
 }
