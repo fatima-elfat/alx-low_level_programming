@@ -29,10 +29,15 @@ void i_mode(l_u *e)
 		if (fd == -1 || fd == 0)
 		{
 			pnewline(line);
+			free(line);
+			_freetok(tk);
+			free(tk);
 			exit(fd);
 		}
 		if (line[0] == '\0')
 		{
+			free(line);
+			_freetok(tk);
 			continue;
 		}
 		line = dnewline(line);

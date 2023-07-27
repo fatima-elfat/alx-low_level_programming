@@ -51,7 +51,7 @@ int _putchar(char c);
 void _puts(char *s);
 char *_strcat(char *dest, char *src);
 int _strcmp(char *s1, char *s2);
-void freel(l_u *head)
+void freel(l_u *head);
 
 /*-----------utils04.c-----------*/
 char *isinpath(char *s, l_u *e);

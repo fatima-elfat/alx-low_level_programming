@@ -30,8 +30,8 @@ char *isinpath(char *s, l_u *e)
 			i++;
 		}
 		_freetok(tk1);
-		free(tk1);
 	}
+	free(tk1);
 	free(r);
 	return (NULL);
 }
@@ -49,6 +49,7 @@ char *inpath(char *s1, char *s2)
 	{
 		return (r);
 	}
+	free(r);
 	return (NULL);
 }
 /**

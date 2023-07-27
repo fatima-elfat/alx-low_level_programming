@@ -8,7 +8,7 @@ void _handler_ctrlc(int n)
 {
 	if (n == SIGINT)
 	{
-		write(STDOUT_FILENO, "\n($) ", 5);
+		write(STDOUT_FILENO, "\n$ ", 3);
 	}
 }
 /**
@@ -59,4 +59,3 @@ ssize_t checkcounter(ssize_t c)
 	}
 	return (0);
 }
-
