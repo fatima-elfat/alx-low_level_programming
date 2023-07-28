@@ -70,7 +70,7 @@ l_u *add_node(l_u **head, char *s1, char *s2)
 
 	if (head != NULL && s1 != NULL && s2 != NULL)
 	{
-		l = malloc(sizeof(l_u));
+		l = _calloc(1, sizeof(l_u));
 		if (l == NULL)
 			return (NULL);
 		l->s1 = s1;

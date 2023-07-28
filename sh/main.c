@@ -13,15 +13,8 @@ int main(int argc, char **argv, char **env)
 
 	(void) argv;
 	e = _getenv(env);
-	/* a = get_aliases(); */
 	if (argc == 1)
-	{
 		i_mode(e);
-		freel(e);
-	}
-	/*
-	 * else if (argc > 1){
-	 * n_i_mode(argv, e); }
-	 */
+	freel(e);
 	return (0);
 }

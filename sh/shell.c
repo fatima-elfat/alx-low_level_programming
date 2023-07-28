@@ -8,7 +8,7 @@ void i_mode(l_u *e)
 {
 	char *line, **tk;
 	ssize_t fd;
-	size_t len;
+	/* size_t len;*/
 	int r, num_com = 0;
 
 	while (1)
@@ -16,7 +16,7 @@ void i_mode(l_u *e)
 		line = NULL;
 		tk = NULL;
 		fd = 0;
-		len = 0;
+		/*len = 0;*/
 		num_com++;
 		if (isatty(STDIN_FILENO))
 			write(STDOUT_FILENO, "$ ", 2);
@@ -24,14 +24,10 @@ void i_mode(l_u *e)
 #if CUSTOM_GETLINE
 		fd = getline(&line, &len, stdin);
 #else
-		fd = _getline(&line, STDOUT_FILENO);
+		/*fd = _getline(&line, STDOUT_FILENO);*/
+		fd = _getlinev2(&line, STDOUT_FILENO);
 #endif
-		if (fd == -1 || fd == 0)
-		{
-			pnewline(line);
-			free(line);
-			_freetok(tk);
-			exit(fd); }
+		exitnewline( tk, e, line, fd);
 		if (line[0] == '\0')
 		{
 			free(line);
@@ -40,9 +36,12 @@ void i_mode(l_u *e)
 		line = dnewline(line);
 		tk = _strtok(line, " ");
 		r = isbuiltin(tk, e);
-		free(line);
-		if (r != 1)
-			isexecute(tk, e);
-		_freetok(tk); }
+		if (line)
+			free(line);
+		if (r == 1)
+		{
+			_freetok(tk);
+			continue; }
+		isexecute(tk, e); }
 	free(tk);
 }
