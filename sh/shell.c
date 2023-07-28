@@ -35,9 +35,9 @@ void i_mode(l_u *e)
 			continue; }
 		line = dnewline(line);
 		tk = _strtok(line, " ");
-		r = isbuiltin(tk, e);
 		if (line)
 			free(line);
+		r = isbuiltin(tk, e);
 		if (r == 1)
 		{
 			_freetok(tk);

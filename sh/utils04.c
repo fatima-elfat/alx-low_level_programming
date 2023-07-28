@@ -11,6 +11,7 @@ char *isinpath(char *s, l_u *e)
 	int i = 0;
 
 	r = NULL;
+	tk1 = NULL;
 	if (!access(s, F_OK))
 	{
 		return (s);
@@ -25,6 +26,7 @@ char *isinpath(char *s, l_u *e)
 			r = inpath((tk1[i]), s);
 			if (r)
 			{
+				_freetok(tk1);
 				return (r);
 			}
 			i++;
