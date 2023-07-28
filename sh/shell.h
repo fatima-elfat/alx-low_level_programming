@@ -12,7 +12,7 @@
 #include <errno.h>
 #define BUF_SIZE 1024
 #define CUSTOM_GETLINE 0
-
+extern char **environ;
 /**
  * struct list_u - linked list.
  * @s1: the first variable.
@@ -64,6 +64,7 @@ void *_calloc(unsigned int nmemb, unsigned int size);
 /*-----------utils05.c-----------*/
 l_u *add_nod(l_u **head, char *s1, char *s2);
 ssize_t _getlinev2(char **s, int sf);
+char *_strdup(char *s);
 
 /*-----------token.c-----------*/
 char **_strtok(char *s, char *sd);
@@ -79,9 +80,12 @@ void isexecute(char **tk, l_u *e);
 l_u *_getenv(char **env);
 char *_getenvval(char *s, l_u *e);
 char **_lenv(l_u *e);
+int _setenv(char *s, char *c, l_u **e);
+int _getidxenv(char *s, l_u *e);
 
 /*-----------builtin01.c-----------*/
 int _bi_exit(char **tk, l_u *e);
 int _bi_env(l_u *e);
-
+int _bi_cd(char **tk, l_u *e);
+ 
 #endif

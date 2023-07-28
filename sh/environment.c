@@ -14,8 +14,7 @@ l_u *_getenv(char **env)
 	s2 = " ";
 	while (env[i])
 	{
-		add_nod(&linked, env[i], s2);
-		i++;
+		add_nod(&linked, env[i++], s2);
 	}
 	return (linked);
 }
@@ -79,4 +78,56 @@ char **_lenv(l_u *e)
 		j++;
 	}
 	return (val);
+}
+/**
+ * _setenv - ...
+ * @s: ...
+ * @c: ...
+ * @e: ...
+ * Return: ...
+ */
+int _setenv(char *s, char *c, l_u **e)
+{
+	int i = 0, j = 0;
+	char *b;
+	l_u *a;
+
+	a = *e;
+	b = _strdup(s);
+	b = _strcat(b, "=");
+	b = _strcat(b, c);
+	i = _getidxenv(s, *e);
+	while (j < i)
+	{
+		a = a->next;
+		j++;
+	}
+	a->s1 = NULL;
+	a->s1 = _strdup(b);
+	free(b);
+	return (0);
+}
+/**
+ * _getidxenv - ...
+ * @s: ...
+ * @e: ...
+ * Return: ...
+ */
+int _getidxenv(char *s, l_u *e)
+{
+	int i = 0, j;
+
+	while (e)
+	{
+		j = 0;
+		while ((e->s1)[j] == s[j])
+			j++;
+		if (s[j] == '\0')
+			break;
+		e = e->next;
+		i++;
+	}
+	if (!e)
+		return (-1);
+	return (i);
 }

@@ -51,3 +51,30 @@ int _bi_env(l_u *e)
 	}
 	return (0);
 }
+/**
+ * _bi_cd - ...
+ * @tk: ...
+ * @e: ...
+ * Return: ...
+ */
+int _bi_cd(char **tk, l_u *e)
+{
+	int r = 0;
+	char *a = NULL, *c = NULL;
+
+	a = getcwd(a, 0);
+	if (!tk[1])
+	{
+		c = _getenvval("HOME", e);
+		_setenv("OLDPWD", a, &e);
+		free(a);
+		if (access(c, F_OK) == 0)
+			chdir(c);
+		a = NULL;
+		a = getcwd(a, 0);
+		_setenv("PWD", a, &e);
+	}
+	free(a);
+	free(c);
+	return (r);
+}

@@ -33,15 +33,17 @@ void _puts(char *s)
  */
 char *_strcat(char *dest, char *src)
 {
-	char *r;
+	int ld = 0, ls = 0, i = 0;
 
-	r = dest;
-	while (*dest)
-		dest++;
-	while (*src)
-		*dest++ = *src++;
-	*dest = '\0';
-	return (r);
+	while (dest[ld])
+		ld++;
+	while (src[ls])
+		ls++;
+	dest = _realloc(dest, ld, ld + ls + 1);
+	while (src[i])
+		dest[ld++] = src[i++];
+	dest[ld] = '\0';
+	return (dest);
 }
 /**
  * freel - frees list.

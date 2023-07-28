@@ -15,6 +15,8 @@ int isbuiltin(char **token, l_u *e)
 		_bi_exit(token, e);
 	else if (!_strcmp(token[0], "env"))
 		_bi_env(e);
+	else if (_strcmp(token[0], "cd") == 0)
+		_bi_cd(token, e);
 	/**
 	 * else if (!_strcmp(token[0], "setenv"))
 	 * r = _bi_setenv(token[1], token[2]);
@@ -45,12 +47,12 @@ void isexecute(char **tk, l_u *e)
 	{
 		child = fork();
 		if (child == -1)
-			_puts("Error:");
+			perror("Fork: failed");
 		else if (child == 0)
 		{
 			if (execve(p, tk, NULL) == -1)
 			{
-				_puts("Fork: failed\n");
+				perror("Fork : failed");
 				free(p);
 				_freetok(tk);
 				free(tk);
@@ -61,6 +63,10 @@ void isexecute(char **tk, l_u *e)
 		}
 		else
 			wait(&st);
+	}
+	else {
+		write(STDOUT_FILENO, tk[0], _strlen(tk[0]));
+		perror(": failed");
 	}
 	free(p);
 	_freetok(tk);

@@ -7,12 +7,12 @@
  * @env: the variable ennvironment.
  * Return: 0 on success.
  */
-int main(int argc, char **argv, char **env)
+int main(int argc, char **argv)
 {
 	l_u *e;
 
 	(void) argv;
-	e = _getenv(env);
+	e = _getenv(environ);
 	if (argc == 1)
 		i_mode(e);
 	freel(e);

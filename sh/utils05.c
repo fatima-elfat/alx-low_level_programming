@@ -72,3 +72,33 @@ ssize_t _getlinev2(char **s, int sf)
 	}
 	return (r);
 }
+/**
+ * _strdup - returns a pointer to a newly allocated
+ * space in memory, which contains a copy.
+ * of the string given as a parameter.
+ * @s: input string.
+ * Return: pointer to duplicated string.
+ */
+char *_strdup(char *s)
+{
+	int i = 0, j = 0;
+	char *a;
+
+	if (s == NULL)
+		return (NULL);
+	while (s[j])
+		j++;
+	/**
+	 *  valgrind error here a should be freed later
+	 */
+	a = malloc((j + 1));
+	if (!a)
+		return (NULL);
+	while (i < j)
+	{
+		a[i] = s[i];
+		i++;
+	}
+	a[i] = '\0';
+	return (a);
+}

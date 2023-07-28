@@ -28,11 +28,12 @@ void i_mode(l_u *e)
 		fd = _getlinev2(&line, STDOUT_FILENO);
 #endif
 		exitnewline( tk, e, line, fd);
-		if (line[0] == '\0')
+		if (line[0] == '\0' || line[0] == '\n')
 		{
 			free(line);
 			_freetok(tk);
 			continue; }
+
 		line = dnewline(line);
 		tk = _strtok(line, " ");
 		if (line)
