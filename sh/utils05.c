@@ -32,7 +32,7 @@ l_u *add_nod(l_u **head, char *s1, char *s2)
 	return (*head);
 }
 /**
- * _getline - ...
+ * _getlinev2 - ...
  * @s: ...
  * @sf: ...
  * Return: ...
@@ -62,7 +62,6 @@ ssize_t _getlinev2(char **s, int sf)
 			r = fd;
 			l1 = 1;
 			*s = _strcpy(*s, lbuffer);
-			
 		}
 		else
 		{

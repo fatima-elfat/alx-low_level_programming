@@ -4,7 +4,6 @@
  * main - main entry function.
  * @argc: the number of arguments.
  * @argv: the list of arguments.
- * @env: the variable ennvironment.
  * Return: 0 on success.
  */
 int main(int argc, char **argv)

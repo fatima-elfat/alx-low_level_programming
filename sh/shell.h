@@ -87,5 +87,5 @@ int _getidxenv(char *s, l_u *e);
 int _bi_exit(char **tk, l_u *e);
 int _bi_env(l_u *e);
 int _bi_cd(char **tk, l_u *e);
- 
+
 #endif

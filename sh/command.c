@@ -64,7 +64,8 @@ void isexecute(char **tk, l_u *e)
 		else
 			wait(&st);
 	}
-	else {
+	else
+	{
 		write(STDOUT_FILENO, tk[0], _strlen(tk[0]));
 		perror(": failed");
 	}
