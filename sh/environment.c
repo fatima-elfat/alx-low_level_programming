@@ -89,7 +89,7 @@ char **_lenv(l_u *e)
 int _setenv(char *s, char *c, l_u **e)
 {
 	int i = 0, j = 0;
-	char *b;
+	char *b = NULL;
 	l_u *a;
 
 	a = *e;
@@ -102,7 +102,8 @@ int _setenv(char *s, char *c, l_u **e)
 		a = a->next;
 		j++;
 	}
-	a->s1 = NULL;
+	if (a->s1)
+		free(a->s1);
 	a->s1 = _strdup(b);
 	free(b);
 	return (0);

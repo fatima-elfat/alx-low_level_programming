@@ -60,7 +60,7 @@ int _bi_env(l_u *e)
 int _bi_cd(char **tk, l_u *e)
 {
 	int r = 0;
-	char *a = NULL, *c = NULL;
+	char *c = NULL, *a = NULL;
 
 	a = getcwd(a, 0);
 	if (!tk[1])
@@ -70,11 +70,11 @@ int _bi_cd(char **tk, l_u *e)
 		free(a);
 		if (access(c, F_OK) == 0)
 			chdir(c);
+		free(c);
 		a = NULL;
 		a = getcwd(a, 0);
 		_setenv("PWD", a, &e);
+		free(a);
 	}
-	free(a);
-	free(c);
 	return (r);
 }
