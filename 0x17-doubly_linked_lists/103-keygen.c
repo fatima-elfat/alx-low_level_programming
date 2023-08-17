@@ -46,7 +46,7 @@ int main(int ac, char *av[])
 	for (t = *user_n, counter = 0; counter < t; counter++)
 		r = rand();
 	key_pass[5] = s1[(r ^ 0xe5) & 0x3f];
-	key_pass[6] = 0;
+	key_pass[6] = '\0';
 	printf("%s", key_pass);
 	return (0);
 }
