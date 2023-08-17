@@ -12,8 +12,8 @@
 int main(int ac, char *av[])
 {
 	long l_n[] = {0x3877445248432d41, 0x42394530534e6c37, 0x4d6e706762695432,
-                0x74767a5835737956, 0x2b554c59634a474f, 0x71786636576a6d34,
-			    0x723161513346655a, 0x6b756f494b646850};
+		0x74767a5835737956, 0x2b554c59634a474f, 0x71786636576a6d34,
+		0x723161513346655a, 0x6b756f494b646850};
 	int len = 0, counter, r, t;
 	char *s1 = (char *) l_n, *user_n = av[1], *s2, key_pass[7];
 
@@ -45,7 +45,7 @@ int main(int ac, char *av[])
 	for (t = *user_n, counter = 0; counter < t; counter++)
 		r = rand();
 	key_pass[5] = s1[(r ^ 0xe5) & 0x3f];
-    key_pass[6] = 0;
+	key_pass[6] = 0;
 	printf("%s", key_pass);
 	return (0);
 }
