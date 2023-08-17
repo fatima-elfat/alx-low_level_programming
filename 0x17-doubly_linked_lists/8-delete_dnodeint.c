@@ -20,12 +20,12 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 		free(t);
 		return (1);
 	}
-	while (index && t->next)
+	while (index > 1 && t->next)
 	{
 		t = t->next;
 		index--;
 	}
-	if (!index)
+	if (index == 1)
 	{
 		t->prev->next = t->next;
 		if (t->next)
