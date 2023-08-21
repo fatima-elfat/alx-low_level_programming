@@ -15,5 +15,5 @@ int rand()
 		return 23;
 	if (r == 5)
 		return 74;
-	return r * r % 30000;
+	return r * r % 15000;
 }
