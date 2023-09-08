@@ -1,5 +1,47 @@
 #include "hash_tables.h"
+/**
+ * sortht - ...
+ * @ht: the hash table ...
+ * @newN: ...
+ */
+void sortht(shash_table_t *ht, shash_node_t *newN)
+{
+	shash_node_t *node;
 
+	if (newN->sprev)
+		newN->sprev->snext = newN->snext;
+	if (newN->snext)
+		newN->snext->sprev = newN->sprev;
+	if (ht->shead)
+	{
+		ht->shead = ht->stail = newN;
+		return;
+	}
+	node = ht->shead;
+	if (strcmp(newN->key, node->key) < 0)
+	{
+		newN->snext = ht->shead;
+		ht->shead = ht->shead->sprev = newN;
+		return;
+	}
+	node = node->snext;
+	while (node != NULL)
+	{
+		if (strcmp(newN->key, node->key) < 0)
+		{
+			newN->sprev = node->sprev;
+			newN->snext = node;
+			node->sprev = newN;
+			if (newN->sprev != NULL)
+				newN->sprev->snext = newN;
+			return;
+		}
+		node = node->snext;
+	}
+	newN->sprev = ht->stail;
+	ht->stail->snext = newN;
+	ht->stail = newN;
+}
 /**
  * shash_table_create - create sorted hash table.
  * @size: the size.
@@ -81,49 +123,7 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 		sortht(ht, newN);
 	}
 	return (1); }
-/**
- * sortht - ...
- * @ht: the hash table ...
- * @newN: ...
- */
-void sortht(shash_table_t *ht, shash_node_t *newN)
-{
-	shash_node_t *node;
 
-	if (newN->sprev)
-		newN->sprev->snext = newN->snext;
-	if (newN->snext)
-		newN->snext->sprev = newN->sprev;
-	if (ht->shead)
-	{
-		ht->shead = ht->stail = newN;
-		return;
-	}
-	node = ht->shead;
-	if (strcmp(newN->key, node->key) < 0)
-	{
-		newN->snext = ht->shead;
-		ht->shead = ht->shead->sprev = newN;
-		return;
-	}
-	node = node->snext;
-	while (node != NULL)
-	{
-		if (strcmp(newN->key, node->key) < 0)
-		{
-			newN->sprev = node->sprev;
-			newN->snext = node;
-			node->sprev = newN;
-			if (newN->sprev != NULL)
-				newN->sprev->snext = newN;
-			return;
-		}
-		node = node->snext;
-	}
-	newN->sprev = ht->stail;
-	ht->stail->snext = newN;
-	ht->stail = newN;
-}
 /**
  * shash_table_get - get shash table.
  * @ht: the hash table.
