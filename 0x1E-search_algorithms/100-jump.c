@@ -21,7 +21,7 @@ void print1(int *array, size_t index)
  */
 int jump_search(int *array, size_t size, int value)
 {
-	int a, b, block_s;
+	size_t a, b, block_s;
 
 	if (!array || !size)
 		return (-1);
