@@ -25,7 +25,7 @@ int bl_recursive(int *array, size_t size, int value, size_t index)
 {
 	int middle;
 
-	if (!array)
+	if (!array || !size)
 		return (-1);
 	print_list(array, size);
 	if (*array == value)
