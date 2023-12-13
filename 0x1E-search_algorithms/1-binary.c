@@ -36,7 +36,7 @@ int bl_recursive(int *array, size_t size, int value, size_t index)
 	if (*(array + middle - 1) == value && *(array + middle - 2) != value)
 		return (middle + index - 1);
 	else if (*(array + middle - 1) > value || *(array + middle - 2) == value)
-		return (bl_recursive(array, middle - 1, value, index));
+		return (bl_recursive(array, middle, value, index));
 	size -= middle;
 	while (middle--)
 	{
@@ -46,13 +46,13 @@ int bl_recursive(int *array, size_t size, int value, size_t index)
 	return (bl_recursive(array, size, value, index));
 }
 /**
- * advanced_binary - binary search the advanced version.
+ * binary_search - binary search.
  * @array: the pointer to the first element of the array to search in.
  * @size:  the number of elements in array.
  * @value: the value to search for.
  * Return: the index where value is located.
  */
-int advanced_binary(int *array, size_t size, int value)
+int binary_search(int *array, size_t size, int value)
 {
 	return (bl_recursive(array, size, value, 0));
 }
