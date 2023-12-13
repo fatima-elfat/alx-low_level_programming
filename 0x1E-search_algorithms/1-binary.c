@@ -27,7 +27,6 @@ int bl_recursive(int *array, size_t size, int value, size_t index)
 	if (!array)
 		return (-1);
 	print_list(array, size);
-	printf ("%d\n", value);
 	if (*array == value)
 		return ((int)index);
 	else if (size == 2)
