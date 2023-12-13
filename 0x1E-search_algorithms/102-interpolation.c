@@ -13,12 +13,12 @@ void print1(int *array, size_t index, int t)
 		printf("Value checked array[%ld] is out of range\n", index);
 }
 /**
-  * interpolation_search - Searches using interpolation search.
-  * @array: A pointer to the first element of the array to search.
-  * @size: The size of the array.
-  * @value: The value to search for.
-  *
-  * Return: Null, -1, the first index where the value is located.
+  * interpolation_search - searches for a value in a sorted array
+  * of integers using the Interpolation search algorithm.
+  * @array: a pointer to the first element of the array to search in.
+  * @size:  the number of elements in array.
+  * @value: the value to search for.
+  * Return: the first index where value is located.
   */
 int interpolation_search(int *array, size_t size, int value)
 {
