@@ -1,6 +1,7 @@
 #include "search_algos.h"
 /**
  * print_list - prints array.
+ * @array: ...
  * @size:  the number of elements in array.
 */
 void print_list(int *array, size_t size)
@@ -29,6 +30,8 @@ int bl_recursive(int *array, size_t size, int value, size_t index)
 	print_list(array, size);
 	if (*array == value)
 		return ((int)index);
+	else if (size == 1)
+		return (-1);
 	else if (size == 2)
 	{
 		if (*(array + 1) == value)
@@ -41,16 +44,13 @@ int bl_recursive(int *array, size_t size, int value, size_t index)
 		return (bl_recursive(array, middle - 1, value, index));
 	else if (*(array + middle - 1) == value)
 		return (middle);
-	else
+	size -= middle;
+	while (middle--)
 	{
-		size -= middle;
-		while (middle--)
-		{
-			index++;
-			array++;
-		}
-		return (bl_recursive(array, size, value, index));
+		index++;
+		array++;
 	}
+	return (bl_recursive(array, size, value, index));
 }
 /**
  * binary_search - searches for a value in a

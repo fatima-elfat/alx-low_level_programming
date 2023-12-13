@@ -1,7 +1,7 @@
 #include "search_algos.h"
 
 /**
- * linear_search - linear search recursive.
+ * ls_recursive - linear search recursive.
  * @array: the pointer to the first element of the array to search in.
  * @size:  the number of elements in array.
  * @value: the value to search for.
