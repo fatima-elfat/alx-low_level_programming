@@ -6,7 +6,7 @@
  */
 void print1(int *array, size_t index)
 {
-	printf("Value checked array[%u] = [%d]\n", index, array[index]);
+	printf("Value checked array[%lu] = [%d]\n", index, array[index]);
 }
 /**
  * print_list - prints array.
@@ -79,10 +79,10 @@ int exponential_search(int *array, size_t size, int value)
 		b = bnd;
 	else
 		b = size - 1;
-	printf("Value found between indexes [%u] and [%u]\n", bnd / 2, b);
+	printf("Value found between indexes [%lu] and [%lu]\n", bnd / 2, b);
 	v = bnd / 2;
 	b = b - (bnd / 2) + 1;
-	while(v--)
+	while (v--)
 		array++;
 	return (bl_recursive(array, b, value, bnd / 2));
 }
