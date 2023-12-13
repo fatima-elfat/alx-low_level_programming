@@ -57,5 +57,7 @@ int bl_recursive(int *array, size_t size, int value, size_t index)
  */
 int binary_search(int *array, size_t size, int value)
 {
+	if (!array || !size)
+		return (-1);
 	return (bl_recursive(array, size, value, 0));
 }
