@@ -39,7 +39,7 @@ int bl_recursive(int *array, size_t size, int value, size_t index)
 		else
 			return (-1);
 	}
-	middle = (int)(size / 2);
+	middle = (size % 2 == 0) ? (int)(size / 2) : (int)((size / 2) + 1);
 	if (*(array + middle - 1) > value)
 		return (bl_recursive(array, middle - 1, value, index));
 	else if (*(array + middle - 1) == value)

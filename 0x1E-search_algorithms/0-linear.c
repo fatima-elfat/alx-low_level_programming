@@ -12,7 +12,7 @@ int ls_recursive(int *array, size_t size, int value, size_t index)
 {
 	if (!array)
 		return (-1);
-	printf("Value checked array[%d] = [%d]\n", index, *array);
+	printf("Value checked array[%lu] = [%d]\n", index, *array);
 	if (*array == value)
 		return ((int)index);
 	else if (size == 1)
